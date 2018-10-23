@@ -3,26 +3,36 @@
 import React, { Component } from 'react'
 import Container from 'Components/Container'
 import { Row, Col } from 'antd'
+import styled from 'react-emotion'
 import posed from 'react-pose'
 import { css } from 'react-emotion'
 import anime from 'animejs'
 
-const GnMenuWrapper = posed.div({
-  visible: {
-    height: 'auto',
-    overflow: 'overlay',
-    opacity: 1,
-    transition: {
-      height: { ease: 'easeIn', duration: 300 },
-      opacity: { ease: 'easeIn', duration: 500, delay: 500 }
-    }
-  },
-  hidden: {
-    height: 0,
-    opacity: 1,
-    overflow: 'hidden'
+const Heading4 = styled('h4')`
+  margin-bottom: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  @media only screen and (max-width: 480px) {
+    border-bottom: 1px solid #dedede;
+    padding: 13px 0;
+    margin-bottom: 0;
   }
-})
+`
+
+const List = styled('ul')`
+  margin: 0;
+  list-style: none;
+  @media only screen and (max-width: 480px) {
+    overflow: hidden;
+    height: 0;
+  }
+  li {
+    margin-bottom: 10px;
+    a {
+      color: #757575;
+    }
+  }
+`
 
 class GnMenu extends Component {
   componentDidUpdate(prevProps) {
@@ -57,43 +67,33 @@ class GnMenu extends Component {
         left: 0;
         width: 100%;
         height: 0;
-        overflow: ${this.props.toggle ? 'visible' : 'hidden'};
+        overflow: hidden;
         position: absolute;
       `}>
         <Container xl>
-          <Row type="flex" style={{padding: '30px 0', top: '-20px', position: 'relative'}}>
-            <Col xl={12}>
+          <Row 
+            type="flex" 
+            gutter={70}
+            style={{padding: '30px 0', top: '-20px', position: 'relative'}}>
+            <Col lg={6} sm={8} xs={24}>
               <div>
-                <h4 className={css`
-                  margin-bottom: 10px;
-                  font-size: 16px;
-                  font-weight: bold;
-                `}>Works</h4>
-                <ul className={css`
-                  margin: 0;
-                  list-style: none;
-                  li {
-                    margin-bottom: 10px;
-                    a {
-                      color: #757575;
-                    }
-                  }
-                `}>
+                <Heading4>Works</Heading4>
+                <List>
+                  <li><a href="#">DTC</a></li>
+                  <li><a href="#">MPM</a></li>
                   <li><a href="#">Eproc</a></li>
-                  <li><a href="#">Eproc</a></li>
-                  <li><a href="#">Eproc</a></li>
-                  <li><a href="#">Eproc</a></li>
-                  <li><a href="#">Eproc</a></li>
-                  <li><a href="#">Eproc</a></li>
-                  <li><a href="#">Eproc</a></li>
-                  <li><a href="#">Eproc</a></li>
-                  <li><a href="#">Eproc</a></li>
-                </ul>
+                  <li><a href="#">PTSP</a></li>
+                  <li><a href="#">Web Desa</a></li>
+                  <li><a href="#">KAMUPI PNUP</a></li>
+                </List>
               </div>
             </Col>
-            <Col xl={12}>
+            <Col lg={6} sm={8} xs={24}>
               <div>
-                <h4>Blogs</h4>
+                <Heading4>Blogs</Heading4>
+                <List>
+                  <li><a href="#">Hellow World</a></li>
+                </List>
               </div>
             </Col>
           </Row>

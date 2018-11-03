@@ -36,6 +36,7 @@
     "react-emotion": "^9.2.12",
     "react-pose": "^3.3.7",
     "react-redux": "^5.0.7",
+    "react-spring": "^6.1.6",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.5",
     "redux-logger": "^3.0.6",

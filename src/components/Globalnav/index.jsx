@@ -9,6 +9,7 @@ import posed from 'react-pose'
 import logo from 'Images/logo.png'
 import GnMenu from './GnMenu'
 import Overlay from 'Components/Overlay'
+import { Transition, animated } from 'react-spring'
 
 import { handleToggle } from 'Actions/globalnavAction'
 
@@ -71,11 +72,32 @@ const Globalnav = ({toggle, handleToggle}) => {
             </div>
           </Row>
         </Container>
-        <GnMenu toggle={toggle}/>
+        <Transition
+          items={toggle}
+          from={{height: 0}}
+          enter={{height: 'auto'}}
+          leave={{height: 0}}
+          config={{ tension: 200, friction: 18 }}
+        >
+          {
+            toggle => props => toggle ?
+              <GnMenu style={props}/> : null
+          }
+        </Transition>
       </nav>
-      {
-        toggle ? <Overlay handleToggle={handleClickToggle}/> : null
-      }
+      
+      <Transition
+        items={toggle}
+        from={{opacity: 0}}
+        enter={{opacity: 1}}
+        leave={{opacity: 0}}
+      >
+        {
+          toggle =>
+            toggle
+              ? props => <Overlay style={props} handleToggle={handleClickToggle}/> : null
+        }
+      </Transition>
     </>
   )
 }

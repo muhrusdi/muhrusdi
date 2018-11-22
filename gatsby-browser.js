@@ -1,8 +1,9 @@
-import React from 'react';
-import { hydrate } from 'emotion';
-import { Provider } from 'react-redux';
-
-import { store } from './src/store';
+import React from 'react'
+import { hydrate } from 'emotion'
+import { Provider } from 'react-redux'
+import { TOGGLE, PATHNAME, SHOW_ABOUT } from 'Types/globalnavType'
+import Layout from 'Containers/Layout'
+import { store } from 'Store'
 
 export const wrapRootElement = ({ element }) => {
   const ConnectedRootElement = (
@@ -13,7 +14,17 @@ export const wrapRootElement = ({ element }) => {
   return ConnectedRootElement
 }
 
-// exports.onClientEntry = () => {
+export const wrapPageElement = ({ element, props }) => {
+  return <Layout {...props}>{element}</Layout>
+}
+
+export const onRouteUpdate = ({location}) => {
+  store.dispatch({type: TOGGLE, toggle: false})
+  store.dispatch({type: SHOW_ABOUT, showAbout: false})
+  store.dispatch({type: PATHNAME, pathname: location.pathname})
+}
+
+// export const onClientEntry = () => {
 //   if (
 //     /* eslint-disable no-underscore-dangle */
 //     typeof window !== `undefined` &&

@@ -8,8 +8,8 @@
     "gatsby-plugin-manifest": "^2.0.5",
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
     "react-helmet": "^5.2.0"
   },
   "keywords": [
@@ -31,17 +31,22 @@
     "emotion": "^9.2.12",
     "emotion-server": "^9.2.12",
     "emotion-theming": "^9.2.9",
+    "gatsby-plugin-emotion": "^2.0.6",
+    "gsap": "^2.0.2",
     "less": "^3.8.1",
     "prettier": "^1.14.2",
     "react-emotion": "^9.2.12",
     "react-pose": "^3.3.7",
     "react-redux": "^5.0.7",
     "react-spring": "^6.1.6",
+    "react-transition-group": "^2.5.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.5",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.1.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "reus": "^0.0.11",
+    "reus-grid": "^0.0.2"
   },
   "repository": {
     "type": "git",

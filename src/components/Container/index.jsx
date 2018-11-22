@@ -1,7 +1,7 @@
 import React from 'react'
 import { css, cx } from 'emotion'
 
-const Container = ({xl, lg, md, sm, children, gutter = '16'}) => {
+const Container = ({xl, lg, md, sm, children, gutter = '16', style}) => {
   const breakPoints = {
     sm: 576,
     md: 768,
@@ -47,6 +47,7 @@ const Container = ({xl, lg, md, sm, children, gutter = '16'}) => {
         padding-right: ${gutter}px;
         margin: 0 auto;
         label: container;
+        ${style};
       `, _xl, _lg, _md, _sm)
      }>
       { children }

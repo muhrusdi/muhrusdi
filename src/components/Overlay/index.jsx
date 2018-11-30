@@ -1,7 +1,8 @@
+/** @jsx jsx */
 import React, { useEffect, useRef } from 'react'
-import { css } from 'emotion'
-import anime from 'animejs'
+import { css, jsx } from '@emotion/core'
 import { connect } from 'react-redux'
+import { TweenLite } from 'gsap'
 import { Transition } from "react-transition-group"
 
 const Overlay = ({handleToggle, toggle}) => {
@@ -25,18 +26,15 @@ const Overlay = ({handleToggle, toggle}) => {
       in={toggle}
       appear={true}
       onEnter={ node => {
-        node.style.opacity = 0
-        node.style.transition = 'opacity .3s ease'
+        TweenLite.set(node, {opacity: 0})
       }}
       addEndListener={(node, done) => {
-        anime({
-          targets: node,
-          opacity: toggle ? {value: 1, duration: 500} : {value: 0, duration: 0, easing: 'linear', delay: 200}
+        TweenLite.to(node, .4, {
+          opacity: toggle ? 1 : 0
         })
-        // node.addEventListener('transitionend', done, false)
       }}
     >
-      <div ref={onOverlay} className={css`
+      <div ref={onOverlay} css={css`
         z-index: 999;
         background: rgba(0,0,0,.3);
         position: absolute;

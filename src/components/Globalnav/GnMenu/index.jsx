@@ -1,16 +1,15 @@
 /* eslint-disable */
-
+/** @jsx jsx */
 import React from 'react'
 import { Link } from 'gatsby'
-import Container from 'Components/Container'
-import { Row, Col } from 'reus'
-import styled from 'react-emotion'
-import { css } from 'react-emotion'
+import { Container, Row, Col } from 'reus'
+import styled from '@emotion/styled'
+import { css, jsx } from '@emotion/core'
 import { Transition } from "react-transition-group"
 import { TweenLite } from 'gsap'
 
 const Heading4 = ({children, to}) => 
-  <Link className={css`
+  <Link css={css`
     margin-bottom: 9px;
     display: block;
     color: #333;
@@ -22,7 +21,7 @@ const Heading4 = ({children, to}) =>
     }
   `} to={to}>{children}</Link>
 
-const List = styled('ul')`
+const List = styled.ul`
   margin: 0;
   list-style: none;
   @media only screen and (max-width: 480px) {
@@ -41,7 +40,15 @@ const List = styled('ul')`
 const GnRow = () => (
   <Row 
     gutter={10}
-    style={{padding: '15px 0 30px 0px', position: 'relative', transform: 'translateY(-21px)'}}
+    style={css`
+      padding: 15px 0 30px 0px;
+      position: relative;
+      transform: translateY(-21px);
+      display: block;
+      @media screen and (min-width: 576px) {
+        display: flex;
+      }
+    `}
   >
     <Col md={2} sm={12}>
       <div>
@@ -110,7 +117,7 @@ const GnMenu = ({toggle}) => {
         })
       }}
     >
-      <div className={css`
+      <div css={css`
         overflow: hidden;
         position: absolute;
         left: 0;

@@ -1,8 +1,9 @@
 /* eslint-disable */
-
+/** @jsx jsx */
 import React from 'react'
 import { Container, Row } from 'reus'
-import styled, { css } from 'react-emotion'
+import { css, jsx } from '@emotion/core'
+import styled from '@emotion/styled'
 import mr from '../../images/mr.jpg'
 import { Link } from 'gatsby'
 import { setShowAbout } from 'Actions/globalnavAction'
@@ -20,9 +21,12 @@ const DescriptionNormal = ({className, children}) => (
 )
 
 const Description = styled(DescriptionNormal)`
-  font-size: 18px;
   max-width: 550px;
+  font-size: 16px;
   margin: 0 auto;
+  @media screen and (min-width: 576px) {
+    font-size: 18px;
+  }
 `
 
 const Facebook = () => <svg width="24" height="24"><path d="M13.4 21v-8.2h2.76l.41-3.2H13.4V7.54c0-.93.25-1.56 1.58-1.56h1.69V3.13c-.82-.1-1.65-.13-2.47-.13-2.44 0-4.12 1.5-4.12 4.23V9.6H7.33v3.2h2.75V21h3.32z"/></svg>
@@ -54,25 +58,34 @@ const Banner = ({isShowAbout, setShowAbout}) => {
   `
 
   const Heading1 = styled('h1')`
-    font-size: 50px;
+    font-size: 28px;
     font-weight: bold;
+    @media screen and (min-width: 576px) {
+      font-size: 50px;
+    }
   `
 
   const Logo = () => (
-    <div className={css`
-      width: 200px;
+    <div css={css`
       margin: 0 auto;
       position: relative;
+      width: 120px;
+      @media screen and (min-width: 576px) {
+        width: 200px;
+      }
       & > div {
         height: 200px;
       }
       img {
         border-radius: 50%;
-        height: 200px;
+        height: 120px;
         bottom: 0;
         left: 0;
         position: absolute;
         margin-bottom: 20px;
+        @media screen and (min-width: 576px) {
+          height: 200px;
+        }
       }
     `}>
       <div>
@@ -82,52 +95,61 @@ const Banner = ({isShowAbout, setShowAbout}) => {
   )
 
   const Network = () => (
-    <ul className={css`
+    <ul css={css`
       list-style: none;
       padding: 0;
-      display: flex;
-      justify-content: center;
       margin: 0 auto;
-      margin-top: 25px;
+      margin-top: 40px;
       li {
-        padding: 0 10px;
+        padding: 0 6px;
+        display: inline-block;
+        margin-bottom: 16px;
+        @media screen and (min-width: 576px) {
+          margin-bottom: 0;
+          padding: 0 10px;
+        }
         a {
-          padding: 8px;
+          padding: 0;
           border-radius: 30px;
-          background: #efefef;
-          height: 41px;
-          width: 41px;
+          height: 30px;
+          width: 30px;
           display: inline-block;
+          @media screen and (min-width: 576px) {
+            padding: 8px;
+            height: 41px;
+            background: #efefef;
+            width: 41px;
+          }
         }
       }
     `}>
       <li>
-        <a href="#">
+        <a href="https://www.facebook.com/muhrusdiid" target="_blank">
           <Icon fill="#3b5999" component={<Facebook/>}/>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="https://github.com/muhrusdi" target="_blank">
           <Icon fill="#333" component={<Github/>}/>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="https://www.linkedin.com/in/muhrusdi" target="_blank">
           <Icon fill="#0077B5" component={<Linkedin/>}/>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="https://www.instagram.com/muhrusdiid" target="_blank">
           <Icon fill="#e4405f" component={<Instagram/>}/>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="https://twitter.com/muhrusdiid" target="_blank">
           <Icon fill="#55acee" component={<Twitter/>}/>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="https://dribbble.com/muhrusdi" target="_blank">
           <Icon fill="#ea4c89" component={<Dribble/>}/>
         </a>
       </li>
@@ -152,7 +174,7 @@ const Banner = ({isShowAbout, setShowAbout}) => {
         })
       }}
     >
-      <ul className={css`
+      <ul css={css`
         list-style: none;
         display: flex;
         position: absolute;
@@ -175,7 +197,7 @@ const Banner = ({isShowAbout, setShowAbout}) => {
         }
       `}>
         <li>
-          <a href="3" onClick={e => {
+          <a href="#" onClick={e => {
             e.preventDefault()
             setShowAbout(false)
           }}><Icon component={<ArrowBack/>}/></a>
@@ -196,10 +218,10 @@ const Banner = ({isShowAbout, setShowAbout}) => {
   return (
     <div>
       <GnMenuCenter/>
-      <Container xl>
+      <Container xl gutter={20}>
         <Row style={{height: '100vh'}} align="center" justify="center">
-          <div className={css`text-align: center;`}>
-            <div className={css`
+          <div css={css`text-align: center;`}>
+            <div css={css`
               transition: transform 1s ease;
             `}>
               <Transition
@@ -238,7 +260,7 @@ const Banner = ({isShowAbout, setShowAbout}) => {
             {
               isShowAbout ? 
                 <Network/> :
-                <AboutButton onClick={handleClick}>Tentang</AboutButton>
+                <AboutButton onClick={handleClick}>About</AboutButton>
             }
           </div>
         </Row>

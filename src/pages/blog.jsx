@@ -1,15 +1,15 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { Container, Row, Col } from 'reus'
 import { BlogItem } from 'Components/Blog'
 
 const Blog = () => {
 
-  const BlogWrapper = styled('div')`
+  const BlogWrapper = styled.div`
     background: #f2f2f2;
   `
 
-  const BannerBlog = styled('div')`
+  const BannerBlog = styled.div`
     background: #fff;
     height: 450px;
     display: flex;
@@ -18,18 +18,18 @@ const Blog = () => {
     justify-content: center;
   `
 
-  const BlogWrapInner = styled('div')`
+  const BlogWrapInner = styled.div`
     padding: 20px 0;
   `
 
-  const H2 = styled('h2')`
+  const H2 = styled.h2`
     font-size: 50px;
     text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
   `
 
-  const Tags = styled('ul')`
+  const Tags = styled.ul`
     margin: 30px 0 0 0;
     list-style: none;
     text-align: center;

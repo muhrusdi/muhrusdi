@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react'
-import styled, { css } from 'react-emotion'
-import anime from 'animejs'
+/** @jsx jsx */
+import React, { useState, useRef } from 'react'
+import { css, jsx } from '@emotion/core'
+import styled from '@emotion/styled'
 
 const BlogItem = () => {
   const [isOver, setOver] = useState(false)
@@ -26,7 +27,7 @@ const BlogItem = () => {
     <div 
       onMouseEnter={() => setOver(true)} 
       onMouseLeave={() => setOver(false)} 
-      className={css`
+      css={css`
         position: relative;
         background: #fff;
         height: 100%;
@@ -37,32 +38,32 @@ const BlogItem = () => {
     </div>
   )
 
-  const BlogItemHeader = styled('div')`
+  const BlogItemHeader = styled.div`
     background: #333;
     height: 200px;
   `
 
-  const Heading = styled('h2')`
+  const Heading = styled.h2`
     font-size: 18px;
     font-weight: bold;
   `
 
-  const Desc = styled('small')`
+  const Desc = styled.small`
     margin-top: 13px;
     display: block;
   `
 
-  const Content = styled('p')`
+  const Content = styled.p`
     margin-top: 13px;
     color: #666;
     font-size: 14px;
   `
 
   const HeaderWrapper = () => (
-    <div className={css`
+    <div css={css`
       position: relative;`
     }>
-      <div className={translate}>
+      <div css={translate}>
         <Heading>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat impedit libero blanditiis?
         </Heading>
@@ -72,7 +73,7 @@ const BlogItem = () => {
   )
 
   const ContentWrapper = ({children}) => (
-    <div ref={contentRef} className={contentOpacity}>
+    <div ref={contentRef} css={contentOpacity}>
       <p>
         { children }
       </p>
@@ -82,35 +83,35 @@ const BlogItem = () => {
  
 
   return (
-    <div className={css`margin-bottom: 20px;`}>
+    <div css={css`margin-bottom: 20px;`}>
       <a 
         onMouseEnter={() => setOver(true)} 
         onMouseLeave={() => setOver(false)} 
-        className={css`
+        css={css`
           display: block;
           width: 100%;
           height: 100%;
           overflow: hidden;
           background: #fff;
           position: relative;
-        `} href="#"
+        `} href="#top"
       >
         <div>
-          <div className={css`
+          <div css={css`
             height: 300px;
             background: url('https://picsum.photos/200/300/?random') center center;
             background-size: cover;
             transform: scale(${isOver ? 1.05 : 1});
             transition: transform .3s ease-in;
           `}></div>
-          <div className={css`
+          <div css={css`
             background: #fff;
             transition: transform .3s ease-in;
             transform: translateY(${isOver ? '-56px' : '0'});
           `}>
             <HeaderWrapper/>
           </div>
-          <div className={css`
+          <div css={css`
             height: auto;
             position: absolute;
             left: 0;

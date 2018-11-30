@@ -1,28 +1,14 @@
 const path = require('path')
 
-// exports.onCreateBabelConfig = ({ actions }) => {
-//   // actions.setBabelPlugin({
-//   //   name: `babel-plugin-import`,
-//   //   options: {
-//   //     libraryName: 'antd',
-//   //     style: "css",
-//   //   },
-//   // })
-
-//   if (process.env.NODE_ENV !== `production`) {
-//     actions.setBabelPlugin({
-//       name: 'babel-plugin-emotion',
-//       options: {
-//         sourceMap: true
-//       }
-//     })
-//   } else {
-//     actions.setBabelPlugin({
-//       name: 'babel-plugin-emotion'
-//     })
-//   }
-  
-// }
+exports.onCreateBabelConfig = ({ actions, stage }) => {
+  actions.setBabelPlugin({
+    name: 'babel-plugin-emotion',
+    stage,
+    options: {
+      sourceMap: stage === 'develop'
+    }
+  })
+}
 
 exports.onCreateWebpackConfig = ({
   stage, getConfig, rules, loaders, actions

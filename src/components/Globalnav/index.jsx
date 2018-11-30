@@ -1,13 +1,13 @@
 /* eslint-disable */
-
-import React, { useEffect, useRef, useState } from 'react'
-import styled, { css } from 'react-emotion'
+/** @jsx jsx */
+import React, { useRef, useState } from 'react'
+import { css, jsx } from '@emotion/core'
+import styled from '@emotion/styled'
 import { connect } from 'react-redux'
 import { Container, Row } from 'reus'
 import { Link } from "@reach/router"
-import logo from 'Images/logo.png'
+import logo from 'Images/muhrusdi-logo.png'
 import GnMenu from './GnMenu'
-import Icon from '../Icon'
 import Overlay from 'Components/Overlay'
 import { handleToggle } from 'Actions/globalnavAction'
 import { setConfig } from 'react-hot-loader'
@@ -20,8 +20,12 @@ const Globalnav = ({pathname, toggle, handleToggle, isShowAbout}) => {
   const [onOverlay, setOnOverlay] = useState(null)
 
   const Logo = () => (
-    <Link to="/">
-      <img src={logo} className={css`margin: 0; outline: none;`}/>
+    <Link to="/" css={css`display: inline-block;`}>
+      <img src={logo} css={css`
+        margin: 0;
+        height: 28px;
+        outline: none;
+      `}/>
     </Link>
   )
 
@@ -34,7 +38,7 @@ const Globalnav = ({pathname, toggle, handleToggle, isShowAbout}) => {
   )
 
 
-  const MenuHover = styled('div')`
+  const MenuHover = styled.div`
     background: ${toggle ? '#efefef' : ''};
     transition: background .3s ease;
     cursor: pointer;
@@ -49,8 +53,8 @@ const Globalnav = ({pathname, toggle, handleToggle, isShowAbout}) => {
     handleToggle(!toggle)
   }
 
-  const GnMenuLeft = ({location}) => (
-    <ul className={css`
+  const GnMenuLeft = () => (
+    <ul css={css`
       list-style: none;
       margin: 0;
       display: flex;
@@ -59,7 +63,7 @@ const Globalnav = ({pathname, toggle, handleToggle, isShowAbout}) => {
         margin: 0;
         padding-right: 8px;
         &:first-child {
-          padding-right: 10px;
+          padding-right: 30px;
         }
         &:not(:first-child) {
           font-size: 16px;
@@ -85,15 +89,18 @@ const Globalnav = ({pathname, toggle, handleToggle, isShowAbout}) => {
 
   return (
     <>
-      <nav className={css`
+      <nav css={css`
         position: absolute;
         left: 0;
         right: 0;
-        height: 60px;
-        transition: top .4s ease-out;
+        height: ${toggle ? '100%' : '60px'};
+        transition: all .4s ease-out;
         top: ${isShowAbout ? -60 : 0}px;
         background: #fff;
         z-index: 99999;
+        @media screen and (min-width: 576px) {
+          height: 60px;
+        }
       `}>
         <Container xl gutter={20}>
           <Row

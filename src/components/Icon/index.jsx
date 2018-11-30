@@ -1,9 +1,10 @@
+/** @jsx jsx */
 import React from 'react'
-import { css } from 'emotion'
+import { css, jsx } from '@emotion/core'
 
 const Icon = ({fill, component}) => {
   return (
-    <i className={css`
+    <i css={css`
       svg {
         fill: ${fill};
       }

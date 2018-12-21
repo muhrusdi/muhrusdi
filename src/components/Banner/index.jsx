@@ -36,7 +36,7 @@ const Instagram = () => <svg width="24" height="24"><path d="M12 7.38a4.62 4.62 
 const Twitter = () => <svg width="24" height="24"><path d="M19.63 8c.02.17.02.35.02.52 0 5.33-4.06 11.46-11.46 11.46-2.29 0-4.4-.66-6.19-1.8a8.07 8.07 0 0 0 5.97-1.67 4.04 4.04 0 0 1-3.76-2.8 4.29 4.29 0 0 0 1.82-.08A4.03 4.03 0 0 1 2.8 9.68v-.05c.54.3 1.16.49 1.82.51a4.02 4.02 0 0 1-1.25-5.39 11.46 11.46 0 0 0 8.3 4.22 4.03 4.03 0 0 1 6.87-3.68 7.96 7.96 0 0 0 2.56-.97c-.3.93-.93 1.72-1.77 2.22.81-.09 1.6-.31 2.32-.63-.55.8-1.23 1.51-2.02 2.09z"/></svg>
 const Dribble = () => <svg width="24" height="24"><path d="M20.66 6.98A9.93 9.93 0 0 0 12 2 9.93 9.93 0 0 0 2 12a9.92 9.92 0 0 0 10 10 9.93 9.93 0 0 0 10-10c0-1.81-.45-3.49-1.34-5.02zM12 3.66c2 0 3.77.64 5.32 1.92a9.95 9.95 0 0 1-4.1 2.9c-1-1.81-2.09-3.33-3.26-4.54A7.72 7.72 0 0 1 12 3.66zM5.51 6.8a8.12 8.12 0 0 1 2.71-2.22c1.21 1.2 2.33 2.7 3.34 4.5a21.95 21.95 0 0 1-7.64.86c.3-1.15.84-2.2 1.59-3.14zM3.66 12l.01-.2.01-.2 1.16.02c2.67 0 5.15-.37 7.44-1.1.19.37.38.8.58 1.26-1.32.3-2.67 1-4.06 2.14s-2.4 2.33-3.04 3.58a8.06 8.06 0 0 1-2.1-5.5zM12 20.34a8.1 8.1 0 0 1-5.1-1.76c.6-1.19 1.52-2.32 2.77-3.4a8.53 8.53 0 0 1 3.71-2.02c.77 2.13 1.3 4.34 1.56 6.62-.97.37-1.95.56-2.94.56zm7.08-3.96A8.35 8.35 0 0 1 16.5 19c-.24-2.08-.7-4.1-1.38-6.08a35.81 35.81 0 0 1 5.16 0 8.1 8.1 0 0 1-1.2 3.46zm-1.24-5c-1.16 0-2.23.05-3.22.14-.25-.65-.48-1.2-.68-1.62 2.07-.9 3.53-2 4.4-3.3a8.03 8.03 0 0 1 1.96 4.84c-.81-.04-1.63-.06-2.46-.06z"/></svg>
 
-const Banner = ({isShowAbout, setShowAbout}) => {
+const Banner = ({isShowAbout, setShowAbout, menus}) => {
   
   const handleClick = e => {
     e.preventDefault()
@@ -158,6 +158,8 @@ const Banner = ({isShowAbout, setShowAbout}) => {
 
   const ArrowBack = () => <svg width="24" height="24"><path d="M12.7 17.3L8.42 13H18v-2H8.41l4.3-4.3-1.42-1.4L4.6 12l6.7 6.7z"/></svg>
 
+  let colors = ['#F2994A', '#2F80ED', '#BB6BD9']
+
   const GnMenuCenter = () => (
     <Transition
       unmountOnExit
@@ -189,28 +191,28 @@ const Banner = ({isShowAbout, setShowAbout}) => {
           a {
             padding: 5px 10px;
             border-radius: 30px;
-            height: 34px;
             font-size: 14px;
-            color: #333;
             display: inline-block;
+            text-transform: uppercase;
+            font-weight: bold;
           }
         }
       `}>
         <li>
-          <a href="#" onClick={e => {
+          <a css={css`color: #808080;`} href="#" onClick={e => {
             e.preventDefault()
             setShowAbout(false)
-          }}><Icon component={<ArrowBack/>}/></a>
+          }}>Back</a>
         </li>
-        <li>
-          <a href="#">Works</a>
-        </li>
-        <li>
-          <Link to="/blog">Blog</Link>
-        </li>
-        <li>
-          <a href="#">Gallery</a>
-        </li>
+        {
+          menus.map((item, i) => (
+            <li>
+              <Link css={css`color: ${colors[i]};`} to={`/${item.link}`}>
+                {item.title}
+              </Link>
+            </li>
+          ))
+        }
       </ul>
     </Transition>
   )
@@ -274,7 +276,8 @@ const Banner = ({isShowAbout, setShowAbout}) => {
 }
 
 export default connect(state => ({
-  isShowAbout: state.globalnavReducer.isShowAbout
+  isShowAbout: state.globalnavReducer.isShowAbout,
+  menus: state.globalnavReducer.menus
 }), {
   setShowAbout
 })(Banner)

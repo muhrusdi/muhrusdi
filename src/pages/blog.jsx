@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Container, Row, Col } from 'reus'
 import { BlogItem } from 'Components/Blog'
+import Globalfooter from 'Containers/Globalfooter'
 
 const Blog = () => {
 
@@ -46,46 +47,49 @@ const Blog = () => {
  `
   
   return (
-    <BlogWrapper>
-      <BannerBlog>
-        <Container lg>
-          <H2>Artikel Seputar Front End & iOS Development</H2>
-          <Tags>
-            <li>
-              <a href="#">Reactjs</a>
-              <a href="#">GraphQL</a>
-              <a href="#">Nodejs</a>
-              <a href="#">Express</a>
-              <a href="#">Vuejs</a>
-            </li>
-          </Tags>
-        </Container>
-      </BannerBlog>
-      <BlogWrapInner>
-        <Container xl gutter={20}>
-          <Row gutter={10}>
-            <Col lg={6} md={6} sm={12}>
-              <BlogItem/>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
-              <BlogItem/>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
-              <BlogItem/>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
-              <BlogItem/>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
-              <BlogItem/>
-            </Col>
-            <Col lg={6} md={6} sm={12}>
-              <BlogItem/>
-            </Col>
-          </Row>
-        </Container>
-      </BlogWrapInner>
-    </BlogWrapper>
+    <>
+      <BlogWrapper>
+        <BannerBlog>
+          <Container lg>
+            <H2>Artikel Seputar Front End & iOS Development</H2>
+            <Tags>
+              <li>
+                <a href="#">Reactjs</a>
+                <a href="#">GraphQL</a>
+                <a href="#">Nodejs</a>
+                <a href="#">Express</a>
+                <a href="#">Vuejs</a>
+              </li>
+            </Tags>
+          </Container>
+        </BannerBlog>
+        <BlogWrapInner>
+          <Container xl gutter={20}>
+            <Row gutter={10}>
+              <Col lg={6} md={6} sm={12}>
+                <BlogItem/>
+              </Col>
+              <Col lg={6} md={6} sm={12}>
+                <BlogItem/>
+              </Col>
+              <Col lg={6} md={6} sm={12}>
+                <BlogItem/>
+              </Col>
+              <Col lg={6} md={6} sm={12}>
+                <BlogItem/>
+              </Col>
+              <Col lg={6} md={6} sm={12}>
+                <BlogItem/>
+              </Col>
+              <Col lg={6} md={6} sm={12}>
+                <BlogItem/>
+              </Col>
+            </Row>
+          </Container>
+        </BlogWrapInner>
+      </BlogWrapper>
+      <Globalfooter/>
+    </>
   )
 }
 

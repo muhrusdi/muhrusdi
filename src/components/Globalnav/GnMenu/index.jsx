@@ -8,12 +8,14 @@ import { css, jsx } from '@emotion/core'
 import { Transition } from "react-transition-group"
 import { TweenLite } from 'gsap'
 
-const Heading4 = ({children, to}) => 
+const Heading4 = ({children, to, color}) => 
   <Link css={css`
-    margin-bottom: 9px;
+    margin-bottom: 12px;
     display: block;
-    color: #333;
+    color: ${color};
     font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
     @media only screen and (max-width: 480px) {
       border-bottom: 1px solid #dedede;
       padding: 13px 0;
@@ -33,11 +35,14 @@ const List = styled.ul`
     a {
       color: #757575;
       font-size: 14px;
+      text-transform: uppercase;
     }
   }
 `
 
-const GnRow = () => (
+let colors = ['#F2994A', '#2F80ED', '#BB6BD9']
+
+const GnRow = ({menus}) => (
   <Row 
     gutter={10}
     style={css`
@@ -50,31 +55,27 @@ const GnRow = () => (
       }
     `}
   >
-    <Col md={2} sm={12}>
-      <div>
-        <Heading4 to="/">Works</Heading4>
-        <List>
-          <li><a href="#">DTC</a></li>
-          <li><a href="#">MPM</a></li>
-          <li><a href="#">Eproc</a></li>
-          <li><a href="#">PTSP</a></li>
-          <li><a href="#">Web Desa</a></li>
-          <li><a href="#">KAMUPI PNUP</a></li>
-        </List>
-      </div>
-    </Col>
-    <Col md={2} sm={12}>
-      <div>
-        <Heading4 to="/blog/">Blogs</Heading4>
-        <List>
-          <li><a href="#">Hellow World</a></li>
-        </List>
-      </div>
-    </Col>
+    {
+      menus.map((item, i) => (
+        <Col md={2} sm={12} key={i}>
+          <div>
+            <Heading4 color={colors[i]} to="/">{item.title}</Heading4>
+            <List>
+              {
+                item.subMenus && item.subMenus.map((item, i) => (
+                  <li key={i}><a href={item.link}>{item.title}</a></li>
+                ))
+              }
+            </List>
+          </div>
+        </Col>  
+      ))
+    }
   </Row>
 )
 
-const GnMenu = ({toggle}) => {
+const GnMenu = ({toggle, menus}) => {
+
   return (
     <Transition
       unmountOnExit
@@ -126,7 +127,7 @@ const GnMenu = ({toggle}) => {
         height: 0;
       `}>
         <Container xl style={{position: 'relative'}} gutter={20}>
-          <GnRow/>
+          <GnRow menus={menus}/>
         </Container>
       </div>
     </Transition>

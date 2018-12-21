@@ -14,7 +14,7 @@ import { setConfig } from 'react-hot-loader'
 
 setConfig({pureSFC: true})
 
-const Globalnav = ({pathname, toggle, handleToggle, isShowAbout}) => {
+const Globalnav = ({pathname, toggle, handleToggle, isShowAbout, menus}) => {
   // ref
   const gnMenu = useRef(null)
   const [onOverlay, setOnOverlay] = useState(null)
@@ -78,7 +78,7 @@ const Globalnav = ({pathname, toggle, handleToggle, isShowAbout}) => {
       { pathname !== '/' ? 
         <>
           <li>
-            <div>
+            <div css={css`text-transform: uppercase;`}>
               { pathname.replace(/\//g, '') }
             </div>
           </li>
@@ -118,7 +118,7 @@ const Globalnav = ({pathname, toggle, handleToggle, isShowAbout}) => {
             </div>
           </Row>
         </Container>
-        <GnMenu toggle={toggle}/>
+        <GnMenu menus={menus} toggle={toggle}/>
       </nav>
       
       {/* <div className={css`height: 60px;`}></div> */}
@@ -130,7 +130,8 @@ const Globalnav = ({pathname, toggle, handleToggle, isShowAbout}) => {
 export default connect(state => ({
   toggle: state.globalnavReducer.toggle,
   pathname: state.globalnavReducer.pathname,
-  isShowAbout: state.globalnavReducer.isShowAbout
+  isShowAbout: state.globalnavReducer.isShowAbout,
+  menus: state.globalnavReducer.menus
 }), {
   handleToggle
 })(Globalnav)

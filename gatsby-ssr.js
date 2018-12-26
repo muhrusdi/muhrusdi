@@ -1,8 +1,9 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { renderToString } from 'react-dom/server';
-import { extractCritical } from 'emotion-server';
-import { store } from './src/store';
+import React from 'react'
+import { Provider } from 'react-redux'
+import { renderToString } from 'react-dom/server'
+import { extractCritical } from 'emotion-server'
+import Layout from 'Containers/Layout'
+import { store } from './src/store'
 import { cache } from 'emotion'
 import { CacheProvider } from '@emotion/core'
 
@@ -27,4 +28,8 @@ export const replaceRenderer = ({ setHeadComponents, bodyComponent, replaceBodyH
     )
   setHeadComponents([criticalIds, criticalStyle])
   replaceBodyHTMLString(html)
+}
+
+export const wrapPageElement = ({ element, props }) => {
+  return <Layout {...props}>{element}</Layout>
 }

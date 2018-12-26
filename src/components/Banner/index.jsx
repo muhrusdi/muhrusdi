@@ -257,7 +257,7 @@ const Banner = ({isShowAbout, setShowAbout, menus}) => {
                 <Logo/>
               </Transition>
               <Heading1>Muhammad Rusdi</Heading1>
-              <Description>Front End Engineer: Javascript, React, Nextjs, Gatsbyjs, Reduxjs. Swift & Objective-C.</Description>
+              <Description>Front End Engineer: Javascript, React, Nextjs, Gatsbyjs, GraphQL. Swift & Objective-C.</Description>
             </div>
             {
               isShowAbout ? 

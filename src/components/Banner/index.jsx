@@ -1,8 +1,7 @@
 /* eslint-disable */
-/** @jsx jsx */
 import React from 'react'
-import { Container, Row } from 'reus'
-import { css, jsx } from '@emotion/core'
+import { Container, Row, Typography } from 'reus'
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import mr from '../../images/mr.jpg'
 import { Link } from 'gatsby'
@@ -256,8 +255,19 @@ const Banner = ({isShowAbout, setShowAbout, menus}) => {
               >
                 <Logo/>
               </Transition>
-              <Heading1>Muhammad Rusdi</Heading1>
-              <Description>Front End Engineer: Javascript, React, Nextjs, Gatsbyjs, GraphQL. Swift & Objective-C.</Description>
+              <Container md>
+                <Typography
+                  tag="h2"
+                  type="headline"
+                  weight="bold"
+                  align="center"
+                >Muhammad Rusdi</Typography>
+                <Typography
+                  tag="p"
+                  type="intro"
+                  align="center"
+                >Front End Engineer: Javascript, React, Nextjs, Gatsbyjs, GraphQL. Swift & Objective-C.</Typography>
+              </Container>
             </div>
             {
               isShowAbout ? 

@@ -8,6 +8,13 @@ exports.onCreateBabelConfig = ({ actions, stage }) => {
       sourceMap: stage === 'develop'
     }
   })
+  actions.setBabelPreset({
+    name: `@emotion/babel-preset-css-prop`,
+    options: {
+      sourceMap: process.env.NODE_ENV !== `production`,
+      autoLabel: process.env.NODE_ENV !== `production`
+    },
+  })
 }
 
 exports.onCreateWebpackConfig = ({

@@ -1,7 +1,6 @@
-/** @jsx jsx */
 import React from 'react'
-import { css, jsx, keyframes } from '@emotion/core'
-import { Container } from 'reus'
+import { css, keyframes } from '@emotion/core'
+import { Container, Typography } from 'reus'
 import imgReact from 'Images/react.png'
 import imgGraphql from 'Images/graphql.png'
 import imgSwift from 'Images/swift.png'
@@ -133,8 +132,14 @@ const Detail = () => {
         <div css={css`
           text-align: center;
         `}>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum sequi ut sapiente nemo eius, rem animi voluptatibus architecto iusto id exercitationem beatae natus dignissimos asperiores veniam earum quaerat magni praesentium?</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum sequi ut sapiente nemo eius, rem animi voluptatibus architecto iusto id exercitationem beatae natus dignissimos asperiores veniam earum quaerat magni praesentium?</p>
+          <Typography
+            tag="p"
+            type="body"
+          >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum sequi ut sapiente nemo eius, rem animi voluptatibus architecto iusto id exercitationem beatae natus dignissimos asperiores veniam earum quaerat magni praesentium?</Typography>
+          <Typography
+            tag="p"
+            type="body"
+          >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum sequi ut sapiente nemo eius, rem animi voluptatibus architecto iusto id exercitationem beatae natus dignissimos asperiores veniam earum quaerat magni praesentium?</Typography>
         </div>
       </Container>
       <div css={ css`

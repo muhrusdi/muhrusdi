@@ -16,18 +16,18 @@ export const replaceRenderer = ({ setHeadComponents, bodyComponent, replaceBodyH
     </Provider>
   )
 
-  // const { html, ids, css } = extractCritical(renderToString(<ConnectedBody/>))
+  const { html, ids, css } = extractCritical(renderToString(<ConnectedBody/>))
 
-  // const criticalStyle = <style dangerouslySetInnerHTML={{ __html: css }} />
-  // const criticalIds = (
-  //   <script
-  //     dangerouslySetInnerHTML={{
-  //       __html: `window.__EMOTION_CRITICAL_CSS_IDS__ = ${JSON.stringify(ids)};`,
-  //     }}
-  //   />
-  //   )
-  // setHeadComponents([criticalIds, criticalStyle])
-  replaceBodyHTMLString(renderToString(<ConnectedBody/>))
+  const criticalStyle = <style dangerouslySetInnerHTML={{ __html: css }} />
+  const criticalIds = (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `window.__EMOTION_CRITICAL_CSS_IDS__ = ${JSON.stringify(ids)};`,
+      }}
+    />
+    )
+  setHeadComponents([criticalIds, criticalStyle])
+  replaceBodyHTMLString(html)
 }
 
 export const wrapPageElement = ({ element, props }) => {

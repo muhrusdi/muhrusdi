@@ -3,7 +3,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { GlobalStyles } from 'reus'
 import './layout.css'
 
 import favicon32 from '../../images/favicon-32x32.png'
@@ -49,7 +48,6 @@ const Layout = ({ children }) => (
           <meta property="og:locale" content="id_ID"/>
           <meta property="og:site_name" content="Muhammad Rusdi"/>
         </Helmet>
-        <GlobalStyles/>
         {/* <Global styles={styles}/> */}
         <Globalnav/>
         {children}

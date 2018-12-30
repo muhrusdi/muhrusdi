@@ -49,6 +49,7 @@ const Layout = ({ children }) => (
           <meta property="og:locale" content="id_ID"/>
           <meta property="og:site_name" content="Muhammad Rusdi"/>
         </Helmet>
+        <Global/>
         <Globalnav/>
         {children}
       </>

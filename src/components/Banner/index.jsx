@@ -44,11 +44,12 @@ const Banner = ({isShowAbout, setShowAbout, menus}) => {
 
 
   const AboutButton = styled('a')`
-    padding: 8px 20px;
+    padding: 10px 20px;
     border-radius: 30px;
     display: inline-block;
     margin-top: 40px;
     height: 41px;
+    font-size: 16px;
     background: rgb(35,169,255);
     background: linear-gradient(90deg, rgba(35,169,255,1) 0%, rgba(92,226,245,1) 100%);
     color: #fff;
@@ -170,7 +171,7 @@ const Banner = ({isShowAbout, setShowAbout, menus}) => {
       }}
       addEndListener={(node, done) => {
         TweenLite.to(node, .4, {
-          top: isShowAbout ? 0 : -60,
+          top: isShowAbout ? 20 : -60,
           onComplete: done
         })
       }}

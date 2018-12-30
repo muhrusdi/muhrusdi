@@ -10,9 +10,9 @@ import { CacheProvider } from '@emotion/core'
 export const wrapRootElement = ({ element }) => {
   const ConnectedRootElement = (
     <Provider store={store}>
-      <CacheProvider value={cache}>
+      {/* <CacheProvider value={cache}> */}
         {element}
-      </CacheProvider>
+      {/* </CacheProvider> */}
     </Provider>  
   )
   return ConnectedRootElement

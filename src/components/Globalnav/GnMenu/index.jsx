@@ -46,7 +46,7 @@ const GnRow = ({menus}) => (
   <Row 
     gutter={10}
     style={css`
-      padding: 15px 0 30px 0px;
+      padding: 30px 0 30px 0px;
       position: relative;
       transform: translateY(-21px);
       display: block;

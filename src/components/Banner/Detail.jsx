@@ -127,10 +127,21 @@ const Detail = () => {
   return (
     <div css={ css`
       padding: 70px 0;  
+      
    ` }>
       <Container sm gutter={20}>
         <div css={css`
           text-align: center;
+          &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 10px;
+        background: rgb(71,101,252);
+        background: linear-gradient(90deg, rgba(71,101,252,1) 0%, rgba(136,255,239,1) 100%);
+      }
         `}>
           <Typography
             tag="p"

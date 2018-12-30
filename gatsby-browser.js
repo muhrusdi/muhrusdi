@@ -27,13 +27,3 @@ export const onRouteUpdate = ({location}) => {
   store.dispatch({type: SHOW_ABOUT, showAbout: false})
   store.dispatch({type: PATHNAME, pathname: location.pathname})
 }
-
-export const onClientEntry = () => {
-  if (
-    /* eslint-disable no-underscore-dangle */
-    typeof window !== `undefined` &&
-    typeof window.__EMOTION_CRITICAL_CSS_IDS__ !== `undefined`
-  ) {
-    hydrate(window.__EMOTION_CRITICAL_CSS_IDS__);
-  }
-};

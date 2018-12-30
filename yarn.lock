@@ -8614,9 +8614,9 @@ ret@~0.1.10:
   version "0.1.15"
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
 
-reus@^0.0.39:
-  version "0.0.39"
-  resolved "https://registry.yarnpkg.com/reus/-/reus-0.0.39.tgz#2c4415bf9bfbfeaf701278471c4bbb565cbffbf6"
+reus@^0.0.43:
+  version "0.0.43"
+  resolved "https://registry.yarnpkg.com/reus/-/reus-0.0.43.tgz#935d740b3b23f874fda08c7b2e8c8d2e765e9620"
 
 rgb-regex@^1.0.1:
   version "1.0.1"

@@ -26,7 +26,7 @@ export const replaceRenderer = ({ setHeadComponents, bodyComponent, replaceBodyH
       }}
     />
     )
-  setHeadComponents([criticalIds, criticalStyle])
+  setHeadComponents([criticalStyle, criticalIds])
   replaceBodyHTMLString(html)
 }
 

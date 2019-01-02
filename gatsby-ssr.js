@@ -4,8 +4,9 @@ import { renderToString } from 'react-dom/server'
 import { extractCritical } from 'emotion-server'
 import Layout from 'Containers/Layout'
 import { store } from './src/store'
-import { cache } from 'emotion'
+import { cache, hydrate } from 'emotion'
 import { CacheProvider } from '@emotion/core'
+
 
 export const replaceRenderer = ({ setHeadComponents, bodyComponent, replaceBodyHTMLString }) => {
   const ConnectedBody = () => (
@@ -15,17 +16,19 @@ export const replaceRenderer = ({ setHeadComponents, bodyComponent, replaceBodyH
       </CacheProvider>
     </Provider>
   )
-
+  
   const { html, ids, css } = extractCritical(renderToString(<ConnectedBody/>))
-
+  
   const criticalStyle = <style dangerouslySetInnerHTML={{ __html: css }} />
   const criticalIds = (
     <script
-      dangerouslySetInnerHTML={{
-        __html: `window.__EMOTION_CRITICAL_CSS_IDS__ = ${JSON.stringify(ids)};`,
-      }}
+    dangerouslySetInnerHTML={{
+      __html: `window.__EMOTION_CRITICAL_CSS_IDS__ = ${JSON.stringify(ids)};`,
+    }}
     />
-    )
+  )
+  
+  hydrate(ids)
   setHeadComponents([criticalStyle, criticalIds])
   replaceBodyHTMLString(html)
 }

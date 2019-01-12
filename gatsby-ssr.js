@@ -12,9 +12,9 @@ import 'reus/dist/index.css'
 export const replaceRenderer = ({ setHeadComponents, bodyComponent, replaceBodyHTMLString }) => {
   const ConnectedBody = () => (
     <Provider store={store}>
-      <CacheProvider value={cache}>
+      {/* <CacheProvider value={cache}> */}
         {bodyComponent}
-      </CacheProvider>
+      {/* </CacheProvider> */}
     </Provider>
   )
   

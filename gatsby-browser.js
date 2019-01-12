@@ -1,5 +1,5 @@
 import React from 'react'
-import { hydrate } from 'emotion'
+import 'reus/dist/index.css'
 import { Provider } from 'react-redux'
 import { TOGGLE, PATHNAME, SHOW_ABOUT } from 'Types/globalnavType'
 import Layout from 'Containers/Layout'

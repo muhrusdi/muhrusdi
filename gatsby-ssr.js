@@ -3,10 +3,10 @@ import { Provider } from 'react-redux'
 import { renderToString } from 'react-dom/server'
 import { extractCritical } from 'emotion-server'
 import Layout from 'Containers/Layout'
-import 'reus/dist/index.css'
 import { store } from './src/store'
 import { cache, hydrate } from 'emotion'
 import { CacheProvider } from '@emotion/core'
+import 'reus/dist/index.css'
 
 
 export const replaceRenderer = ({ setHeadComponents, bodyComponent, replaceBodyHTMLString }) => {

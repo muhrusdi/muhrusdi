@@ -1,5 +1,4 @@
 import React from 'react'
-import 'reus/dist/index.css'
 import { Provider } from 'react-redux'
 import { TOGGLE, PATHNAME, SHOW_ABOUT } from 'Types/globalnavType'
 import Layout from 'Containers/Layout'

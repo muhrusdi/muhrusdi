@@ -6,7 +6,6 @@ import Layout from 'Containers/Layout'
 import { store } from './src/store'
 import { cache, hydrate } from 'emotion'
 import { CacheProvider } from '@emotion/core'
-import 'reus/dist/index.css'
 
 
 export const replaceRenderer = ({ setHeadComponents, bodyComponent, replaceBodyHTMLString }) => {

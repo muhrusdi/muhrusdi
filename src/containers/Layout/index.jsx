@@ -5,7 +5,6 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import favicon32 from '../../images/favicon-32x32.png'
 import favicon16 from '../../images/favicon-16x16.png'
-import { GlobalStyles } from 'reus'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -20,7 +19,6 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <GlobalStyles/>
         <Helmet>
           <html lang="en" />
           <title>Muhammad Rusdi</title>

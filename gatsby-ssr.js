@@ -6,15 +6,19 @@ import Layout from 'Containers/Layout'
 import { store } from './src/store'
 import { cache, hydrate } from 'emotion'
 import { CacheProvider } from '@emotion/core'
+import { GlobalStyles } from 'reus'
 
 
 export const replaceRenderer = ({ setHeadComponents, bodyComponent, replaceBodyHTMLString }) => {
   const ConnectedBody = () => (
-    <Provider store={store}>
-      <CacheProvider value={cache}>
-        {bodyComponent}
-      </CacheProvider>
-    </Provider>
+    <>
+      <GlobalStyles/>
+      <Provider store={store}>
+        <CacheProvider value={cache}>
+          {bodyComponent}
+        </CacheProvider>
+      </Provider>
+    </>
   )
   
   const { html, ids, css } = extractCritical(renderToString(<ConnectedBody/>))

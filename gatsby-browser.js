@@ -1,19 +1,20 @@
 import React from 'react'
-import { hydrate } from 'emotion'
 import { Provider } from 'react-redux'
 import { TOGGLE, PATHNAME, SHOW_ABOUT } from 'Types/globalnavType'
 import Layout from 'Containers/Layout'
 import { store } from 'Store'
-import { cache } from 'emotion'
-import { CacheProvider } from '@emotion/core'
+import { GlobalStyles } from 'reus'
 
 export const wrapRootElement = ({ element }) => {
   const ConnectedRootElement = (
-    <Provider store={store}>
-      {/* <CacheProvider value={cache}> */}
-        {element}
-      {/* </CacheProvider> */}
-    </Provider>  
+    <>
+      <GlobalStyles/>
+      <Provider store={store}>
+        {/* <CacheProvider value={cache}> */}
+          {element}
+        {/* </CacheProvider> */}
+      </Provider>  
+    </>
   )
   return ConnectedRootElement
 }

@@ -268,7 +268,13 @@ const Banner = ({isShowAbout, setShowAbout, menus}) => {
                   tag="p"
                   type="intro"
                   align="center"
-                >Front End Engineer: Javascript, React, Nextjs, Gatsbyjs, GraphQL. Swift & Objective-C.</Typography>
+                >
+                {
+                  isShowAbout ?
+                    'I am a web developer, building a web using a modern stack, care about design and new technology.' : 
+                    'Front End Engineer: Javascript, React, Nextjs, Gatsbyjs, GraphQL. Swift & Objective-C.'
+                }
+                </Typography>
               </Container>
             </div>
             {

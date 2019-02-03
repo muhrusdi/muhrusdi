@@ -1,12 +1,3 @@
-import React from 'react'
-import Banner from 'Components/Banner'
+import Home from 'Containers/Home'
 
-const Index = () => {
-  return (
-    <>
-      <Banner/>
-    </>
-  )
-}
-
-export default Index
+export default Home

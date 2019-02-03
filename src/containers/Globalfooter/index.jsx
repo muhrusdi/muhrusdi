@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { Container, Row, Col } from 'reus'
 import { css } from '@emotion/core'
+import { Network } from 'Containers/Home/Banner'
 
 const Globalfooter = () => {
   const List = styled.ul`
@@ -20,14 +21,20 @@ const Globalfooter = () => {
     font-weight: bold;
     text-transform: uppercase;
   `
+  const NetworkModif = styled(Network)`
+    margin: 0;
+    a {
+      background: none !important;
+    }
+  `
 
   const GnTopInner = ({className}) => (
     <div className={className}>
       <Container xl gutter={20}>
         <Row css={css`
           height: 60px;
-        `} gutter={20} align="center">
-          <Col md={4}>
+        `} gutter={20} align="center" justify="space-between">
+          <Col>
             <List>
               <li>
                 <StyledTextFooter to="/">
@@ -36,11 +43,8 @@ const Globalfooter = () => {
               </li>
             </List>
           </Col>
-          <Col md={4}>
-            top
-          </Col>
-          <Col md={4}>
-            top
+          <Col>
+            <NetworkModif/>
           </Col>
         </Row>
       </Container>

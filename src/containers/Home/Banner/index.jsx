@@ -272,7 +272,7 @@ const Banner = ({isShowAbout, setShowAbout, menus}) => {
                 {
                   isShowAbout ?
                     'I am a web developer, building a web using a modern stack, care about design and new technology.' : 
-                    'Front End Engineer: Javascript, React, Nextjs, Gatsbyjs, GraphQL. Swift & Objective-C.'
+                    'Front End Engineer: JavaScript, React, NextJS, GatsbyJS, GraphQL. Swift & Objective-C.'
                 }
                 </Typography>
               </Container>

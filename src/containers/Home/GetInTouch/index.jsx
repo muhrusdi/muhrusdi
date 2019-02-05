@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { Container, Typography, Row, Col } from 'reus'
 
 const Wrapper = styled.div`
-  padding: 50px 0;
+  padding: 50px 0 100px 0px;
 `
 
 const Input = styled.input`

@@ -3,13 +3,15 @@ import { Provider } from 'react-redux'
 import { TOGGLE, PATHNAME, SHOW_ABOUT } from 'Types/globalnavType'
 import Layout from 'Containers/Layout'
 import { store } from 'Store'
+import { GlobalStyles } from 'reus'
 
 export const wrapRootElement = ({ element }) => {
   const ConnectedRootElement = (
     <Provider store={store}>
-      {/* <CacheProvider value={cache}> */}
-        {element}
-      {/* </CacheProvider> */}
+      <>
+        <GlobalStyles/>
+        { element }
+      </>
     </Provider>  
   )
   return ConnectedRootElement

@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === `development`) {
   _middlewares.push(createLogger())
 }
 
-const middlewares = applyMiddleware(promise(), thunk, ..._middlewares)
+const middlewares = applyMiddleware(promise, thunk, ..._middlewares)
 const enhancer = composeEnhancers(middlewares)
 
 export const store = createStore(reducer, enhancer)

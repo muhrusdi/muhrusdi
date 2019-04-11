@@ -268,6 +268,9 @@ const Banner = ({isShowAbout, setShowAbout, menus}) => {
                   tag="p"
                   type="intro"
                   align="center"
+                  css={ css`
+                    margin-top: .8rem;
+                  ` }
                 >
                 {
                   isShowAbout ?

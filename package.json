@@ -46,7 +46,7 @@
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.0",
     "redux-thunk": "^2.3.0",
-    "reus": "^0.0.75"
+    "reus": "^0.0.76"
   },
   "repository": {
     "type": "git",

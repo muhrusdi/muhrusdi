@@ -126,7 +126,7 @@ const GlobalStyles = () => (
       }
 
       body {
-        font-size: 14px;
+        font-size: 16px;
         background: ${ theme.background };
         line-height: 1.47059;
         font-weight: 400;
@@ -134,6 +134,10 @@ const GlobalStyles = () => (
           Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
           Segoe UI Symbol;
         color: ${ theme.color };
+        transition: background .3s ease;
+        will-change: background;
+        transition: color .3s ease;
+        will-change: color;
       }
 
       body,

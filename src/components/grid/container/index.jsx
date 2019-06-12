@@ -6,7 +6,7 @@ const Container = styled.div(
   {
     margin: '0 auto'
   },
-  ({gutter}) => {
+  ({gutter, children, ...props}) => {
     return {
       paddingLeft: gutter,
       paddingRight: gutter,
@@ -18,28 +18,23 @@ const Container = styled.div(
           paddingRight: gutter,
         },
       },
+      ...props
     }
   },
   ({type}) => {
     switch (type) {
       case "xxl":
         return {maxWidth: 1366}
-        break
       case "xl":
         return {maxWidth: 1200}
-        break
       case "lg":
         return {maxWidth: 992}
-        break
       case "md":
         return {maxWidth: 768}
-        break
       case "sm":
         return {maxWidth: 576}
-        break
       default:
         return {maxWidth: 1200}
-        break
     }
   }
 )

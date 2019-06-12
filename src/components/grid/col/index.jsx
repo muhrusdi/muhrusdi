@@ -23,11 +23,13 @@ const cols = {
 }
 
 const Col = styled.div(
-  ({basis}) => {
+  ({basis, span, children, ...props}) => {
+    const _span = span ? {flexBasis: basis} : {}
     return {
       label: 'col',
-      flexBasis: basis,
-      boxSizing: 'border-box'
+      boxSizing: 'border-box',
+      ..._span,
+      ...props
     }
   },
   ({sm, md, lg, xl}) => {

@@ -1,31 +1,19 @@
 import React from 'react'
-import { Container, Row, Col } from 'Components'
-import { useTheme } from 'Hooks'
+import { Banner, SectionStore, SectionNews, SectionTemplate, SectionContact } from 'Components'
 
 const Home = () => {
-  const {changeTheme} = useTheme()
-  const handleChangeTheme = () =>
-    changeTheme()
   
   return (
     <>
-      <div>
-        <Container>
-          <Row>
-            <Col md={ 4 } sm={ 6 }>
-              <div>
-                <button onClick={ handleChangeTheme }>click</button>
-              </div>
-            </Col>
-            <Col md={ 4 } sm={ 6 }>
-              <div>adsf</div>
-            </Col>
-            <Col md={ 4 } sm={ 6 }>
-              <div>adsf</div>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+      <Banner/>
+      <SectionStore/>
+      <SectionNews
+        title="Artikel"
+        desc="Artikel seputar pengembangan web dan perkembangan teknologi"
+        path="/blog"
+      />
+      <SectionTemplate/>
+      <SectionContact/>
     </>
   )
 }

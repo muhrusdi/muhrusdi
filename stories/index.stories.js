@@ -4,18 +4,21 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import { Button, Welcome } from '@storybook/react/demo';
-import { Container, Row, Col } from '../src/components'
+import { Welcome } from '@storybook/react/demo';
+import { Button, Container, Row, Col } from '../src/components'
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
 storiesOf('Button', module)
   .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
+  .add('with Banner', () => (
+    <Button 
+      borderRadius={ 20 }
+      height={ 42 }
+      minWidth={ 120 }
+      fontSize={ 18 }
+      onClick={action('clicked')}>
+      Default
     </Button>
   ));
 

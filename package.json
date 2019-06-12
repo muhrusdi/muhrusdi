@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "author": "engineering.dtc.co.id",
   "dependencies": {
+    "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.11",
     "gatsby": "^2.8.2",
@@ -13,13 +14,20 @@
     "gatsby-plugin-offline": "^2.1.1",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-sharp": "^2.1.3",
+    "gatsby-remark-images": "^3.0.14",
     "gatsby-source-filesystem": "^2.0.38",
     "gatsby-source-graphql": "^2.0.18",
+    "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.21",
+    "highlight.js": "^9.15.8",
+    "markdown-to-jsx": "^6.10.2",
+    "marksy": "^8.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-markdown": "^4.0.8",
+    "remark-react": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -32,7 +40,9 @@
     "@storybook/react": "^5.0.11",
     "babel-loader": "^8.0.6",
     "dotenv-webpack": "^1.7.0",
-    "prettier": "^1.17.1"
+    "gatsby-source-contentful": "^2.0.67",
+    "prettier": "^1.17.1",
+    "storybook-addon-emotion-theme": "^2.1.0"
   },
   "keywords": [
     "gatsby"

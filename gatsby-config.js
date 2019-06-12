@@ -1,8 +1,10 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
-    title: `DTCreact Gatsbyjs`,
-    description: `Boilerplate for Gatsbyjs`,
-    author: `engineering.dtc.co.id`,
+    title: `Muhammad Rusdi`,
+    description: `A Front End Engineer, building web with modern stack. Care about design and new technology.`,
+    author: `https://twitter.com/muhrusdi`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -14,17 +16,31 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800
+            }
+          }
+        ]
+      }
+    },
     `gatsby-plugin-sharp`,
+    '@contentful/gatsby-transformer-contentful-richtext',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `muhrusdi.com`,
+        short_name: `muhrusdi`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#fff`,
+        theme_color: `#fff`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/muhrusdi.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -36,6 +52,14 @@ module.exports = {
         fieldName: "mrgraph",
         // Url to query from
         url: "http://localhost:1337/graphql",
+      },
+    },
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_AT,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

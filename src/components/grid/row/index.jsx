@@ -11,6 +11,7 @@ const Row = styled.div(
     WebkitBoxDirection: "normal",
   },
   ({gutter, align, justify, height, flow, direction}) => {
+    // const _gutter = gutter === 16 ? gutter : `${gutter}px !important`
     return {
       marginLeft: -gutter,
       marginRight: -gutter,
@@ -24,7 +25,8 @@ const Row = styled.div(
         paddingRight: gutter,
       },
     }
-  }
+  },
+  ({children, ...props}) => ({...props})
 )
 
 Row.defaultProps = {

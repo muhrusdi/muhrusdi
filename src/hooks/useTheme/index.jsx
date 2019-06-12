@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { ThemeProvider } from 'emotion-theming'
 import themes from 'Utils/themes'
 
-const ThemeContext = React.createContext({theme: 'light'})
+const ThemeContext = React.createContext()
 
 export const useTheme = () => {
   const themeState = useContext(ThemeContext)

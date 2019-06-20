@@ -43,17 +43,17 @@ module.exports = {
         icon: `src/images/muhrusdi.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: "gatsby-source-graphql",
-      options: {
-        // This type will contain remote schema Query type
-        typeName: "MRGRAPH",
-        // This is field under which it's accessible
-        fieldName: "mrgraph",
-        // Url to query from
-        url: "http://localhost:1337/graphql",
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-graphql",
+    //   options: {
+    //     // This type will contain remote schema Query type
+    //     typeName: "MRGRAPH",
+    //     // This is field under which it's accessible
+    //     fieldName: "mrgraph",
+    //     // Url to query from
+    //     url: "http://localhost:1337/graphql",
+    //   },
+    // },
     {
       resolve: 'gatsby-source-contentful',
       options: {

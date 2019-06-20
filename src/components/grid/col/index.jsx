@@ -32,6 +32,14 @@ const Col = styled.div(
       ...props
     }
   },
+  ({sm, md, lg, xl, basis}) => {
+    if (sm || md || lg || xl) {
+      return {
+        flexBasis: basis,
+        maxWidth: basis
+      }
+    }
+  },
   ({sm, md, lg, xl}) => {
     const media = []
     if (sm) {

@@ -77,6 +77,7 @@ const themes = {
     bgAnimation: css`
       animation: ${ bgKeyframes } 20s linear infinite;
     `,
+    radius: '16px',
     backgroundPrimary: '#F4F4F4',
     borderColorPrimary: '#d9d9d9'
   },
@@ -90,6 +91,7 @@ const themes = {
     bgAnimation: css`
       animation: ${ bgKeyframes } 20s linear infinite;
     `,
+    radius: '16px',
     backgroundPrimary: '#101010',
     borderColorPrimary: '#333333'
   }

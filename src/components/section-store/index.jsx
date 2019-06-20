@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 
 const SectionStoreWrap = styled.div`
   background: ${ ({theme}) => theme.backgroundPrimary };
+  border-radius: ${ ({theme}) => theme.radius };
 `
 const SectionTextWrap = styled.div`
   padding: 20px 60px;

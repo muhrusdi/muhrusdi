@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { minLG, minSM, maxSM } from 'Utils/media-queries'
 import { Container, Row, Col } from 'Components'
 
 const Footer = styled.footer`
@@ -25,6 +26,12 @@ const FooterInitial = styled.div`
   }
 `
 
+const ColInner = styled.div`
+  ${ maxSM } {
+    margin-bottom: 20px;
+  }
+`
+
 const Globalfooter = () => {
   return (
     <Footer>
@@ -34,7 +41,7 @@ const Globalfooter = () => {
         </FooterInitial>
         <Row>
           <Col sm={ 6 } md={ 3 }>
-            <div>
+            <ColInner>
               <FooterList>
                 <li>
                   <a href="#">Home</a>
@@ -49,43 +56,49 @@ const Globalfooter = () => {
                   <a href="#">Library</a>
                 </li>
               </FooterList>
-            </div>
+            </ColInner>
           </Col>
           <Col sm={ 6 } md={ 3 }>
-            <FooterList>
-              <li>
-                <a href="#">Template</a>
-              </li>
-              <li>
-                <a href="#">Reus Design</a>
-              </li>
-            </FooterList>
+            <ColInner>
+              <FooterList>
+                <li>
+                  <a href="#">Template</a>
+                </li>
+                <li>
+                  <a href="#">Reus Design</a>
+                </li>
+              </FooterList>
+            </ColInner>
           </Col>
           <Col sm={ 6 } md={ 3 }>
-            <FooterList>
-              <li>
-                <a href="#">Facebook</a>
-              </li>
-              <li>
-                <a href="#">Twitter</a>
-              </li>
-              <li>
-                <a href="#">Linkedin</a>
-              </li>
-              <li>
-                <a href="#">Instgram</a>
-              </li>
-            </FooterList>
+            <ColInner>
+              <FooterList>
+                <li>
+                  <a href="#">Facebook</a>
+                </li>
+                <li>
+                  <a href="#">Twitter</a>
+                </li>
+                <li>
+                  <a href="#">Linkedin</a>
+                </li>
+                <li>
+                  <a href="#">Instgram</a>
+                </li>
+              </FooterList>
+            </ColInner>
           </Col>
           <Col sm={ 6 } md={ 3 }>
-            <FooterList>
-              <li>
-                <a href="#">Youtube</a>
-              </li>
-              <li>
-                <a href="#">Github</a>
-              </li>
-            </FooterList>
+            <ColInner>
+              <FooterList>
+                <li>
+                  <a href="#">Youtube</a>
+                </li>
+                <li>
+                  <a href="#">Github</a>
+                </li>
+              </FooterList>
+            </ColInner>
           </Col>
         </Row>
       </Container>

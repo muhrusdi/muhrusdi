@@ -24,6 +24,8 @@ const BannerImage = styled(Img)`
 const BannerGrid = styled.div`
   background: ${ ({theme}) => theme.backgroundPrimary };
   display: flex;
+  border-radius: ${ ({theme}) => theme.radius };
+  overflow: hidden;
   & > div {
     transition: all .3s ease;
     will-change: all;

@@ -15,17 +15,17 @@ const Grid = styled.div`
     grid-template-columns: repeat(3, 1fr);
   }
   grid-auto-rows: 280px;
-  grid-gap: 16px;
+  grid-gap: 24px;
 `
 
 const CardImage = styled.div`
   height: 220px;
   flex: none;
-  background: ${ ({theme}) => theme.backgroundPrimary };
   transition: all .3s ease;
   will-change: all;
   & > div {
     height: 100%;
+    border-radius: ${ ({theme}) => theme.radius };
   }
 `
 

@@ -15,7 +15,7 @@ const Grid = styled.div`
     grid-template-columns: repeat(3, 1fr);
   }
   grid-auto-rows: 400px;
-  grid-gap: 16px;
+  grid-gap: 24px;
 `
 
 const CardImage = styled.div`
@@ -25,11 +25,12 @@ const CardImage = styled.div`
   will-change: all;
   & > div {
     height: 100%;
+    border-radius: ${ ({theme}) => theme.radius };
   }
 `
 
 const CardText = styled.div`
-  padding: 20px;
+  padding: 20px 0;
   a {
     color: inherit;
     text-decoration: none;
@@ -50,7 +51,7 @@ const CardTextDesc = styled.p`
 `
 
 const Card = styled.div`
-  background: ${ ({theme}) => theme.backgroundPrimary };
+  /* background: ${ ({theme}) => theme.backgroundPrimary }; */
   overflow: hidden;
   position: relative;
   &:hover {
@@ -85,19 +86,20 @@ const DateTagsDate = styled.span`
 const Tags = styled.div`
   position: absolute;
   bottom: 0;
-  margin: 20px;
+  padding: 20px 0;
   display: flex;
   right: 0;
   left: 0;
   overflow: hidden;
+  background: ${ ({theme}) => theme.background };
   &:after {
     position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
     width: 20px;
-    background: ${ ({theme}) => theme.backgroundPrimary };
-    background: linear-gradient(90deg, ${ ({theme}) => theme.backgroundPrimary }00 0%, ${ ({theme}) => theme.backgroundPrimary } 100%);
+    background: ${ ({theme}) => theme.background };
+    background: linear-gradient(90deg, ${ ({theme}) => theme.background }00 0%, ${ ({theme}) => theme.background } 100%);
     content: '';
   }
   a {
@@ -116,7 +118,7 @@ const Tag = styled(Link)`
   padding: 4px 14px;
   border: 1px solid ${ ({theme}) => theme.borderColorPrimary };
   border-radius: 30px;
-  background: ${ ({theme}) => theme.backgroundPrimary };
+  background: ${ ({theme}) => theme.background };
   transition: all .3s ease;
   will-change: all;
   &:hover {

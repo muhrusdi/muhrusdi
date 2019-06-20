@@ -74,6 +74,7 @@ const Tags = styled.div`
 
 const ImageFeatured = styled(Img)`
   margin-top: 30px;
+  border-radius: ${ ({theme}) => theme.radius };
 `
 
 const Content = styled.div`
@@ -109,12 +110,16 @@ const BlockImageTitle = styled.div`
   transition: opacity .3s ease;
   will-change: opacity;
   padding: 22px;
+  margin: 10px;
+  border-radius: 8px;
 `
 
 const BlockImage = styled.div`
   margin: 30px 0;
   position: relative;
   line-height: 0;
+  border-radius: ${ ({theme}) => theme.radius };
+  overflow: hidden;
   img {
     max-width: 100%;
   }
@@ -132,6 +137,7 @@ const BlockCode = styled.div`
     overflow: auto;
     padding: 20px 30px;
     position: relative;
+    border-radius: ${ ({theme}) => theme.radius };
     &:after {
       position: absolute;
       left: 0;

@@ -39,14 +39,14 @@ const FlexTitle = styled.div`
   }
 `
 
-const ButtonLink = styled(Button)`
-  border-radius: 30px;
-  margin-top: 20px;
-  height: 36px;
-  font-size: 16px;
-  margin-top: 20px;
-  min-width: 120px;
-`
+const ButtonLink = styled(Button)({
+  borderRadius: 30,
+  marginTop: 20,
+  height: 36,
+  fontSize: 16,
+  marginTop: 20,
+  minWidth: 120
+})
 
 const NewsLink = styled(Link)`
   ${ ({theme}) => theme.colorAnimation }

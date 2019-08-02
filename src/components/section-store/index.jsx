@@ -45,9 +45,6 @@ const SectionStore = () => (
               <ButtonStore>Kunjungi</ButtonStore>
             </SectionTextWrap>
           </Col>
-          <Col md={ 6 }>
-            <div>asdf</div>
-          </Col>
         </Row>
       </SectionStoreWrap>
     </Container>

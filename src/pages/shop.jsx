@@ -1,9 +1,9 @@
 import React from 'react'
-import Shop from 'Containers/Shop'
+// import Shop from 'Containers/Shop'
 
 const Shops = () => {
   return (
-    <Shop/>
+    <div>asdf</div>
   )
 }
 

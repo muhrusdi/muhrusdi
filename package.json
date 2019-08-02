@@ -1,20 +1,46 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "dtcreact-gatsbyjs",
+  "private": true,
+  "description": "Boilerplate for Gatsbyjs",
+  "version": "0.0.1",
+  "author": "engineering.dtc.co.id",
   "dependencies": {
-    "gatsby": "^2.3.17",
-    "gatsby-image": "^2.0.37",
-    "gatsby-plugin-manifest": "^2.0.29",
-    "gatsby-plugin-offline": "^2.0.25",
-    "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-plugin-sharp": "^2.0.33",
-    "gatsby-source-filesystem": "^2.0.29",
-    "gatsby-transformer-sharp": "^2.1.17",
+    "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.12",
+    "date-fns": "^1.30.1",
+    "gatsby": "^2.10.0",
+    "gatsby-image": "^2.2.0",
+    "gatsby-plugin-manifest": "^2.2.0",
+    "gatsby-plugin-offline": "^2.2.0",
+    "gatsby-plugin-react-helmet": "^3.1.0",
+    "gatsby-plugin-sharp": "^2.2.0",
+    "gatsby-remark-images": "^3.1.0",
+    "gatsby-source-filesystem": "^2.1.0",
+    "gatsby-source-graphql": "^2.1.0",
+    "gatsby-transformer-remark": "^2.5.0",
+    "gatsby-transformer-sharp": "^2.2.0",
+    "highlight.js": "^9.15.8",
+    "marksy": "^8.0.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@emotion/babel-preset-css-prop": "^10.0.9",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-console": "^1.1.0",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addon-viewport": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "@storybook/react": "^5.1.9",
+    "babel-loader": "^8.0.6",
+    "dotenv-webpack": "^1.7.0",
+    "gatsby-source-contentful": "^2.1.0",
+    "prettier": "^1.18.2",
+    "storybook-addon-emotion-theme": "^2.1.0"
   },
   "keywords": [
     "gatsby"
@@ -23,33 +49,18 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "@emotion/babel-preset-css-prop": "^10.0.9",
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.10",
-    "babel-plugin-emotion": "^10.0.9",
-    "babel-plugin-import": "^1.11.0",
-    "emotion": "^10.0.9",
-    "emotion-server": "^10.0.9",
-    "emotion-theming": "^10.0.10",
-    "gatsby-plugin-emotion": "^4.0.6",
-    "gatsby-plugin-google-analytics": "^2.0.18",
-    "gsap": "^2.1.2",
-    "prettier": "^1.16.4",
-    "react-redux": "^7.0.1",
-    "react-transition-group": "^2.9.0",
-    "redux": "^4.0.1",
-    "redux-devtools-extension": "^2.13.8",
-    "redux-logger": "^3.0.6",
-    "redux-promise-middleware": "^6.1.0",
-    "redux-thunk": "^2.3.0",
-    "reus": "^0.0.76"
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/dtc-oss/dtcreact-gatsbyjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dtc-oss/dtcreact-gatsbyjs/issue"
   }
 }

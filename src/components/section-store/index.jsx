@@ -45,6 +45,11 @@ const SectionStore = () => (
               <ButtonStore>Kunjungi</ButtonStore>
             </SectionTextWrap>
           </Col>
+          <Col md={ 6 }>
+            <SectionTextWrap>
+              <SectionTitle>MR STORE</SectionTitle>
+            </SectionTextWrap>
+          </Col>
         </Row>
       </SectionStoreWrap>
     </Container>

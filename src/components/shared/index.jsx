@@ -39,7 +39,7 @@ const FlexTitle = styled.div`
   }
 `
 
-const ButtonLink = styled.button`
+const ButtonLink = styled(Button)`
   border-radius: 30px;
   margin-top: 20px;
   height: 36px;

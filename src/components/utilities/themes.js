@@ -71,12 +71,12 @@ const themes = {
     background: '#fff',
     color: '#333',
     colorSecondary: '#989898',
-    colorAnimation: css`
-      animation: ${ colorKeyframes } 20s linear infinite;
-    `,
-    bgAnimation: css`
-      animation: ${ bgKeyframes } 20s linear infinite;
-    `,
+    colorAnimation: {
+      animation: `${ colorKeyframes } 20s linear infinite`
+    },
+    bgAnimation: {
+      animation: `${ bgKeyframes } 20s linear infinite`
+    },
     radius: '16px',
     backgroundPrimary: '#F4F4F4',
     borderColorPrimary: '#d9d9d9'
@@ -85,12 +85,12 @@ const themes = {
     background: '#000',
     color: '#fff',
     colorSecondary: '#9c9c9c',
-    colorAnimation: css`
-      animation: ${ colorKeyframes } 20s linear infinite;
-    `,
-    bgAnimation: css`
-      animation: ${ bgKeyframes } 20s linear infinite;
-    `,
+    colorAnimation: {
+      animation: `${ colorKeyframes } 20s linear infinite`
+    },
+    bgAnimation: {
+      animation: `${ bgKeyframes } 20s linear infinite`
+    },
     radius: '16px',
     backgroundPrimary: '#101010',
     borderColorPrimary: '#333333'

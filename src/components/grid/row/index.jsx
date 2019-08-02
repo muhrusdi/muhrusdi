@@ -26,7 +26,6 @@ const Row = styled.div(
       },
     }
   },
-  ({children, ...props}) => ({...props})
 )
 
 Row.defaultProps = {

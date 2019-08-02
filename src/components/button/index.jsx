@@ -25,7 +25,7 @@ const Button = styled.button(
       border: '1px solid'
     }
   },
-  ({children, theme, ...props}) => ({...theme.colorAnimation, ...props})
+  ({theme}) => theme.colorAnimation
 )
 
 export default Button

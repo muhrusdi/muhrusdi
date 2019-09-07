@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
 const aliases = {
   Containers: path.resolve(__dirname, "src/containers"),
@@ -22,6 +23,34 @@ exports.onCreateBabelConfig = ({ actions, stage }) => {
     options: {
       sourceMap: stage === 'develop',
       autoLabel: stage === 'develop'
+    },
+  })
+}
+
+exports.createResolvers = ({
+  actions,
+  cache,
+  createNodeId,
+  createResolvers,
+  store,
+  reporter,
+}) => {
+  const { createNode } = actions
+  createResolvers({
+    WPGRAPHQLCMS_MediaItem: {
+      imageFile: {
+        type: `File`,
+        resolve(source, args, context, info) {
+          return createRemoteFileNode({
+            url: source.sourceUrl,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter,
+          })
+        },
+      },
     },
   })
 }

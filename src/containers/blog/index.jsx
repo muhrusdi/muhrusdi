@@ -128,31 +128,7 @@ const Blog = () => {
           }
         }
       }
-      detail: contentfulArticle(id: {eq: "fc7fd50d-62be-58d4-bd7c-3c11dc2e2136"}) {
-        id
-        title
-        description
-        createdAt
-        updatedAt
-        content {
-          childMarkdownRemark {
-            html
-            rawMarkdownBody
-          }
-        }
-        author {
-          firstName
-          lastName
-        }
-        category {
-          title
-        }
-        image {
-          fluid(maxWidth: 800) {
-            ...GatsbyContentfulFluid_withWebp
-          }
-        }
-      }
+     
     }
   `)
   
@@ -163,18 +139,18 @@ const Blog = () => {
           <BannerGrid>
             <BannerText>
               <CustomDate fontSize={ 14 }>
-                { data.detail.createdAt }
+                {/* { data.detail.createdAt } */}
               </CustomDate>
               <Title marginTop={ 20 }>{ data.detail.title }</Title>
-              <Description>{ data.detail.description }</Description>
+              {/* <Description>{ data.detail.description }</Description> */}
               <Tags position="relative" margin="20px 0 0 0">
-                {
+                {/* {
                   data.detail.category.map((item, i) => (
                     <Tags.Tag key={ i } padding="8px 18px">
                       { item.title }
                     </Tags.Tag>
                   ))
-                }
+                } */}
               </Tags>
             </BannerText>
             <BannerImage fluid={ data.jam2.childImageSharp.fluid }/>

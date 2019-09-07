@@ -1,4 +1,4 @@
-import React, { createElement } from 'react'
+import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import { Container, Row, Col } from 'Components'
 import { maxSM } from 'Utils/media-queries'
@@ -10,6 +10,8 @@ import Helmet from "react-helmet"
 import hljs from 'highlight.js/lib/highlight';
 import hljsJavascript from 'highlight.js/lib/languages/javascript'
 import Img from 'gatsby-image'
+import "./default.css"
+import { BlogDetailWrap } from "./styled"
 
 hljs.registerLanguage('javascript', hljsJavascript)
 
@@ -166,122 +168,116 @@ const BlogDetail = () => {
           }
         }
       }
-      detail: contentfulArticle(id: {eq: "fc7fd50d-62be-58d4-bd7c-3c11dc2e2136"}) {
-        id
-        title
-        description
-        createdAt
-        updatedAt
-        content {
-          childMarkdownRemark {
-            html
-            rawMarkdownBody
+      wpgraphql {
+        post(id: "cG9zdDox") {
+          author {
+            name
           }
-        }
-        author {
-          firstName
-          lastName
-        }
-        category {
+          date
+          categories {
+            edges {
+              node {
+                name
+              }
+            }
+          }
+          dateGmt
+          excerpt
+          content
           title
-        }
-        image {
-          fluid(maxWidth: 800) {
-            ...GatsbyContentfulFluid_withWebp
+          featuredImage {
+            sourceUrl
+            imageFile {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
     }
   `)
 
+  useEffect(() => {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  }, [])
+
+  const { post } = data.wpgraphql
   const convertDate = (date) => {
     return new Date(date).toDateString('id-ID')
   }
 
-  const compile = marksy({
-    createElement,
-    elements: {
-      h1({id, children}) {
-        return <BlockContent><h1>{ children }</h1></BlockContent>
-      },
-      h2({id, children}) {
-        return <BlockContent><h2>{ children }</h2></BlockContent>
-      },
-      ol({id, children}) {
-        return <BlockContent><ol>{ children }</ol></BlockContent>
-      },
-      table({id, children}) {
-        return <BlockContent><table>{ children }</table></BlockContent>
-      },
-      code({language, code}) {
-        return <BlockCode><pre><code dangerouslySetInnerHTML={{__html: hljs.highlight(language, code).value}}/></pre></BlockCode>
-      },
-      p({children}) {
-        let result = children.some(val => typeof val === 'object')
-        if (!result)
-          return <BlockContent><p>{ children }</p></BlockContent>
-        return children
-      },
-      img: ({src, alt}) => {
-        return (
-          <BlockImage>
-            <img src={ src }/>
-            <BlockImageTitle>
-              <span>{ alt }</span>
-            </BlockImageTitle>
-          </BlockImage>
-        )
-      }
-    }
-  })
+  // const compile = marksy({
+  //   createElement,
+  //   elements: {
+  //     h1({id, children}) {
+  //       return <BlockContent><h1>{ children }</h1></BlockContent>
+  //     },
+  //     h2({id, children}) {
+  //       return <BlockContent><h2>{ children }</h2></BlockContent>
+  //     },
+  //     ol({id, children}) {
+  //       return <BlockContent><ol>{ children }</ol></BlockContent>
+  //     },
+  //     table({id, children}) {
+  //       return <BlockContent><table>{ children }</table></BlockContent>
+  //     },
+  //     code({language, code}) {
+  //       return <BlockCode><pre><code dangerouslySetInnerHTML={{__html: hljs.highlight(language, code).value}}/></pre></BlockCode>
+  //     },
+  //     p({children}) {
+  //       let result = children.some(val => typeof val === 'object')
+  //       if (!result)
+  //         return <BlockContent><p>{ children }</p></BlockContent>
+  //       return children
+  //     },
+  //     img: ({src, alt}) => {
+  //       return (
+  //         <BlockImage>
+  //           <img src={ src }/>
+  //           <BlockImageTitle>
+  //             <span>{ alt }</span>
+  //           </BlockImageTitle>
+  //         </BlockImage>
+  //       )
+  //     }
+  //   }
+  // })
 
-  const compiled = compile(data.detail.content.childMarkdownRemark.rawMarkdownBody)
-
+  // const compiled = compile(data.detail.content.childMarkdownRemark.rawMarkdownBody)
+  console.log(data)
   return (
-    <div>
+    <BlogDetailWrap>
       <Helmet>
-        <script rel="preconnect" async dangerouslySetInnerHTML={{
-          __html: ` /**
-          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-        
-          var disqus_config = function () {
-          this.page.url = '/article';  // Replace PAGE_URL with your page's canonical URL variable
-          this.page.identifier = 'PAGE_IDENTIFIER'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-          };
-        
-          (function() { // DON'T EDIT BELOW THIS LINE
-          var d = document, s = d.createElement('script');
-          s.src = 'https://muhrusdi.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-          })();`
-        }}/>
-        <noscript rel="preconnect" async dangerouslySetInnerHTML={{__html: `Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>`}}/>
-        <script rel="preconnect" async id="dsq-count-scr" src="//muhrusdi.disqus.com/count.js" async></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/atom-one-dark.min.css"/>
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" />
       </Helmet>
       <Container type="lg">
         <Header>
-          <Title>{ data.detail.title }</Title>
-          <Desc>{ data.detail.description }</Desc>
+          <Title>{ post.title }</Title>
+          <Desc dangerouslySetInnerHTML={{__html: post.excerpt}}/>
           <Info>
             <Row>
               <Col>
                 <div>
                   <span>Penulis</span>
-                  <span>{ `${data.detail.author.firstName} ${data.detail.author.lastName}` }</span>
+                  <span>{ post.author.name }</span>
                 </div>
               </Col>
               <Col>
                 <div>
                   <span>Diterbitkan</span>
-                  <span>{ convertDate(data.detail.createdAt) }</span>
+                  <span>{ convertDate(post.date) }</span>
                 </div>
               </Col>
               <Col>
                 <div>
                   <span>Diperbarui</span>
-                  <span>{ convertDate(data.detail.updatedAt) }</span>
+                  <span>{ convertDate(post.dateGmt) }</span>
                 </div>
               </Col>
             </Row>
@@ -289,30 +285,26 @@ const BlogDetail = () => {
           <Tags>
             <Row gutter={ 6 }>
               {
-                data.detail.category.map((item, i) => (
+                post.categories.edges.map((item, i) => (
                   <Col key={ i }>
                     <a href="#">
-                      { item.title }
+                      { item.node.name }
                     </a>
                   </Col>
                 ))
               }
             </Row>
           </Tags>
-          <ImageFeatured fluid={ data.detail.image.fluid }/>
+          <ImageFeatured fluid={ post.featuredImage.imageFile.childImageSharp.fluid }/>
         </Header>
       </Container>
       <div>
-        <Container type="md">
-          <Content>
-            {
-              compiled.tree
-            }
-          </Content>
+        <Container className="entry" type="md">
+          <Content className="entry-content" dangerouslySetInnerHTML={{__html: post.content}}/>
         </Container>
         <div id="disqus_thread"></div>
       </div>
-    </div>
+    </BlogDetailWrap>
   )
 }
 

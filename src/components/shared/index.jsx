@@ -18,6 +18,7 @@ const TitleWrap = styled.div`
   p {
     font-size: 18px;
     color: ${ ({theme}) => theme.colorSecondary };
+    margin-top: 10px;
   }
 `
 
@@ -39,14 +40,7 @@ const FlexTitle = styled.div`
   }
 `
 
-const ButtonLink = styled.button`
-  border-radius: 30px;
-  margin-top: 20px;
-  height: 36px;
-  font-size: 16px;
-  margin-top: 20px;
-  min-width: 120px;
-`
+const ButtonLink = Button.Radius
 
 const NewsLink = styled(Link)`
   ${ ({theme}) => theme.colorAnimation }

@@ -50,16 +50,7 @@ const Desc = styled.p`
   }
 `
 
-const ButtonBanner = styled(Button)({
-  borderRadius: 30,
-  height: 42,
-  minWidth: 120,
-  fontSize: 18,
-  marginTop: 40,
-  background: 'transparent'
-},
-({theme}) => ({borderColor: theme.borderColorPrimary}),
-)
+const ButtonBanner = Button.Radius
 
 const Banner = () => {
   return (

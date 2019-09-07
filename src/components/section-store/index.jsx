@@ -21,16 +21,7 @@ const SectionDesc = styled.p`
   font-size: 18px;
   color: ${ ({theme}) => theme.colorSecondary };
 `
-const ButtonStore = styled(Button)({
-  borderRadius: 30,
-  height: 36,
-  fontSize: 16,
-  marginTop: 20,
-  minWidth: 120,
-  background: 'transparent'
-},
-({theme}) => ({borderColor: theme.borderColorPrimary}),
-)
+const ButtonStore = Button.Radius
 
 
 const SectionStore = () => (

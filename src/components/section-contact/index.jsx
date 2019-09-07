@@ -12,12 +12,13 @@ const Input = styled.input`
   width: 100%;
   font-size: 16px;
   border-radius: 6px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   background: ${ ({theme}) => theme.backgroundPrimary };
   margin-top: 16px;
+  transition: all .3s ease;
   outline: none;
   &:focus {
-    border: 1px solid;
+    border: 2px solid;
     ${ ({theme}) => theme.colorAnimation };
   }
 `
@@ -29,12 +30,14 @@ const TextArea = styled.textarea`
   width: 100%;
   font-size: 16px;
   border-radius: 6px;
-  border: 1px solid transparent;
+  transition: all .3s ease;
+  font-family: "Inter";
+  border: 2px solid transparent;
   background: ${ ({theme}) => theme.backgroundPrimary };
   margin-top: 16px;
   outline: none;
   &:focus {
-    border: 1px solid;
+    border: 2px solid;
     ${ ({theme}) => theme.colorAnimation };
   }
 `

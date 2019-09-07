@@ -30,7 +30,7 @@ module.exports = {
       }
     },
     `gatsby-plugin-sharp`,
-    '@contentful/gatsby-transformer-contentful-richtext',
+    // '@contentful/gatsby-transformer-contentful-richtext',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -54,12 +54,23 @@ module.exports = {
     //     url: "http://localhost:1337/graphql",
     //   },
     // },
+    // {
+    //   resolve: 'gatsby-source-contentful',
+    //   options: {
+    //     spaceId: process.env.CONTENTFUL_SPACE_ID,
+    //     // Learn about environment variables: https://gatsby.dev/env-vars
+    //     accessToken: process.env.CONTENTFUL_AT,
+    //   },
+    // },
     {
-      resolve: 'gatsby-source-contentful',
+      resolve: "gatsby-source-graphql",
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: process.env.CONTENTFUL_AT,
+        // This type will contain remote schema Query type
+        typeName: "WPGRAPHQLCMS",
+        // This is field under which it's accessible
+        fieldName: "wpgraphql",
+        // Url to query from
+        url: process.env.HOST_DEV,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

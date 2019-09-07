@@ -14,6 +14,7 @@ const Button = styled.button(
     transition: 'all .3s cubic-bezier(.645, .045, .355, 1)',
     userSelect: 'none',
     touchAction: 'manipulation',
+    boxSizing: "border-box",
     height: 32,
     padding: '0 15px',
     fontSize: 14,
@@ -22,10 +23,21 @@ const Button = styled.button(
     backgroundColor: '#fff',
     borderColor: '#d9d9d9',
     ':hover': {
-      border: '1px solid'
+      border: '2px solid'
     }
   },
   ({children, theme, ...props}) => ({...theme.colorAnimation, ...props})
+)
+
+Button.Radius = styled(Button)({
+  borderRadius: 30,
+  height: 42,
+  minWidth: 120,
+  fontSize: 16,
+  marginTop: 40,
+  background: 'transparent'
+},
+({theme}) => ({borderColor: theme.borderColorPrimary}),
 )
 
 export default Button

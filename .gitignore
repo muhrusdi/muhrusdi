@@ -60,6 +60,7 @@ public/
 
 # Mac files
 .DS_Store
+.storybook/
 
 # Yarn
 yarn-error.log

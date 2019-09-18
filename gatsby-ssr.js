@@ -6,7 +6,6 @@ import { ThemeContextProvider } from 'Hooks'
 export const wrapRootElement = ({ element }) => {
   return (
     <ThemeContextProvider>
-      <GlobalStyles/>
       {element}
     </ThemeContextProvider>
   )

@@ -141,7 +141,7 @@ const Blog = () => {
               <CustomDate fontSize={ 14 }>
                 {/* { data.detail.createdAt } */}
               </CustomDate>
-              <Title marginTop={ 20 }>{ data.detail.title }</Title>
+              {/* <Title marginTop={ 20 }>{ data.detail.title }</Title> */}
               {/* <Description>{ data.detail.description }</Description> */}
               <Tags position="relative" margin="20px 0 0 0">
                 {/* {

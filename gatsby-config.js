@@ -70,7 +70,7 @@ module.exports = {
         // This is field under which it's accessible
         fieldName: "wpgraphql",
         // Url to query from
-        url: process.env.HOST_DEV,
+        url: process.env.HOST_PROD,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

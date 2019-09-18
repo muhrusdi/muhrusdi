@@ -254,7 +254,8 @@ const BlogDetail = () => {
     <BlogDetailWrap>
       <Helmet>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/atom-one-dark.min.css"/>
-        <script async src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js" />
+        <link rel='stylesheet' id='coblocks-frontend-css'  href='https://muhrusdi-425b70.easywp.com/wp-content/plugins/coblocks/dist/blocks.style.build.css?ver=1.13.0' type='text/css' media='all' />
+        <script type='text/javascript' src='https://muhrusdi-425b70.easywp.com/wp-content/plugins/coblocks/dist/js/vendors/flickity.min.js?ver=1.13.0'></script>
       </Helmet>
       <Container type="lg">
         <Header>

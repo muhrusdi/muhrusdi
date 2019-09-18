@@ -530,6 +530,9 @@ export const BlogDetailWrap = styled.div`
   border-color: #0073aa;
   padding-top: 0;
   padding-bottom: 0;
+  border-left: 4px solid transparent;
+  padding-left: 20px;
+  ${({theme}) => ({borderColor: theme.borderColorPrimary})}
 }
 
 .entry .entry-content .wp-block-quote p {
@@ -543,7 +546,9 @@ export const BlogDetailWrap = styled.div`
 			 * This requires a rem-based font size calculation instead of our normal em-based one,
 			 * because the cite tag sometimes gets wrapped in a p tag. This is equivalent to $font-size_xs.
 			 */
-  font-size: calc(1rem / (1.25 * 1.125));
+  /* font-size: calc(1rem / (1.25 * 1.125)); */
+  font-size: 14px;
+  color: ${ ({theme}) => theme.colorSecondary };
 }
 
 .entry .entry-content .wp-block-quote.is-large, .entry .entry-content .wp-block-quote.is-style-large {
@@ -741,7 +746,7 @@ export const BlogDetailWrap = styled.div`
 .entry .entry-content .wp-block-image figcaption,
 .entry .entry-content .wp-block-gallery .blocks-gallery-image figcaption,
 .entry .entry-content .wp-block-gallery .blocks-gallery-item figcaption {
-  font-size: 0.71111em;
+  font-size: 1em;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   line-height: 1.6;
   margin: 0;
@@ -873,8 +878,10 @@ export const BlogDetailWrap = styled.div`
 
 .entry .entry-content .wp-block-code code {
   font-size: 1em;
-  white-space: pre-wrap;
   word-break: break-word;
+  border-radius: 6px;
+  white-space: pre;
+  padding-left: 20px;
 }
 
 .entry .entry-content .wp-block-columns .wp-block-column > *:first-child {

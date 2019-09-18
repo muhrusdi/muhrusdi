@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Container, Button } from 'Components'
+import { ButtonRadius } from "Components/button"
 import { maxSM, minSM } from 'Utils/media-queries'
 import { Link } from "gatsby"
 
@@ -40,8 +41,6 @@ const FlexTitle = styled.div`
   }
 `
 
-const ButtonLink = Button.Radius
-
 const NewsLink = styled(Link)`
   ${ ({theme}) => theme.colorAnimation }
   text-decoration: none;
@@ -60,9 +59,9 @@ export const SectionLayout = ({title, desc, path, children, ...props}) => (
           {
             path ?
               <div>
-                <ButtonLink>
+                <ButtonRadius>
                   <NewsLink to={ path }>Selengkapnya</NewsLink>
-                </ButtonLink>
+                </ButtonRadius>
               </div>
             : null
           }

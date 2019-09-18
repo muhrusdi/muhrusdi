@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Row, Col, Button } from 'Components'
 import { maxSM } from 'Utils/media-queries'
 import styled from '@emotion/styled'
+import { ButtonRadius } from "Components/button"
 
 const SectionStoreWrap = styled.div`
   background: ${ ({theme}) => theme.backgroundPrimary };
@@ -21,7 +22,7 @@ const SectionDesc = styled.p`
   font-size: 18px;
   color: ${ ({theme}) => theme.colorSecondary };
 `
-const ButtonStore = Button.Radius
+// const ButtonStore = Button.Radius
 
 
 const SectionStore = () => (
@@ -33,7 +34,7 @@ const SectionStore = () => (
             <SectionTextWrap>
               <SectionTitle>MR STORE</SectionTitle>
               <SectionDesc>Ayo belanja sekarang di MR Store</SectionDesc>
-              <ButtonStore>Kunjungi</ButtonStore>
+              <ButtonRadius>Kunjungi</ButtonRadius>
             </SectionTextWrap>
           </Col>
         </Row>

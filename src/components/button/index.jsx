@@ -21,7 +21,7 @@ const globalStyle = {
   color: 'rgba(0,0,0,0.65)',
   backgroundColor: '#fff',
   borderColor: '#d9d9d9',
-  ':hover': {
+  [':hover']: {
     border: '2px solid'
   }
 }
@@ -31,7 +31,7 @@ const Button = styled.button(
   ({children, theme, ...props}) => ({...theme.colorAnimation, ...props})
 )
 
-Button.Radius = styled.button(
+export const ButtonRadius = styled.button(
   globalStyle,
   {
     borderRadius: 30,
@@ -41,7 +41,8 @@ Button.Radius = styled.button(
     marginTop: 40,
     background: 'transparent'
   },
-({theme}) => ({borderColor: theme.borderColorPrimary}),
+  ({children, theme, ...props}) => ({...theme.colorAnimation, ...props}),
+  ({theme}) => ({borderColor: theme.borderColorPrimary}),
 )
 
 export default Button

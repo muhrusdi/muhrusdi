@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Row, Col, Button } from 'Components'
 import { maxSM, minSM } from 'Utils/media-queries'
 import styled from '@emotion/styled'
+import { ButtonRadius } from "Components/button"
 
 const Span = styled.span`
   display: block;
@@ -50,7 +51,7 @@ const Desc = styled.p`
   }
 `
 
-const ButtonBanner = Button.Radius
+// const ButtonBanner = Button.Radius
 
 const Banner = () => {
   return (
@@ -61,7 +62,7 @@ const Banner = () => {
             <BannerTextWrap>
               <Title><SpanMDesktop>Muhammad </SpanMDesktop><SpanMMobile>muh</SpanMMobile><R>R</R>usdi</Title>
               <Desc>A Front End Engineer, building web with modern stack.<br/><span>Care about design and new technology.</span></Desc>
-              <ButtonBanner>Contact</ButtonBanner>
+              <ButtonRadius>Contact</ButtonRadius>
             </BannerTextWrap>
           </Col>
         </Row>

@@ -20,11 +20,14 @@ const SectionTextWrap = styled.div`
 `
 const SectionTitle = styled.h2`
   font-size: 40px;
+  text-transform: uppercase;
   font-weight: 800;
 `
-const SectionDesc = styled.p`
-  font-size: 18px;
-  color: ${ ({theme}) => theme.colorSecondary };
+const SectionDesc = styled.div`
+  p {
+    font-size: 18px;
+    color: ${ ({theme}) => theme.colorSecondary };
+  }
 `
 // const ButtonStore = Button.Radius
 

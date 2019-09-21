@@ -60,7 +60,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.gaId,
+        trackingId: process.env.GA_ID,
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: false,
         // Setting this parameter is optional
@@ -86,7 +86,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: process.env.gaId,
+        id: process.env.GA_ID,
   
         // Include GTM in development.
         // Defaults to false meaning GTM will only be loaded in production.

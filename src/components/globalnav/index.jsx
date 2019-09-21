@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 import { useTheme } from 'Hooks'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
+import { Location } from "@reach/router"
 
 const Nav = styled.nav`
   background: ${ ({theme}) => theme.background };
@@ -124,7 +125,24 @@ const EMInner = styled.div`
   opacity: 0;
 `
 
-const Globalnav = () => {
+const BrandFlex = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const BrandPath = styled(Link)`
+  margin-left: 30px;
+  text-decoration: none;
+  color: #333;
+  text-transform: uppercase;
+  display: block;
+  font-weight: bold;
+  span {
+    line-height: 3;
+  }
+`
+
+const Globalnav = (props) => {
   const [toggle, setToggle] = useState(false)
   const emRef = useRef(null)
   const overlaryRef = useRef(null)
@@ -184,77 +202,97 @@ const Globalnav = () => {
     setToggle(false)
   }
 
+  console.log(props)
+
   return (
-    <>
-      <Nav>
-        <Container>
-          <Row justify="space-between" height={ 60 } align="center">
-            <Col>
-              <Logo to="/">
-                <Img fixed={ data.logo.childImageSharp.fixed }/>
-              </Logo>
-            </Col>
-            <Col>
-              <Row align="center">
-                <Col>
-                  <Light toggle={ toggle } onClick={ handleChangeTheme }>
-                    <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="10.5" cy="10.5" r="4.58065" stroke="black"/>
-                      <path d="M16.9355 10.5H18.9677" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M2.03223 10.5H4.06448" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M10.5 16.9355L10.5 18.9677" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M10.5 2.03226L10.5 4.06452" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M5.9494 15.0506L4.51238 16.4876" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M16.4877 4.51239L15.0506 5.94941" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M5.9494 5.94943L4.51238 4.51241" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M16.4877 16.4876L15.0506 15.0506" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </Light>
-                </Col>
-                <Col>
-                  <Menu toggle={ toggle } onClick={ handleToggle }>
-                    <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M0.5 9.5H17.5" stroke="black" stroke-linecap="round"/>
-                      <path d="M0.5 0.5H17.5" stroke="black" stroke-linecap="round"/>
-                    </svg>
-                  </Menu>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
-      </Nav>
-      <ExtraMenus ref={ emRef }>
-        <Container>
-          <EMInner>
-            <Row>
-              <Col>
-                <div>
-                  <ul>
-                    <li>
-                      <a href="#">Beranda</a>
-                    </li>
-                    <li>
-                      <Link to="/blog">Artikel</Link>
-                    </li>
-                    <li>
-                      <a href="#">Store</a>
-                    </li>
-                    <li>
-                      <a href="#">Template</a>
-                    </li>
-                    <li>
-                      <a href="#">Library</a>
-                    </li>
-                  </ul>
-                </div>
-              </Col>
-            </Row>
-          </EMInner>
-        </Container>
-      </ExtraMenus>
-      <Overlay ref={ overlaryRef } onClick={ handleClickOverlay }/>
-    </>
+    <Location>
+      {
+        ({location}) => {
+          const ownPath = location.pathname.split("/")[1]
+          return (
+            <>
+              <Nav>
+                <Container>
+                  <Row justify="space-between" height={ 60 } align="center">
+                    <Col>
+                      <BrandFlex>
+                        <Logo to="/">
+                          <Img fixed={ data.logo.childImageSharp.fixed }/>
+                        </Logo>
+                        {
+                          ownPath !== "/" ? (
+                            <BrandPath to={`/${ownPath}`}>
+                              <span>{ownPath}</span>
+                            </BrandPath>
+                          ) : null
+                        }
+                      </BrandFlex>
+                    </Col>
+                    <Col>
+                      <Row align="center">
+                        <Col>
+                          <Light toggle={ toggle } onClick={ handleChangeTheme }>
+                            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="10.5" cy="10.5" r="4.58065" stroke="black"/>
+                              <path d="M16.9355 10.5H18.9677" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M2.03223 10.5H4.06448" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M10.5 16.9355L10.5 18.9677" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M10.5 2.03226L10.5 4.06452" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M5.9494 15.0506L4.51238 16.4876" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16.4877 4.51239L15.0506 5.94941" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M5.9494 5.94943L4.51238 4.51241" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M16.4877 16.4876L15.0506 15.0506" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </Light>
+                        </Col>
+                        <Col>
+                          <Menu toggle={ toggle } onClick={ handleToggle }>
+                            <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M0.5 9.5H17.5" stroke="black" stroke-linecap="round"/>
+                              <path d="M0.5 0.5H17.5" stroke="black" stroke-linecap="round"/>
+                            </svg>
+                          </Menu>
+                        </Col>
+                      </Row>
+                    </Col>
+                  </Row>
+                </Container>
+              </Nav>
+              <ExtraMenus ref={ emRef }>
+                <Container>
+                  <EMInner>
+                    <Row>
+                      <Col>
+                        <div>
+                          <ul>
+                            <li>
+                              <a href="#">Beranda</a>
+                            </li>
+                            <li>
+                              <Link to="/blog">Artikel</Link>
+                            </li>
+                            <li>
+                              <a href="#">Store</a>
+                            </li>
+                            <li>
+                              <a href="#">Template</a>
+                            </li>
+                            <li>
+                              <a href="#">Library</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </Col>
+                    </Row>
+                  </EMInner>
+                </Container>
+              </ExtraMenus>
+              <Overlay ref={ overlaryRef } onClick={ handleClickOverlay }/>
+            </>
+          )
+        }
+      }
+    </Location>
   )
 }
 

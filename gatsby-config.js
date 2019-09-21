@@ -33,6 +33,7 @@ module.exports = {
       }
     },
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-emotion`,
     // '@contentful/gatsby-transformer-contentful-richtext',
     {
       resolve: `gatsby-plugin-manifest`,

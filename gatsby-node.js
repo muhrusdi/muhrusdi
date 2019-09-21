@@ -17,15 +17,15 @@ const aliases = {
   Config: path.resolve(__dirname, "config"),
 }
 
-exports.onCreateBabelConfig = ({ actions, stage }) => {
-  actions.setBabelPreset({
-    name: `@emotion/babel-preset-css-prop`,
-    options: {
-      sourceMap: stage === 'develop',
-      autoLabel: stage === 'develop'
-    },
-  })
-}
+// exports.onCreateBabelConfig = ({ actions, stage }) => {
+//   actions.setBabelPreset({
+//     name: `@emotion/babel-preset-css-prop`,
+//     options: {
+//       sourceMap: stage === 'develop',
+//       autoLabel: stage === 'develop'
+//     },
+//   })
+// }
 
 exports.createResolvers = ({
   actions,

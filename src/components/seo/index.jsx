@@ -153,7 +153,7 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
 
   
   const metaDescription = description || site.siteMetadata.description
-  const ogImage = image ? image : site.wpgraphql.imgThumb.childImageSharp.fluid.src
+  const ogImage = image ? image : site.imgThumb.childImageSharp.fluid.src
   
   const schemaOrgJSONLD = [
     {

@@ -210,10 +210,6 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
           content: metaDescription,
         },
         {
-          name: `image`,
-          content: ogImage,
-        },
-        {
           property: `og:title`,
           content: title,
         },

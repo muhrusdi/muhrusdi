@@ -1,10 +1,10 @@
 import React from 'react'
-import { Globalnav, Globalfooter, Seo, GlobalStyles } from 'Components'
+import { Globalnav, Globalfooter, SEO, GlobalStyles } from 'Components'
 
 const Layout = ({children}) => {
   return (
     <>
-      <Seo/>
+      <SEO/>
       <GlobalStyles/>
       <Globalnav/>
       { children }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
-import { Container, Row, Col, SectionStore, SectionNews, Button } from 'Components'
+import { Container, Row, Col, SectionStore, SectionNews, Button, SEO } from 'Components'
 import { CustomDate, Tags } from 'Components/shared'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from 'gatsby-image'
@@ -95,28 +95,6 @@ const ButtonStyled = styled(Button)({
 
 
 const Blog = () => {
-  const [blogs] = useState([
-    {
-      title: 'Lorem ipsum dolor is simply',
-      image: 'jam2',
-      date: '12 January 2019'
-    },
-    {
-      title: 'Lorem ipsum dolor is simply',
-      image: 'jam2',
-      date: '12 January 2019'
-    },
-    {
-      title: 'Lorem ipsum dolor is simply',
-      image: null,
-      date: '12 January 2019'
-    },
-    {
-      title: 'Lorem ipsum dolor is simply',
-      image: 'jam2',
-      date: '12 January 2019'
-    }
-  ])
 
   const data = useStaticQuery(graphql`
     query BlogsQuery {
@@ -164,6 +142,10 @@ const Blog = () => {
   return (
     <>
       <Banner>
+        <SEO
+          title="Blog"
+          description="Artikel seputar perkembangan teknologi web dan tips & trick"
+        />
         <Container>
           <BannerGrid>
             <BannerText>

@@ -11,4 +11,4 @@ export { default as SectionContact } from './section-contact'
 export { default as Globalnav } from "./globalnav"
 export { default as Globalfooter } from "./globalfooter"
 export { default as GlobalStyles } from "./global-styles"
-export { default as Seo } from "./seo"
+export { default as SEO } from "./seo"

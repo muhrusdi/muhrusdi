@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
-import { Container, Row, Col } from 'Components'
+import { Container, Row, Col, SEO } from 'Components'
 import { maxSM } from 'Utils/media-queries'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import marksy from 'marksy'
@@ -153,54 +153,6 @@ const BlockCode = styled.div`
 `
 
 const BlogDetail = ({data, pageContext}) => {
-  // const data = useStaticQuery(graphql`
-  //   query DetailQuery {
-  //     jam: file(relativePath: { eq: "jamstack.png" }) {
-  //       childImageSharp {
-  //         fluid(maxWidth: 800) {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-  //     jam2: file(relativePath: { eq: "jamstack-1-1.jpg" }) {
-  //       childImageSharp {
-  //         fluid(maxWidth: 800) {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-  //     wpgraphql {
-  //       post(id: "cG9zdDox") {
-  //         author {
-  //           name
-  //         }
-  //         date
-  //         categories {
-  //           edges {
-  //             node {
-  //               name
-  //             }
-  //           }
-  //         }
-  //         dateGmt
-  //         excerpt
-  //         content
-  //         title
-  //         featuredImage {
-  //           sourceUrl
-  //           imageFile {
-  //             childImageSharp {
-  //               fluid {
-  //                 ...GatsbyImageSharpFluid
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
-
   useEffect(() => {
     document.querySelectorAll('pre code').forEach((block) => {
       hljs.highlightBlock(block);
@@ -247,9 +199,14 @@ const BlogDetail = ({data, pageContext}) => {
   // })
 
   // const compiled = compile(data.detail.content.childMarkdownRemark.rawMarkdownBody)
-  console.log(data, pageContext)
   return (
     <BlogDetailWrap>
+      <SEO
+        title={postBy.title}
+        description={postBy.excerpt.replace(/(&nbsp;|<([^>]+)>)/ig, "")}
+        type="article"
+        image={postBy.featuredImage.sourceUrl}
+      />
       <Helmet>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/atom-one-dark.min.css"/>
         <link rel='stylesheet' id='coblocks-frontend-css'  href='https://muhrusdi-425b70.easywp.com/wp-content/plugins/coblocks/dist/blocks.style.build.css?ver=1.13.0' type='text/css' media='all' />

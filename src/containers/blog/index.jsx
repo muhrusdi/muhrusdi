@@ -113,24 +113,34 @@ const Blog = () => {
   ])
 
   const data = useStaticQuery(graphql`
-    query BlogQuery {
-      jam: file(relativePath: { eq: "jamstack.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
+    query SectionNewsQuery {
+      wpgraphql {
+        dataPosts: posts(first: 6) {
+          edges {
+            node {
+              title
+              excerpt
+              date
+              modified
+              slug
+              featuredImage {
+                sourceUrl
+                imageFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
-      jam2: file(relativePath: { eq: "jamstack-1-1.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-     
     }
   `)
+
+  const { dataPosts } = data.wpgraphql
   
   return (
     <>
@@ -172,6 +182,7 @@ const Blog = () => {
         title="Artikel"
         desc="Artikel seputar pengembangan web dan perkembangan teknologi"
         marginBottom={ 30 }
+        data={dataPosts}
       />
       <ButtonWrap>
         <Container>

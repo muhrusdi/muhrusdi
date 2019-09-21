@@ -32,7 +32,6 @@ const Home = () => {
   `)
 
   const { dataPosts } = data.wpgraphql
-  console.log(dataPosts)
 
   return (
     <>

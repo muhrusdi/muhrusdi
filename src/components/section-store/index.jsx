@@ -3,10 +3,14 @@ import { Container, Row, Col, Button } from 'Components'
 import { maxSM } from 'Utils/media-queries'
 import styled from '@emotion/styled'
 import { ButtonRadius } from "Components/button"
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 const SectionStoreWrap = styled.div`
   background: ${ ({theme}) => theme.backgroundPrimary };
   border-radius: ${ ({theme}) => theme.radius };
+  /* box-shadow: 0px 51px 61px -48px #d7d7d7; */
+  overflow: hidden;
 `
 const SectionTextWrap = styled.div`
   padding: 20px 60px;
@@ -25,22 +29,55 @@ const SectionDesc = styled.p`
 // const ButtonStore = Button.Radius
 
 
-const SectionStore = () => (
-  <div>
-    <Container>
-      <SectionStoreWrap>
-        <Row height={ 360 } gutter={ 0 } align="center">
-          <Col md={ 6 }>
-            <SectionTextWrap>
-              <SectionTitle>MR STORE</SectionTitle>
-              <SectionDesc>Ayo belanja sekarang di MR Store</SectionDesc>
-              <ButtonRadius>Kunjungi</ButtonRadius>
-            </SectionTextWrap>
-          </Col>
-        </Row>
-      </SectionStoreWrap>
-    </Container>
-  </div>
-)
+const SectionStore = () => {
+  const data = useStaticQuery(graphql`
+    query SectionStoreQuery {
+      wpgraphql {
+        banner: bannerstoreBy(slug: "mr-store") {
+          title
+          excerpt
+          featuredImage {
+            sourceUrl
+            imageFile {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const { banner } = data.wpgraphql
+
+  return (
+    <div>
+      <Container>
+        <SectionStoreWrap>
+          <Row height={ 360 } gutter={ 0 } align="center">
+            <Col md={ 6 }>
+              <SectionTextWrap>
+                <SectionTitle>{banner.title}</SectionTitle>
+                <SectionDesc dangerouslySetInnerHTML={{__html: banner.excerpt}}/>
+                <ButtonRadius>Kunjungi</ButtonRadius>
+              </SectionTextWrap>
+            </Col>
+            <Col md={6}>
+              <div>
+                <Img
+                  objectFit="cover"
+                  objectPosition="50% 50%"
+                  fluid={ banner.featuredImage.imageFile.childImageSharp.fluid }/>
+              </div>
+            </Col>
+          </Row>
+        </SectionStoreWrap>
+      </Container>
+    </div>
+  )
+}
 
 export default SectionStore

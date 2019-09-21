@@ -5,10 +5,10 @@
   "version": "0.0.1",
   "author": "engineering.dtc.co.id",
   "dependencies": {
-    "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
     "date-fns": "^2.0.1",
+    "dayjs": "^1.8.16",
     "gatsby": "^2.15.7",
     "gatsby-image": "^2.2.17",
     "gatsby-plugin-manifest": "^2.2.13",

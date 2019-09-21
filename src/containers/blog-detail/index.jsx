@@ -11,6 +11,7 @@ import hljs from 'highlight.js/lib/highlight';
 import hljsJavascript from 'highlight.js/lib/languages/javascript'
 import Img from 'gatsby-image'
 import "./default.css"
+import { convertDate } from "Utils"
 import { BlogDetailWrap } from "./styled"
 
 hljs.registerLanguage('javascript', hljsJavascript)
@@ -151,54 +152,54 @@ const BlockCode = styled.div`
     }
 `
 
-const BlogDetail = () => {
-  const data = useStaticQuery(graphql`
-    query DetailQuery {
-      jam: file(relativePath: { eq: "jamstack.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      jam2: file(relativePath: { eq: "jamstack-1-1.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      wpgraphql {
-        post(id: "cG9zdDox") {
-          author {
-            name
-          }
-          date
-          categories {
-            edges {
-              node {
-                name
-              }
-            }
-          }
-          dateGmt
-          excerpt
-          content
-          title
-          featuredImage {
-            sourceUrl
-            imageFile {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+const BlogDetail = ({data, pageContext}) => {
+  // const data = useStaticQuery(graphql`
+  //   query DetailQuery {
+  //     jam: file(relativePath: { eq: "jamstack.png" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 800) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     jam2: file(relativePath: { eq: "jamstack-1-1.jpg" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 800) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     wpgraphql {
+  //       post(id: "cG9zdDox") {
+  //         author {
+  //           name
+  //         }
+  //         date
+  //         categories {
+  //           edges {
+  //             node {
+  //               name
+  //             }
+  //           }
+  //         }
+  //         dateGmt
+  //         excerpt
+  //         content
+  //         title
+  //         featuredImage {
+  //           sourceUrl
+  //           imageFile {
+  //             childImageSharp {
+  //               fluid {
+  //                 ...GatsbyImageSharpFluid
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
   useEffect(() => {
     document.querySelectorAll('pre code').forEach((block) => {
@@ -206,10 +207,7 @@ const BlogDetail = () => {
     });
   }, [])
 
-  const { post } = data.wpgraphql
-  const convertDate = (date) => {
-    return new Date(date).toDateString('id-ID')
-  }
+  const { postBy } = data.wpgraphql
 
   // const compile = marksy({
   //   createElement,
@@ -249,7 +247,7 @@ const BlogDetail = () => {
   // })
 
   // const compiled = compile(data.detail.content.childMarkdownRemark.rawMarkdownBody)
-  console.log(data)
+  console.log(data, pageContext)
   return (
     <BlogDetailWrap>
       <Helmet>
@@ -259,26 +257,26 @@ const BlogDetail = () => {
       </Helmet>
       <Container type="lg">
         <Header>
-          <Title>{ post.title }</Title>
-          <Desc dangerouslySetInnerHTML={{__html: post.excerpt}}/>
+          <Title>{ postBy.title }</Title>
+          <Desc dangerouslySetInnerHTML={{__html: postBy.excerpt}}/>
           <Info>
             <Row>
               <Col>
                 <div>
                   <span>Penulis</span>
-                  <span>{ post.author.name }</span>
+                  <span>{ postBy.author.name }</span>
                 </div>
               </Col>
               <Col>
                 <div>
                   <span>Diterbitkan</span>
-                  <span>{ convertDate(post.date) }</span>
+                  <span>{ convertDate(postBy.date) }</span>
                 </div>
               </Col>
               <Col>
                 <div>
                   <span>Diperbarui</span>
-                  <span>{ convertDate(post.dateGmt) }</span>
+                  <span>{ convertDate(postBy.modified) }</span>
                 </div>
               </Col>
             </Row>
@@ -286,7 +284,7 @@ const BlogDetail = () => {
           <Tags>
             <Row gutter={ 6 }>
               {
-                post.categories.edges.map((item, i) => (
+                postBy.categories.edges.map((item, i) => (
                   <Col key={ i }>
                     <a href="#">
                       { item.node.name }
@@ -296,12 +294,12 @@ const BlogDetail = () => {
               }
             </Row>
           </Tags>
-          <ImageFeatured fluid={ post.featuredImage.imageFile.childImageSharp.fluid }/>
+          <ImageFeatured fluid={ postBy.featuredImage.imageFile.childImageSharp.fluid }/>
         </Header>
       </Container>
       <div>
         <Container className="entry" type="md">
-          <Content className="entry-content" dangerouslySetInnerHTML={{__html: post.content}}/>
+          <Content className="entry-content" dangerouslySetInnerHTML={{__html: postBy.content}}/>
         </Container>
         <div id="disqus_thread"></div>
       </div>
@@ -310,3 +308,38 @@ const BlogDetail = () => {
 }
 
 export default BlogDetail
+
+export const pageQuery = graphql`
+  query BlogDetail($slug: String!) {
+    wpgraphql {
+      postBy(slug: $slug) {
+        title
+        excerpt
+        date
+        modified
+        content
+        author {
+          username
+          name
+        }
+        categories {
+          edges {
+            node {
+              name
+            }
+          }
+        }
+        featuredImage {
+          sourceUrl
+          imageFile {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

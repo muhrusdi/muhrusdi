@@ -4,6 +4,8 @@ import { minLG, minSM, maxSM } from 'Utils/media-queries'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from 'gatsby-image'
 import { SectionLayout } from '../shared'
+import Ellipsis from "../ellipsis"
+import { convertDate } from "Utils"
 
 const Grid = styled.div`
   display: grid;
@@ -41,13 +43,15 @@ const CardText = styled.div`
   }
 `
 
-const CardTextDesc = styled.p`
-  font-size: 14px;
-  margin-top: 10px;
-  color: ${ ({theme}) => theme.colorSecondary };
-  opacity: 0;
-  transition: opacity .3s ease;
-  will-change: opacity;
+const CardTextDesc = styled.span`
+  p {
+    font-size: 14px;
+    margin-top: 10px;
+    color: ${ ({theme}) => theme.colorSecondary };
+    opacity: 0;
+    transition: opacity .3s ease;
+    will-change: opacity;
+  }
 `
 
 const Card = styled.div`
@@ -59,7 +63,9 @@ const Card = styled.div`
       height: 178px;
     }
     ${ CardTextDesc } {
-      opacity: 1;
+      p {
+        opacity: 1;
+      }
     }
   }
 `
@@ -130,19 +136,25 @@ const CardItem = ({title, desc, date, link, tag, image}) => (
   <Card>
     <CardFlex>
       <CardImage>
-        <Img
-          objectFit="cover"
-          objectPosition="50% 50%"
-          fluid={ image.childImageSharp.fluid }/>
+        {
+          image && (
+            <Img
+              objectFit="cover"
+              objectPosition="50% 50%"
+              fluid={ image.imageFile.childImageSharp.fluid }/>
+          )
+        }
       </CardImage>
       <CardText>
         <div>
-          <DateTagsDate>{ date }</DateTagsDate>
+          <DateTagsDate>{ convertDate(date) }</DateTagsDate>
         </div>
         <Link to={ link }>
-          <h3>{ title }</h3>
+          <Ellipsis clamp={2}>
+            <h3>{ title }</h3>
+          </Ellipsis>
         </Link>
-        <CardTextDesc>{ desc }</CardTextDesc>
+        <CardTextDesc dangerouslySetInnerHTML={{__html: desc}}/>
       </CardText>
       <Tags>
         <Tag>{ tag }</Tag>
@@ -153,25 +165,25 @@ const CardItem = ({title, desc, date, link, tag, image}) => (
   </Card>
 )
 
-const SectionNews = ({title, desc, path, children, ...props}) => {
-  const data = useStaticQuery(graphql`
-    query NewsQuery {
-      jam: file(relativePath: { eq: "jamstack.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      jam2: file(relativePath: { eq: "jamstack-1-1.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+const SectionNews = ({title, desc, path, children, data, ...props}) => {
+  // const dataInner = useStaticQuery(graphql`
+  //   query NewsQuery {
+  //     jam: file(relativePath: { eq: "jamstack.png" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 800) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     jam2: file(relativePath: { eq: "jamstack-1-1.jpg" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 800) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
   return (
     <SectionLayout
@@ -181,6 +193,42 @@ const SectionNews = ({title, desc, path, children, ...props}) => {
       {...props}
     >
       <Grid>
+        {
+          data.edges.map(item => (
+            <CardItem
+              title={item.node.title}
+              desc={item.node.excerpt}
+              date={item.node.date}
+              link={`/blog/${item.node.slug}`}
+              tag="Reactjs"
+              image={ item.node.featuredImage }
+            />
+          ))
+        }
+        {/* <CardItem
+          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
+          date="12 Septemeber 2019"
+          link="/blog/detail"
+          tag="Reactjs"
+          image={ data.jam2 }
+        />
+        <CardItem
+          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
+          date="12 Septemeber 2019"
+          link="/blog/detail"
+          tag="Reactjs"
+          image={ data.jam2 }
+        />
+        <CardItem
+          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
+          date="12 Septemeber 2019"
+          link="/blog/detail"
+          tag="Reactjs"
+          image={ data.jam2 }
+        />
         <CardItem
           title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
           desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
@@ -196,39 +244,7 @@ const SectionNews = ({title, desc, path, children, ...props}) => {
           link="/blog/detail"
           tag="Reactjs"
           image={ data.jam2 }
-        />
-        <CardItem
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="12 Septemeber 2019"
-          link="/blog/detail"
-          tag="Reactjs"
-          image={ data.jam2 }
-        />
-        <CardItem
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="12 Septemeber 2019"
-          link="/blog/detail"
-          tag="Reactjs"
-          image={ data.jam2 }
-        />
-        <CardItem
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="12 Septemeber 2019"
-          link="/blog/detail"
-          tag="Reactjs"
-          image={ data.jam }
-        />
-        <CardItem
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="12 Septemeber 2019"
-          link="/blog/detail"
-          tag="Reactjs"
-          image={ data.jam2 }
-        />
+        /> */}
       </Grid>
     </SectionLayout>
   )

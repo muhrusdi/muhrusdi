@@ -4,6 +4,8 @@ import { Container, Row, Col, SectionStore, SectionNews, Button } from 'Componen
 import { CustomDate, Tags } from 'Components/shared'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from 'gatsby-image'
+import { convertDate } from "Utils"
+import Ellipsis from "Components/ellipsis"
 
 const Banner = styled.div`
   padding-top: 20px;
@@ -14,6 +16,10 @@ const BannerText = styled.div`
   padding: 0 40px;
   flex-basis: 50%;
   position: relative;
+  a {
+    color: #333;
+    text-decoration: none;
+  }
 `
 
 const BannerImage = styled(Img)`
@@ -123,6 +129,17 @@ const Blog = () => {
               date
               modified
               slug
+              categories {
+                edges {
+                  node {
+                    name
+                  }
+                }
+              }
+              author {
+                username
+                name
+              }
               featuredImage {
                 sourceUrl
                 imageFile {
@@ -141,6 +158,8 @@ const Blog = () => {
   `)
 
   const { dataPosts } = data.wpgraphql
+
+  const firstPost = dataPosts.edges[0].node
   
   return (
     <>
@@ -149,24 +168,28 @@ const Blog = () => {
           <BannerGrid>
             <BannerText>
               <CustomDate fontSize={ 14 }>
-                {/* { data.detail.createdAt } */}
+                { convertDate(firstPost.date) }
               </CustomDate>
-              {/* <Title marginTop={ 20 }>{ data.detail.title }</Title> */}
-              {/* <Description>{ data.detail.description }</Description> */}
+              <Link to={`/blog/${firstPost.slug}`}>
+                <Title marginTop={ 20 }>{ firstPost.title }</Title>
+              </Link>
+              <Ellipsis clamp={3}>
+                <Description dangerouslySetInnerHTML={{__html: firstPost.excerpt}}/>
+              </Ellipsis>
               <Tags position="relative" margin="20px 0 0 0">
-                {/* {
-                  data.detail.category.map((item, i) => (
+                {
+                  firstPost.categories.edges.map((item, i) => (
                     <Tags.Tag key={ i } padding="8px 18px">
-                      { item.title }
+                      { item.node.name }
                     </Tags.Tag>
                   ))
-                } */}
+                }
               </Tags>
-            </BannerText>
-            <BannerImage fluid={ data.jam2.childImageSharp.fluid }/>
+            </BannerText>  
+            <BannerImage fluid={ firstPost.featuredImage.imageFile.childImageSharp.fluid }/>
           </BannerGrid>
         </Container>
-      </Banner>
+      </Banner>  
       {/* <Container type="lg">
         <Grid>
           {
@@ -189,7 +212,7 @@ const Blog = () => {
           <Row justify="space-between">
             <Col>
               <div>
-                <ButtonStyled>Sebelumnya</ButtonStyled>
+                <ButtonStyled>Sebelumnya</ButtonStyled> 
               </div>
             </Col>
             <Col>

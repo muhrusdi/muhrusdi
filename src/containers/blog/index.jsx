@@ -113,7 +113,7 @@ const Blog = () => {
   ])
 
   const data = useStaticQuery(graphql`
-    query SectionNewsQuery {
+    query BlogsQuery {
       wpgraphql {
         dataPosts: posts(first: 6) {
           edges {

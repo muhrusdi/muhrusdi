@@ -125,7 +125,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import imgThumb from "../../images/seo.jpg"
 
 const SEO = ({ description, lang = "id", meta, title, image, type = "website", url = "/" }) => {
   const { site } = useStaticQuery(
@@ -141,13 +140,20 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
             gaId
           }
         }
+        imgThumb: file(relativePath: {eq: "seo.jpg"}) {
+          childImageSharp {
+            fluid {
+              src
+            }
+          }
+        }
       }
     `
   )
 
   
   const metaDescription = description || site.siteMetadata.description
-  const ogImage = image ? image : imgThumb
+  const ogImage = image ? image : site.wpgraphql.imgThumb.childImageSharp.fluid.src
   
   const schemaOrgJSONLD = [
     {

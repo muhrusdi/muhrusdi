@@ -74,6 +74,12 @@ const CardFlex = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  a {
+    text-decoration: none;
+    h3 {
+      color: #333;
+    }
+  }
 `
 
 const DateTags = styled.div`
@@ -135,27 +141,27 @@ const Tag = styled(Link)`
 const CardItem = ({title, desc, date, link, tag, image}) => (
   <Card>
     <CardFlex>
-      <CardImage>
-        {
-          image && (
-            <Img
-              objectFit="cover"
-              objectPosition="50% 50%"
-              fluid={ image.imageFile.childImageSharp.fluid }/>
-          )
-        }
-      </CardImage>
-      <CardText>
-        <div>
-          <DateTagsDate>{ convertDate(date) }</DateTagsDate>
-        </div>
-        <Link to={ link }>
-          <Ellipsis clamp={2}>
-            <h3>{ title }</h3>
-          </Ellipsis>
-        </Link>
-        <CardTextDesc dangerouslySetInnerHTML={{__html: desc}}/>
-      </CardText>
+      <Link to={ link }>
+        <CardImage>
+          {
+            image && (
+              <Img
+                objectFit="cover"
+                objectPosition="50% 50%"
+                fluid={ image.imageFile.childImageSharp.fluid }/>
+            )
+          }
+        </CardImage>
+        <CardText>
+          <div>
+            <DateTagsDate>{ convertDate(date) }</DateTagsDate>
+          </div>
+            <Ellipsis clamp={2}>
+              <h3>{ title }</h3>
+            </Ellipsis>
+          <CardTextDesc dangerouslySetInnerHTML={{__html: desc}}/>
+        </CardText>
+      </Link>
       <Tags>
         <Tag>{ tag }</Tag>
         <Tag>{ tag }</Tag>
@@ -205,46 +211,6 @@ const SectionNews = ({title, desc, path, children, data, ...props}) => {
             />
           ))
         }
-        {/* <CardItem
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="12 Septemeber 2019"
-          link="/blog/detail"
-          tag="Reactjs"
-          image={ data.jam2 }
-        />
-        <CardItem
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="12 Septemeber 2019"
-          link="/blog/detail"
-          tag="Reactjs"
-          image={ data.jam2 }
-        />
-        <CardItem
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="12 Septemeber 2019"
-          link="/blog/detail"
-          tag="Reactjs"
-          image={ data.jam2 }
-        />
-        <CardItem
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="12 Septemeber 2019"
-          link="/blog/detail"
-          tag="Reactjs"
-          image={ data.jam }
-        />
-        <CardItem
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="12 Septemeber 2019"
-          link="/blog/detail"
-          tag="Reactjs"
-          image={ data.jam2 }
-        /> */}
       </Grid>
     </SectionLayout>
   )

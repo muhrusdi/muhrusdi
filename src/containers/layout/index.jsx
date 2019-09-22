@@ -1,12 +1,10 @@
 import React from 'react'
-import { Globalnav, Globalfooter, GlobalStyles } from 'Components'
-import { SEO } from 'gatsby-theme-seo'
-import imgThum from "Images/seo.jpg"
+import { Globalnav, Globalfooter, SEO, GlobalStyles } from 'Components'
 
 const Layout = ({children}) => {
   return (
     <>
-      <SEO image={{src: imgThum, width: 1648, height: 863}}/>
+      <SEO/>
       <GlobalStyles/>
       <Globalnav/>
       { children }

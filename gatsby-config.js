@@ -5,7 +5,6 @@ module.exports = {
     title: `Muhammad Rusdi`,
     description: `A Front End Engineer, building web with modern stack. Care about design and new technology.`,
     author: `https://twitter.com/muhrusdiid`,
-    image: `${__dirname}/src/images/seo.jpg`,
     fbId: process.env.FB_ID,
     gaId: process.env.GA_ID
   },

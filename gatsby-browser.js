@@ -1,21 +1,5 @@
-// import React from 'react'
-// import Layout from 'Containers/layout'
-// import { ThemeContextProvider } from 'Hooks'
+import { wrapPage, wrapRoot } from "./wrap-elements"
 
-// export const wrapRootElement = ({ element }) => {
-//   return (
-//       <Layout>
-//     <ThemeContextProvider>
-//         { element }
-//     </ThemeContextProvider>
-//       </Layout>
-//   )
-// }
+export const wrapRootElement = wrapRoot
 
-// export const wrapPageElement = ({element}) => {
-//   return (
-//     <Layout>
-//       { element }
-//     </Layout>
-//   )
-// }
+export const wrapPageElement = wrapPage

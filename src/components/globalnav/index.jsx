@@ -146,7 +146,7 @@ const Globalnav = (props) => {
   const [toggle, setToggle] = useState(false)
   const emRef = useRef(null)
   const overlaryRef = useRef(null)
-  // const {changeTheme} = useTheme()
+  const {changeTheme} = useTheme()
 
   const data = useStaticQuery(graphql`
     query NavQuery {
@@ -197,7 +197,7 @@ const Globalnav = (props) => {
   }
 
   const handleChangeTheme = () => {
-    // changeTheme()
+    changeTheme()
   }
 
   const handleClickOverlay = () => {

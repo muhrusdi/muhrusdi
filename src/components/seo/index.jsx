@@ -125,7 +125,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import imgThumb from "Images/seo.jpg"
 
 const SEO = ({ description, lang = "id", meta, title, image, type = "website", url = "/" }) => {
   const { site } = useStaticQuery(
@@ -136,6 +135,7 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
             title
             description
             author
+            url
             fbId
             gaId
           }
@@ -153,7 +153,7 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
 
   const metaTitle = title ? title : site.siteMetadata.title
   const metaDescription = description || site.siteMetadata.description
-  const ogImage = image ? image : imgThumb
+  const ogImage = image ? image : site.siteMetadata.url + imgThumb.childImageSharp.fluid.src
   
   const schemaOrgJSONLD = [
     {

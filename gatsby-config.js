@@ -5,6 +5,7 @@ module.exports = {
     title: `Muhammad Rusdi`,
     description: `A Front End Engineer, building web with modern stack. Care about design and new technology.`,
     author: `https://twitter.com/muhrusdiid`,
+    url: "https://muhrusdi.com",
     fbId: process.env.FB_ID,
     gaId: process.env.GA_ID
   },

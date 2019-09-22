@@ -1,6 +1,7 @@
 import React from 'react'
 import { Banner, SectionStore, SectionNews, SectionTemplate, SectionContact } from 'Components'
 import { useStaticQuery, graphql } from "gatsby"
+import Layout from 'Containers/layout'
 
 const Home = () => {
   const data = useStaticQuery(graphql`

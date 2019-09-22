@@ -4,16 +4,18 @@ import { ThemeContextProvider } from 'Hooks'
 
 export const wrapRootElement = ({ element }) => {
   return (
+      <Layout>
     <ThemeContextProvider>
-      {element}
+        { element }
     </ThemeContextProvider>
+      </Layout>
   )
 }
 
-export const wrapPageElement = ({element}) => {
-  return (
-    <Layout>
-      { element }
-    </Layout>
-  )
-}
+// export const wrapPageElement = ({element}) => {
+//   return (
+//     <Layout>
+//       { element }
+//     </Layout>
+//   )
+// }

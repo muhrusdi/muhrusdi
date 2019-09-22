@@ -60,7 +60,7 @@ const Banner = () => {
         <Row height={ 500 } align="center">
           <Col>
             <BannerTextWrap>
-              {/* <BannerTitle><SpanMDesktop>Muhammad </SpanMDesktop><SpanMMobile>muh</SpanMMobile><R>R</R>usdi</BannerTitle> */}
+              <BannerTitle>Muhammad Rusdi</BannerTitle>
               <Desc>A Front End Engineer, building web with modern stack.<br/><span>Care about design and new technology.</span></Desc>
               <ButtonRadius>Contact</ButtonRadius>
             </BannerTextWrap>

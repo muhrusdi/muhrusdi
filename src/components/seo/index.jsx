@@ -215,7 +215,7 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
         },
         {
           property: `og:title`,
-          content: title,
+          content: metaTitle,
         },
         {
           property: `og:description`,
@@ -228,6 +228,18 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
         {
           property: `og:image`,
           content: ogImage,
+        },
+        {
+          property: `og:image:alt`,
+          content: metaTitle,
+        },
+        {
+          property: 'og:image:width',
+          content: 1648,
+        },
+        {
+          property: 'og:image:height',
+          content: 863,
         },
         {
           name: `twitter:card`,

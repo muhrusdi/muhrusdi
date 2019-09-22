@@ -20,6 +20,12 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     {
+      resolve: "gatsby-plugin-netlify-cache",
+      options: {
+        cachePublic: true
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [

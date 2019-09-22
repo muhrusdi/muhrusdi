@@ -72,10 +72,10 @@ const themes = {
     color: '#333',
     colorSecondary: '#989898',
     colorAnimation: {
-      animation: `${ colorKeyframes } 20s linear infinite`
+      animation: `${ colorKeyframes } 20s linear infinite;`
     },
     bgAnimation: {
-      animation: `${ bgKeyframes } 20s linear infinite`
+      animation: `${ bgKeyframes } 20s linear infinite;`
     },
     radius: '16px',
     backgroundPrimary: '#F4F4F4',
@@ -86,10 +86,10 @@ const themes = {
     color: '#fff',
     colorSecondary: '#9c9c9c',
     colorAnimation: {
-      animation: `${ colorKeyframes } 20s linear infinite`
+      animation: `${ colorKeyframes } 20s linear infinite;`
     },
     bgAnimation: {
-      animation: `${ bgKeyframes } 20s linear infinite`
+      animation: `${ bgKeyframes } 20s linear infinite;`
     },
     radius: '16px',
     backgroundPrimary: '#101010',

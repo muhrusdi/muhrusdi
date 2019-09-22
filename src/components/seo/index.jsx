@@ -152,7 +152,7 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
 
   const metaTitle = title ? title : site.siteMetadata.title
   const metaDescription = description || site.siteMetadata.description
-  const ogImage = image ? image : "/static/seo.jpg"
+  const ogImage = image ? image : imgThumb.childImageSharp.fluid.src
   
   const schemaOrgJSONLD = [
     {

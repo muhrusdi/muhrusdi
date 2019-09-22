@@ -20,6 +20,18 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     {
+      resolve: 'gatsby-theme-seo', 
+      options: {
+        title: 'Muhammad Rusdi',
+        description: 'A Front End Engineer, building web with modern stack. Care about design and new technology.',
+        author: 'https://twitter.com/muhrusdiid',
+        siteUrl: 'https://muhrusdi.com',
+        social: {
+            twitter: 'https://twitter.com/muhrusdiid'
+        }
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [

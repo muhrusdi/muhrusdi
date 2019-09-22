@@ -27,11 +27,11 @@ const SpanMDesktop = styled.span`
   }
 `
 const SpanMMobile = styled.span`
-  ${ ({theme}) => theme.colorAnimation }
   ${ minSM } {
     visibility: hidden;
     position: absolute;
   }
+  ${ ({theme}) => theme.colorAnimation }
 `
 
 const R = styled.span`
@@ -43,12 +43,12 @@ const R = styled.span`
 const Desc = styled.p`
   font-size: 24px;
   margin-top: 20px;
-  ${ ({theme}) => theme.colorAnimation }
   ${ maxSM } {
     span {
       display: none;
     }
   }
+  ${ ({theme}) => theme.colorAnimation }
 `
 
 // const ButtonBanner = Button.Radius

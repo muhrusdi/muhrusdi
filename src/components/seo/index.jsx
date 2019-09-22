@@ -152,7 +152,7 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
 
   const metaTitle = title ? title : site.siteMetadata.title
   const metaDescription = description || site.siteMetadata.description
-  const ogImage = image ? image : imgThumb.childImageSharp.fluid.src
+  const ogImage = image ? image : "/static/seo.jpg"
   
   const schemaOrgJSONLD = [
     {
@@ -202,6 +202,7 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
       htmlAttributes={{
         lang,
       }}
+      title={metaTitle}
       meta={[
         {
           name: `title`,
@@ -253,7 +254,6 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
         },
       ].concat(meta)}
     >
-      <title>{metaTitle}</title>
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
       </script>

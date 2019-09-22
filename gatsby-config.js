@@ -120,6 +120,76 @@ module.exports = {
         anonymize: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+           // 1 query for each data type
+          query: `
+          {
+            wpgraphql {
+              posts {
+                edges {
+                  node {
+                    title
+                    excerpt
+                    date
+                    modified
+                    slug
+                    author {
+                      username
+                    }
+                    content
+                  }
+                }
+              }
+              pages {
+                edges {
+                  node {
+                    title
+                  }
+                }
+              }
+              categories {
+                edges {
+                  node {
+                    name
+                  }
+                }
+              }
+              tags {
+                edges {
+                  node {
+                    name
+                  }
+                }
+              }
+            }
+          }`,
+          mapping: {
+            // Each data type can be mapped to a predefined sitemap
+            // Routes can be grouped in one of: posts, tags, authors, pages, or a custom name
+            // The default sitemap - if none is passed - will be pages
+            allPost: {
+                sitemap: `posts`,
+            },
+            allTag: {
+                sitemap: `tags`,
+            },
+            allCategory: {
+                sitemap: `categories`,
+            },
+          },
+          exclude: [
+            `/dev-404-page`,
+            `/404`,
+            `/404.html`,
+            `/offline-plugin-app-shell-fallback`,
+            /(\/)?hash-\S*/, // you can also pass valid RegExp to exclude internal tags for example
+          ],
+          createLinkInHead: true, // optional: create a link in the `<head>` of your site
+          addUncaughtPages: true, // optional: will fill up pages that are not caught by queries and mapping and list them under `sitemap-pages.xml`
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,

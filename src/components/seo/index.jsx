@@ -135,7 +135,7 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
             title
             description
             author
-            url
+            siteUrl
             fbId
             gaId
           }
@@ -153,7 +153,7 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
 
   const metaTitle = title ? title : site.siteMetadata.title
   const metaDescription = description || site.siteMetadata.description
-  const ogImage = image ? image : site.siteMetadata.url + imgThumb.childImageSharp.fluid.src
+  const ogImage = image ? image : site.siteMetadata.siteUrl + imgThumb.childImageSharp.fluid.src
   
   const schemaOrgJSONLD = [
     {

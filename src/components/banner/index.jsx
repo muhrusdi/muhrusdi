@@ -13,7 +13,7 @@ const BannerTextWrap = styled.div`
     text-align: center;
   }
 `
-const Title = styled.h1`
+const BannerTitle = styled.h1`
   font-size: 58px;
   line-height: 1;
   font-weight: 900;
@@ -60,7 +60,7 @@ const Banner = () => {
         <Row height={ 500 } align="center">
           <Col>
             <BannerTextWrap>
-              <Title><SpanMDesktop>Muhammad </SpanMDesktop><SpanMMobile>muh</SpanMMobile><R>R</R>usdi</Title>
+              <BannerTitle><SpanMDesktop>Muhammad </SpanMDesktop><SpanMMobile>muh</SpanMMobile><R>R</R>usdi</BannerTitle>
               <Desc>A Front End Engineer, building web with modern stack.<br/><span>Care about design and new technology.</span></Desc>
               <ButtonRadius>Contact</ButtonRadius>
             </BannerTextWrap>

@@ -151,7 +151,7 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
     `
   )
 
-  
+  const metaTitle = title ? title : site.siteMetadata.title
   const metaDescription = description || site.siteMetadata.description
   const ogImage = image ? image : imgThumb.childImageSharp.fluid.src
   
@@ -203,8 +203,12 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
       htmlAttributes={{
         lang,
       }}
-      title={ title ? title : site.siteMetadata.title }
+      title={ metaTitle }
       meta={[
+        {
+          name: `title`,
+          content: metaTitle,
+        },
         {
           name: `description`,
           content: metaDescription,

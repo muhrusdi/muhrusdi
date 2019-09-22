@@ -127,7 +127,7 @@ import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 const SEO = ({ description, lang = "id", meta, title, image, type = "website", url = "/" }) => {
-  const { site } = useStaticQuery(
+  const { site, imgThumb } = useStaticQuery(
     graphql`
       query {
         site {
@@ -139,13 +139,20 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
             gaId
           }
         }
+        imgThumb: file(relativePath: {eq: "seo.jpg"}) {
+          childImageSharp {
+            fluid {
+              src
+            }
+          }
+        }
       }
     `
   )
 
   const metaTitle = title ? title : site.siteMetadata.title
   const metaDescription = description || site.siteMetadata.description
-  const ogImage = image ? image : "static/seo.jpg"
+  const ogImage = image ? image : imgThumb.childImageSharp.fluid.src
   
   const schemaOrgJSONLD = [
     {
@@ -195,7 +202,6 @@ const SEO = ({ description, lang = "id", meta, title, image, type = "website", u
       htmlAttributes={{
         lang,
       }}
-      title={ metaTitle }
       meta={[
         {
           name: `title`,

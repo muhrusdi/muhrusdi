@@ -20,12 +20,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     {
-      resolve: "gatsby-plugin-netlify-cache",
-      options: {
-        cachePublic: true
-      }
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -128,6 +122,7 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
+    `gatsby-plugin-remove-serviceworker`,
   ],
 }

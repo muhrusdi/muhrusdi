@@ -39,6 +39,7 @@
     "gatsby-plugin-google-analytics": "^2.1.17",
     "gatsby-plugin-google-tagmanager": "^2.1.10",
     "gatsby-plugin-gtag": "^1.0.11",
+    "gatsby-plugin-netlify": "^2.1.15",
     "prettier": "^1.18.2",
     "storybook-addon-emotion-theme": "^2.1.0"
   },

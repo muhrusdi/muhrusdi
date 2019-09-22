@@ -58,6 +58,7 @@ module.exports = {
         url: process.env.HOST_PROD,
       },
     },
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

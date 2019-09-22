@@ -1,12 +1,11 @@
 import React from 'react'
 import { Globalnav, Globalfooter, SEO, GlobalStyles } from 'Components'
-import "Components/global-styles/styles.css"
 
 const Layout = ({children}) => {
   return (
     <>
       <SEO/>
-      {/* <GlobalStyles/> */}
+      <GlobalStyles/>
       <Globalnav/>
       { children }
       <Globalfooter/>

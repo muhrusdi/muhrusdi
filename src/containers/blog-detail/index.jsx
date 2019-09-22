@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 import { Container, Row, Col, SEO } from 'Components'
 import { maxSM } from 'Utils/media-queries'
 import { useStaticQuery, graphql, Link } from "gatsby"
-import marksy from 'marksy'
 import 'highlight.js/styles/default.css';
 import 'highlight.js/styles/atelier-lakeside-light.css';
 import Helmet from "react-helmet"

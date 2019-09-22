@@ -55,7 +55,7 @@ const SectionContact = () => {
     <ContactWrap>
       <Container type="md">
         <TitleWrap>
-          <h4>Hubungeid Ksami</h4>
+          <h4>Hubungi Ksami</h4>
         </TitleWrap>
         <form action="">
           <Row gutter={ 8 }>

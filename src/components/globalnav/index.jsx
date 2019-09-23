@@ -222,7 +222,7 @@ const Globalnav = (props) => {
                           <Img fixed={ data.logo.childImageSharp.fixed }/>
                         </Logo>
                         {
-                          ownPath !== "/" ? (
+                          ownPath !== "/" || ownPath !== "offline-plugin-app-shell-fallback" ? (
                             <BrandPath to={`/${ownPath}`}>
                               <span>{ownPath}</span>
                             </BrandPath>

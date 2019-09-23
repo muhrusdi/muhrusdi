@@ -204,13 +204,13 @@ const Globalnav = (props) => {
     setToggle(false)
   }
 
-  console.log(props)
-
+  
   return (
     <Location>
       {
         ({location}) => {
           const ownPath = location.pathname.split("/")[1]
+          console.log("-->", ownPath)
           return (
             <>
               <Nav>
@@ -222,7 +222,7 @@ const Globalnav = (props) => {
                           <Img fixed={ data.logo.childImageSharp.fixed }/>
                         </Logo>
                         {
-                          ownPath !== "/" || ownPath !== "offline-plugin-app-shell-fallback" ? (
+                          ownPath !== "" || ownPath !== "offline-plugin-app-shell-fallback" ? (
                             <BrandPath to={`/${ownPath}`}>
                               <span>{ownPath}</span>
                             </BrandPath>

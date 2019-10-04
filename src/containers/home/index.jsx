@@ -45,12 +45,16 @@ const Home = () => {
       <Banner />
       <SectionStore />
       <SectionNews
-        title="Artikel"
-        desc="Artikel seputar pengembangan web dan perkembangan teknologi"
+        title="Blog"
+        desc="Articles about CSS, HTML, JavaScript, and all things related to web design and development."
         path="/blog"
         data={dataPosts}
       />
-      <SectionTemplate />
+      <SectionTemplate
+        title="Template"
+        desc="A list of Themes, Templates and Starters for JAMstack Sites"
+        path="/template"
+      />
       <SectionContact />
     </Layout>
   )

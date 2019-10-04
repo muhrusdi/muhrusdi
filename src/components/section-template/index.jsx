@@ -1,17 +1,17 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { minLG, minSM, maxSM } from 'Utils/media-queries'
+import React from "react"
+import styled from "@emotion/styled"
+import { minLG, minSM, maxSM } from "Utils/media-queries"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import Img from 'gatsby-image'
-import { SectionLayout } from '../shared'
+import Img from "gatsby-image"
+import { SectionLayout } from "../shared"
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  ${ minSM } {
+  ${minSM} {
     grid-template-columns: repeat(2, 1fr);
   }
-  ${ minLG } {
+  ${minLG} {
     grid-template-columns: repeat(3, 1fr);
   }
   grid-auto-rows: 280px;
@@ -21,11 +21,11 @@ const Grid = styled.div`
 const CardImage = styled.div`
   height: 220px;
   flex: none;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   will-change: all;
   & > div {
     height: 100%;
-    border-radius: ${ ({theme}) => theme.radius };
+    border-radius: ${({ theme }) => theme.radius};
   }
 `
 
@@ -44,19 +44,19 @@ const CardText = styled.div`
 const CardTextDesc = styled.p`
   font-size: 14px;
   margin-top: 10px;
-  color: ${ ({theme}) => theme.colorSecondary };
+  color: ${({ theme }) => theme.colorSecondary};
   opacity: 0;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
   will-change: opacity;
 `
 
 const Card = styled.div`
   overflow: hidden;
   &:hover {
-    ${ CardImage } {
+    ${CardImage} {
       height: 210px;
     }
-    ${ CardTextDesc } {
+    ${CardTextDesc} {
       opacity: 1;
     }
   }
@@ -78,25 +78,26 @@ const DateTagsDate = styled.span`
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
-  ${ ({theme}) => theme.colorAnimation }
+  ${({ theme }) => theme.colorAnimation}
 `
 
-const CardItem = ({title, desc, date, tag, image}) => (
+const CardItem = ({ title, desc, date, tag, image }) => (
   <Card>
     <CardFlex>
       <CardImage>
         <Img
           objectFit="cover"
           objectPosition="50% 50%"
-          fluid={ image.childImageSharp.fluid }/>
+          fluid={image.childImageSharp.fluid}
+        />
       </CardImage>
       <CardText>
         <DateTags>
           <div>
-            <DateTagsDate>{ date }</DateTagsDate>
+            <DateTagsDate>{date}</DateTagsDate>
           </div>
           <div>
-            <DateTagsDate>{ tag }</DateTagsDate>
+            <DateTagsDate>{tag}</DateTagsDate>
           </div>
         </DateTags>
       </CardText>
@@ -104,7 +105,7 @@ const CardItem = ({title, desc, date, tag, image}) => (
   </Card>
 )
 
-const SectionTemplate = () => {
+const SectionTemplate = ({ title, desc, path }) => {
   const data = useStaticQuery(graphql`
     query TemplateQuery {
       jam: file(relativePath: { eq: "jamstack.png" }) {
@@ -125,39 +126,35 @@ const SectionTemplate = () => {
   `)
 
   return (
-    <SectionLayout
-      title="Template"
-      desc="Kumpulan template web base React"
-      path="/"
-    >
+    <SectionLayout title={title} desc={desc} path={path}>
       <Grid>
         <CardItem
           title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
           desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
           date="Company Profile"
           tag="Preview"
-          image={ data.jam }
+          image={data.jam}
         />
         <CardItem
           title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
           desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
           date="12 Septemeber 2019"
           tag="Reactjs"
-          image={ data.jam2 }
+          image={data.jam2}
         />
         <CardItem
           title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
           desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
           date="12 Septemeber 2019"
           tag="Reactjs"
-          image={ data.jam2 }
+          image={data.jam2}
         />
         <CardItem
           title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
           desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
           date="12 Septemeber 2019"
           tag="Reactjs"
-          image={ data.jam2 }
+          image={data.jam2}
         />
       </Grid>
     </SectionLayout>

@@ -55,18 +55,18 @@ const SectionContact = () => {
     <ContactWrap>
       <Container type="md">
         <TitleWrap>
-          <h4>Hubungi Kami</h4>
+          <h4>Get in Touch</h4>
         </TitleWrap>
         <form action="">
           <Row gutter={8}>
             <Col sm={6}>
-              <Input type="text" placeholder="Nama" />
+              <Input type="text" placeholder="Name" />
             </Col>
             <Col sm={6}>
               <Input type="text" placeholder="Email" />
             </Col>
             <Col sm={12}>
-              <TextArea type="text" placeholder="Pesan" />
+              <TextArea type="text" placeholder="Message" />
             </Col>
           </Row>
         </form>

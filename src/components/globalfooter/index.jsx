@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { minLG, minSM, maxSM } from 'Utils/media-queries'
-import { Container, Row, Col } from 'Components'
+import React from "react"
+import styled from "@emotion/styled"
+import { minLG, minSM, maxSM } from "Utils/media-queries"
+import { Container, Row, Col } from "Components"
 
 const Footer = styled.footer`
   padding: 60px 0;
@@ -14,7 +14,7 @@ const FooterList = styled.ul`
     a {
       color: inherit;
       text-decoration: none;
-      color: ${ ({theme}) => theme.colorSecondary };
+      color: ${({ theme }) => theme.colorSecondary};
     }
   }
 `
@@ -27,7 +27,7 @@ const FooterInitial = styled.div`
 `
 
 const ColInner = styled.div`
-  ${ maxSM } {
+  ${maxSM} {
     margin-bottom: 20px;
   }
 `
@@ -40,14 +40,14 @@ const Globalfooter = () => {
           <h4>MR</h4>
         </FooterInitial>
         <Row>
-          <Col sm={ 6 } md={ 3 }>
+          <Col sm={6} md={3}>
             <ColInner>
               <FooterList>
                 <li>
                   <a href="#">Home</a>
                 </li>
                 <li>
-                  <a href="#">Berita</a>
+                  <a href="#">Blog</a>
                 </li>
                 <li>
                   <a href="#">Store</a>
@@ -58,7 +58,7 @@ const Globalfooter = () => {
               </FooterList>
             </ColInner>
           </Col>
-          <Col sm={ 6 } md={ 3 }>
+          <Col sm={6} md={3}>
             <ColInner>
               <FooterList>
                 <li>
@@ -70,7 +70,7 @@ const Globalfooter = () => {
               </FooterList>
             </ColInner>
           </Col>
-          <Col sm={ 6 } md={ 3 }>
+          <Col sm={6} md={3}>
             <ColInner>
               <FooterList>
                 <li>
@@ -88,7 +88,7 @@ const Globalfooter = () => {
               </FooterList>
             </ColInner>
           </Col>
-          <Col sm={ 6 } md={ 3 }>
+          <Col sm={6} md={3}>
             <ColInner>
               <FooterList>
                 <li>

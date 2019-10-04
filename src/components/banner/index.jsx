@@ -4,6 +4,10 @@ import { maxSM, minSM } from "Utils/media-queries"
 import styled from "@emotion/styled"
 import { ButtonRadius } from "Components/button"
 
+const BannerWrap = styled.div`
+  height: 100vh;
+`
+
 const Span = styled.span`
   display: block;
   font-size: 24px;
@@ -59,7 +63,7 @@ const Banner = () => {
   return (
     <div>
       <Container>
-        <Row height={500} align="center">
+        <Row height="100vh" align="center">
           <Col>
             <BannerTextWrap>
               <BannerTitle>Front End Engineer</BannerTitle>

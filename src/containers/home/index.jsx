@@ -1,7 +1,13 @@
-import React from 'react'
-import { Banner, SectionStore, SectionNews, SectionTemplate, SectionContact } from 'Components'
+import React from "react"
+import {
+  Banner,
+  SectionStore,
+  SectionNews,
+  SectionTemplate,
+  SectionContact,
+} from "Components"
 import { useStaticQuery, graphql } from "gatsby"
-import Layout from 'Containers/layout'
+import Layout from "Containers/layout"
 
 const Home = () => {
   const data = useStaticQuery(graphql`
@@ -35,18 +41,18 @@ const Home = () => {
   const { dataPosts } = data.wpgraphql
 
   return (
-    <>
-      <Banner/>
-      <SectionStore/>
+    <Layout>
+      <Banner />
+      <SectionStore />
       <SectionNews
         title="Artikel"
         desc="Artikel seputar pengembangan web dan perkembangan teknologi"
         path="/blog"
         data={dataPosts}
       />
-      <SectionTemplate/>
-      <SectionContact/>
-    </>
+      <SectionTemplate />
+      <SectionContact />
+    </Layout>
   )
 }
 

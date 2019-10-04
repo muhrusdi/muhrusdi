@@ -1,7 +1,7 @@
-import React from 'react'
-import { Container, Row, Col, Button } from 'Components'
-import { maxSM, minSM } from 'Utils/media-queries'
-import styled from '@emotion/styled'
+import React from "react"
+import { Container, Row, Col, Button } from "Components"
+import { maxSM, minSM } from "Utils/media-queries"
+import styled from "@emotion/styled"
 import { ButtonRadius } from "Components/button"
 
 const Span = styled.span`
@@ -9,33 +9,35 @@ const Span = styled.span`
   font-size: 24px;
 `
 const BannerTextWrap = styled.div`
-  ${ maxSM } {
+  max-width: 70%;
+  ${maxSM} {
     text-align: center;
+    max-width: 100%;
   }
 `
 const BannerTitle = styled.h1`
   font-size: 58px;
-  line-height: 1;
+  line-height: 1.2;
   font-weight: 900;
-  ${ maxSM } {
+  ${maxSM} {
     font-size: 42px;
   }
 `
 const SpanMDesktop = styled.span`
-  ${ maxSM } {
+  ${maxSM} {
     display: none;
   }
 `
 const SpanMMobile = styled.span`
-  ${ minSM } {
+  ${minSM} {
     visibility: hidden;
     position: absolute;
   }
-  ${ ({theme}) => theme.colorAnimation }
+  ${({ theme }) => theme.colorAnimation}
 `
 
 const R = styled.span`
-  ${ maxSM } {
+  ${maxSM} {
     text-transform: lowercase;
   }
 `
@@ -43,12 +45,12 @@ const R = styled.span`
 const Desc = styled.p`
   font-size: 24px;
   margin-top: 20px;
-  ${ maxSM } {
+  ${maxSM} {
     span {
       display: none;
     }
   }
-  ${ ({theme}) => theme.colorAnimation }
+  ${({ theme }) => theme.colorAnimation}
 `
 
 // const ButtonBanner = Button.Radius
@@ -57,11 +59,14 @@ const Banner = () => {
   return (
     <div>
       <Container>
-        <Row height={ 500 } align="center">
+        <Row height={500} align="center">
           <Col>
             <BannerTextWrap>
-              <BannerTitle>Muhammad Rusdi</BannerTitle>
-              <Desc>A Front End Engineer, building web with modern stack.<br/><span>Care about design and new technology.</span></Desc>
+              <BannerTitle>Front End Engineer</BannerTitle>
+              <Desc>
+                with 3+ years in web development using modern stack.
+                Enthusiastic about design and new technology.
+              </Desc>
               <ButtonRadius>Contact</ButtonRadius>
             </BannerTextWrap>
           </Col>

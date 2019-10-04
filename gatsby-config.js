@@ -1,13 +1,13 @@
-require('dotenv').config()
+require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
     title: `Muhammad Rusdi`,
-    description: `A Front End Engineer, building web with modern stack. Care about design and new technology.`,
+    description: `with 3+ years in web development using modern stack. Enthusiastic about design and new technology.`,
     author: `https://twitter.com/muhrusdiid`,
     siteUrl: "https://muhrusdi.com",
     fbId: process.env.FB_ID,
-    gaId: process.env.GA_ID
+    gaId: process.env.GA_ID,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -26,11 +26,11 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 800
-            }
-          }
-        ]
-      }
+              maxWidth: 800,
+            },
+          },
+        ],
+      },
     },
     `gatsby-plugin-sharp`,
     // `gatsby-plugin-emotion`,
@@ -89,11 +89,11 @@ module.exports = {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
         id: process.env.GTAG_ID,
-  
+
         // Include GTM in development.
         // Defaults to false meaning GTM will only be loaded in production.
         includeInDevelopment: false,
-  
+
         // datalayer to be set before GTM is loaded
         // should be an object or a function that is executed in the browser
         // Defaults to null
@@ -102,7 +102,7 @@ module.exports = {
             pageType: window.pageType,
           }
         },
-  
+
         // Specify optional GTM environment details.
         // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
         // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
@@ -123,8 +123,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-advanced-sitemap`,
       options: {
-           // 1 query for each data type
-          query: `
+        // 1 query for each data type
+        query: `
           {
             wpgraphql {
               posts {
@@ -165,30 +165,30 @@ module.exports = {
               }
             }
           }`,
-          mapping: {
-            // Each data type can be mapped to a predefined sitemap
-            // Routes can be grouped in one of: posts, tags, authors, pages, or a custom name
-            // The default sitemap - if none is passed - will be pages
-            allPost: {
-                sitemap: `posts`,
-            },
-            allTag: {
-                sitemap: `tags`,
-            },
-            allCategory: {
-                sitemap: `categories`,
-            },
+        mapping: {
+          // Each data type can be mapped to a predefined sitemap
+          // Routes can be grouped in one of: posts, tags, authors, pages, or a custom name
+          // The default sitemap - if none is passed - will be pages
+          allPost: {
+            sitemap: `posts`,
           },
-          exclude: [
-            `/dev-404-page`,
-            `/404`,
-            `/404.html`,
-            `/offline-plugin-app-shell-fallback`,
-            /(\/)?hash-\S*/, // you can also pass valid RegExp to exclude internal tags for example
-          ],
-          createLinkInHead: true, // optional: create a link in the `<head>` of your site
-          addUncaughtPages: true, // optional: will fill up pages that are not caught by queries and mapping and list them under `sitemap-pages.xml`
-      }
+          allTag: {
+            sitemap: `tags`,
+          },
+          allCategory: {
+            sitemap: `categories`,
+          },
+        },
+        exclude: [
+          `/dev-404-page`,
+          `/404`,
+          `/404.html`,
+          `/offline-plugin-app-shell-fallback`,
+          /(\/)?hash-\S*/, // you can also pass valid RegExp to exclude internal tags for example
+        ],
+        createLinkInHead: true, // optional: create a link in the `<head>` of your site
+        addUncaughtPages: true, // optional: will fill up pages that are not caught by queries and mapping and list them under `sitemap-pages.xml`
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

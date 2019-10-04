@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { Container, Button } from 'Components'
+import React from "react"
+import styled from "@emotion/styled"
+import { Container, Button } from "Components"
 import { ButtonRadius } from "Components/button"
-import { maxSM, minSM } from 'Utils/media-queries'
+import { maxSM, minSM } from "Utils/media-queries"
 import { Link } from "gatsby"
 
 const SectionNewsWrap = styled.div`
   padding-top: 110px;
-  ${ ({children, ...props}) => ({...props}) }
+  ${({ children, ...props }) => ({ ...props })}
 `
 
 const TitleWrap = styled.div`
@@ -18,7 +18,7 @@ const TitleWrap = styled.div`
   }
   p {
     font-size: 18px;
-    color: ${ ({theme}) => theme.colorSecondary };
+    color: ${({ theme }) => theme.colorSecondary};
     margin-top: 10px;
   }
 `
@@ -28,7 +28,7 @@ const Flex = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 60px;
-  ${ maxSM } {
+  ${maxSM} {
     padding: 0;
     display: block;
     text-align: center;
@@ -36,38 +36,36 @@ const Flex = styled.div`
 `
 
 const FlexTitle = styled.div`
-  ${ minSM } {
+  ${minSM} {
     max-width: 50%;
   }
 `
 
 const NewsLink = styled(Link)`
-  ${ ({theme}) => theme.colorAnimation }
+  ${({ theme }) => theme.colorAnimation}
   text-decoration: none;
   display: block;
 `
 
-export const SectionLayout = ({title, desc, path, children, ...props}) => (
+export const SectionLayout = ({ title, desc, path, children, ...props }) => (
   <SectionNewsWrap {...props}>
     <Container>
       <TitleWrap>
         <Flex>
           <FlexTitle>
-            <h3>{ title }</h3>
-            <p>{ desc }</p>
+            <h3>{title}</h3>
+            <p>{desc}</p>
           </FlexTitle>
-          {
-            path ?
-              <div>
-                <ButtonRadius>
-                  <NewsLink to={ path }>Selengkapnya</NewsLink>
-                </ButtonRadius>
-              </div>
-            : null
-          }
+          {path ? (
+            <div>
+              <ButtonRadius marginTop={0}>
+                <NewsLink to={path}>More</NewsLink>
+              </ButtonRadius>
+            </div>
+          ) : null}
         </Flex>
       </TitleWrap>
-      { children }
+      {children}
     </Container>
   </SectionNewsWrap>
 )
@@ -76,15 +74,13 @@ const DateWrap = styled.div`
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
-  ${ ({theme}) => theme.colorAnimation }
-  ${ ({children, ...props}) => ({...props}) }
+  ${({ theme }) => theme.colorAnimation}
+  ${({ children, ...props }) => ({ ...props })}
 `
 
-export const CustomDate = ({children, ...props}) => {
+export const CustomDate = ({ children, ...props }) => {
   return (
-    <DateWrap {...props}>
-      { new Date(children).toDateString('id-ID') }
-    </DateWrap>
+    <DateWrap {...props}>{new Date(children).toDateString("id-ID")}</DateWrap>
   )
 }
 
@@ -102,16 +98,20 @@ export const Tags = styled.div`
     top: 0;
     bottom: 0;
     width: 20px;
-    background: ${ ({theme}) => theme.backgroundPrimary };
-    background: linear-gradient(90deg, ${ ({theme}) => theme.backgroundPrimary }00 0%, ${ ({theme}) => theme.backgroundPrimary } 100%);
-    content: '';
+    background: ${({ theme }) => theme.backgroundPrimary};
+    background: linear-gradient(
+      90deg,
+      ${({ theme }) => theme.backgroundPrimary}00 0%,
+      ${({ theme }) => theme.backgroundPrimary} 100%
+    );
+    content: "";
   }
   a {
     &:not(:first-of-type) {
       margin-left: 10px;
     }
   }
-  ${ ({children, ...props}) => ({...props}) }
+  ${({ children, ...props }) => ({ ...props })}
 `
 
 Tags.Tag = styled(Link)`
@@ -119,15 +119,15 @@ Tags.Tag = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   text-transform: uppercase;
-  color: ${ ({theme}) => theme.colorSecondary };
+  color: ${({ theme }) => theme.colorSecondary};
   padding: 4px 14px;
-  border: 1px solid ${ ({theme}) => theme.borderColorPrimary };
+  border: 1px solid ${({ theme }) => theme.borderColorPrimary};
   border-radius: 30px;
-  background: ${ ({theme}) => theme.backgroundPrimary };
-  transition: all .3s ease;
+  background: ${({ theme }) => theme.backgroundPrimary};
+  transition: all 0.3s ease;
   will-change: all;
   &:hover {
     border: 1px solid;
   }
-  ${ ({children, ...props}) => ({...props}) }
+  ${({ children, ...props }) => ({ ...props })}
 `

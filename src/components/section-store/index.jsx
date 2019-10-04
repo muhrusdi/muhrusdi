@@ -1,36 +1,42 @@
-import React from 'react'
-import { Container, Row, Col, Button } from 'Components'
-import { maxSM } from 'Utils/media-queries'
-import styled from '@emotion/styled'
+import React from "react"
+import { Container, Row, Col, Button } from "Components"
+import { maxSM } from "Utils/media-queries"
+import styled from "@emotion/styled"
 import { ButtonRadius } from "Components/button"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 const SectionStoreWrap = styled.div`
-  background: ${ ({theme}) => theme.backgroundPrimary };
-  border-radius: ${ ({theme}) => theme.radius };
+  background: ${({ theme }) => theme.backgroundPrimary};
+  border-radius: ${({ theme }) => theme.radius};
   /* box-shadow: 0px 51px 61px -48px #d7d7d7; */
   overflow: hidden;
 `
 const SectionTextWrap = styled.div`
   padding: 20px 60px;
-  ${ maxSM } {
+  ${maxSM} {
     padding: 20px;
   }
 `
 const SectionTitle = styled.h2`
   font-size: 40px;
   text-transform: uppercase;
-  font-weight: 800;
+  font-weight: 900;
+  line-height: 1.2;
 `
 const SectionDesc = styled.div`
   p {
     font-size: 18px;
-    color: ${ ({theme}) => theme.colorSecondary };
+    margin-top: 18px;
+    color: ${({ theme }) => theme.colorSecondary};
+  }
+`
+const ColStyled = styled(Col)`
+  ${maxSM} {
+    display: none;
   }
 `
 // const ButtonStore = Button.Radius
-
 
 const SectionStore = () => {
   const data = useStaticQuery(graphql`
@@ -60,22 +66,25 @@ const SectionStore = () => {
     <div>
       <Container>
         <SectionStoreWrap>
-          <Row height={ 360 } gutter={ 0 } align="center">
-            <Col md={ 6 }>
+          <Row height={360} gutter={0} align="center">
+            <Col md={6}>
               <SectionTextWrap>
                 <SectionTitle>{banner.title}</SectionTitle>
-                <SectionDesc dangerouslySetInnerHTML={{__html: banner.excerpt}}/>
-                <ButtonRadius>Kunjungi</ButtonRadius>
+                <SectionDesc
+                  dangerouslySetInnerHTML={{ __html: banner.excerpt }}
+                />
+                <ButtonRadius>Get Starated</ButtonRadius>
               </SectionTextWrap>
             </Col>
-            <Col md={6}>
+            <ColStyled md={6}>
               <div>
                 <Img
                   objectFit="cover"
                   objectPosition="50% 50%"
-                  fluid={ banner.featuredImage.imageFile.childImageSharp.fluid }/>
+                  fluid={banner.featuredImage.imageFile.childImageSharp.fluid}
+                />
               </div>
-            </Col>
+            </ColStyled>
           </Row>
         </SectionStoreWrap>
       </Container>

@@ -17,9 +17,9 @@ import Layout from "Containers/layout"
 hljs.registerLanguage("javascript", hljsJavascript)
 
 const Header = styled.div`
-  margin-top: 60px;
+  margin-top: 80px;
   ${maxSM} {
-    margin-top: 30px;
+    margin-top: 60px;
   }
 `
 

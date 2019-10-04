@@ -17,7 +17,7 @@ import Ellipsis from "Components/ellipsis"
 import Layout from "Containers/layout"
 
 const Banner = styled.div`
-  padding-top: 20px;
+  padding-top: 80px;
 `
 
 const BannerText = styled.div`
@@ -192,8 +192,8 @@ const Blog = () => {
         </Grid>
       </Container> */}
       <SectionNews
-        title="Artikel"
-        desc="Artikel seputar pengembangan web dan perkembangan teknologi"
+        title="Blog"
+        desc="Articles about CSS, HTML, JavaScript, and all things related to web design and development."
         marginBottom={30}
         data={dataPosts}
       />
@@ -202,12 +202,12 @@ const Blog = () => {
           <Row justify="space-between">
             <Col>
               <div>
-                <ButtonStyled>Sebelumnya</ButtonStyled>
+                <ButtonStyled>Prev</ButtonStyled>
               </div>
             </Col>
             <Col>
               <div>
-                <ButtonStyled>Selanjutnya</ButtonStyled>
+                <ButtonStyled>Next</ButtonStyled>
               </div>
             </Col>
           </Row>

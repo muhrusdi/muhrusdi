@@ -7,6 +7,10 @@ const DemoStyled = styled.div`
   height: 100vh;
   position: relative;
   padding-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9;
   iframe {
     border: none;
     width: 100%;
@@ -14,12 +18,43 @@ const DemoStyled = styled.div`
   }
 `
 
+const DemoResponsive = styled.div(
+  {
+    width: "100%",
+    height: "100%",
+    transition: "all .3s ease",
+  },
+  ({ theme }) => {
+    switch (theme.viewPort) {
+      case "mobile":
+        return {
+          maxWidth: 320,
+          maxHeight: "80vh",
+          boxShadow: "0px 30px 51px -10px #33333347",
+        }
+      case "tablet":
+        return {
+          maxWidth: 768,
+          maxHeight: "80vh",
+          boxShadow: "0px 30px 51px -10px #33333347",
+        }
+      default:
+        return {
+          maxWidth: "100%",
+        }
+    }
+  }
+)
+
 const Demo = ({ data }) => {
   const { workBy } = data.wpgraphql
+
   return (
     <Layout>
       <DemoStyled>
-        <iframe src={workBy.link_live.link} />
+        <DemoResponsive>
+          <iframe src={workBy.link_live.link} />
+        </DemoResponsive>
       </DemoStyled>
     </Layout>
   )

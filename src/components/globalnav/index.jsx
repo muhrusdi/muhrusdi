@@ -8,7 +8,8 @@ import { css } from "@emotion/core"
 import { Location } from "@reach/router"
 
 const Nav = styled.nav`
-  background: ${({ theme }) => theme.background};
+  background: ${({ theme, path }) =>
+    path === "work" ? "none" : theme.background};
   z-index: 9999;
   position: relative;
   transition: background 0.6s ease;
@@ -229,7 +230,7 @@ const Globalnav = props => {
         const ownPath = location.pathname.split("/")[1]
         return (
           <>
-            <Nav>
+            <Nav path={ownPath} togge={toggle}>
               <Container>
                 <Row justify="space-between" height={60} align="center">
                   <Col>

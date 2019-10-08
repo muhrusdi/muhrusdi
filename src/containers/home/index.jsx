@@ -5,6 +5,7 @@ import {
   SectionNews,
   SectionTemplate,
   SectionContact,
+  SectionWork,
 } from "Components"
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "Containers/layout"
@@ -54,6 +55,11 @@ const Home = () => {
         title="Template"
         desc="A list of Themes, Templates and Starters for JAMstack Sites"
         path="/template"
+      />
+      <SectionWork
+        title="Works"
+        desc="A list of portfolio, projects and products"
+        path="/work"
       />
       <SectionContact />
     </Layout>

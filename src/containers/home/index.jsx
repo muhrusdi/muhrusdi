@@ -74,11 +74,11 @@ const Home = () => {
         path="/blog"
         data={dataPosts}
       />
-      <SectionTemplate
+      {/* <SectionTemplate
         title="Template"
         desc="A list of Themes, Templates and Starters for JAMstack Sites"
         path="/template"
-      />
+      /> */}
       <SectionWork
         title="Works"
         desc="A list of portfolio, projects and products"

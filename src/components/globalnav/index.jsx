@@ -247,156 +247,170 @@ const Globalnav = props => {
                   </Col>
                   <Col>
                     <Row align="center">
-                      <Col style={{ padding: "0 10px" }}>
-                        <div>
-                          <ButtonPort id="desktop" onClick={handleViewPort}>
-                            <svg
-                              role="img"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24px"
-                              height="24px"
-                              viewBox="0 0 24 24"
-                              aria-labelledby="laptopIconTitle"
-                              stroke={
-                                viewPort === "desktop" ? "#2196F3" : "#9c9c9c"
-                              }
-                              stroke-width="1"
-                              stroke-linecap="square"
-                              stroke-linejoin="miter"
-                              fill="none"
-                              color="#2329D6"
-                            >
-                              {" "}
-                              <title id="laptopIconTitle">Laptop</title>{" "}
-                              <path d="M20 7v11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z" />{" "}
-                              <path d="M2 18h20M4 17h16" />{" "}
-                            </svg>
-                          </ButtonPort>
-                        </div>
-                      </Col>
-                      <Col style={{ padding: "0 10px" }}>
-                        <div>
-                          <ButtonPort id="tablet" onClick={handleViewPort}>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke={
-                                viewPort === "tablet" ? "#2196F3" : "#9c9c9c"
-                              }
-                              stroke-width="1"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <rect
-                                x="4"
-                                y="2"
-                                width="16"
-                                height="20"
-                                rx="2"
-                                ry="2"
-                                transform="rotate(180 12 12)"
-                              />
-                              <line x1="12" y1="18" x2="12" y2="18" />
-                            </svg>
-                          </ButtonPort>
-                        </div>
-                      </Col>
-                      <Col style={{ padding: "0 10px" }}>
-                        <div>
-                          <ButtonPort id="mobile" onClick={handleViewPort}>
-                            <svg
-                              role="img"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24px"
-                              height="24px"
-                              viewBox="0 0 24 24"
-                              aria-labelledby="iphoneIconTitle"
-                              stroke={
-                                viewPort === "mobile" ? "#2196F3" : "#9c9c9c"
-                              }
-                              stroke-width="1"
-                              stroke-linecap="square"
-                              stroke-linejoin="miter"
-                              fill="none"
-                              color="#2329D6"
-                            >
-                              {" "}
-                              <title id="iphoneIconTitle">iPhone</title>{" "}
-                              <path d="M18,3 L18,21 C18,21.5522847 17.5522847,22 17,22 L7,22 C6.44771525,22 6,21.5522847 6,21 L6,3 C6,2.44771525 6.44771525,2 7,2 L17,2 C17.5522847,2 18,2.44771525 18,3 Z" />{" "}
-                              <polygon points="14 2 14 3 10 3 10 2" />{" "}
-                            </svg>
-                          </ButtonPort>
-                        </div>
-                      </Col>
-                      <Col>
-                        <Light toggle={toggle} onClick={handleChangeTheme}>
-                          <svg
-                            width="21"
-                            height="21"
-                            viewBox="0 0 21 21"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <circle
-                              cx="10.5"
-                              cy="10.5"
-                              r="4.58065"
-                              stroke="black"
-                            />
-                            <path
-                              d="M16.9355 10.5H18.9677"
-                              stroke="black"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M2.03223 10.5H4.06448"
-                              stroke="black"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M10.5 16.9355L10.5 18.9677"
-                              stroke="black"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M10.5 2.03226L10.5 4.06452"
-                              stroke="black"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M5.9494 15.0506L4.51238 16.4876"
-                              stroke="black"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M16.4877 4.51239L15.0506 5.94941"
-                              stroke="black"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M5.9494 5.94943L4.51238 4.51241"
-                              stroke="black"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M16.4877 16.4876L15.0506 15.0506"
-                              stroke="black"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </Light>
-                      </Col>
+                      {ownPath === "demo" ? (
+                        <>
+                          <Col style={{ padding: "0 10px" }}>
+                            <div>
+                              <ButtonPort id="desktop" onClick={handleViewPort}>
+                                <svg
+                                  role="img"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24px"
+                                  height="24px"
+                                  viewBox="0 0 24 24"
+                                  aria-labelledby="laptopIconTitle"
+                                  stroke={
+                                    viewPort === "desktop"
+                                      ? "#2196F3"
+                                      : "#9c9c9c"
+                                  }
+                                  stroke-width="1"
+                                  stroke-linecap="square"
+                                  stroke-linejoin="miter"
+                                  fill="none"
+                                  color="#2329D6"
+                                >
+                                  {" "}
+                                  <title id="laptopIconTitle">
+                                    Laptop
+                                  </title>{" "}
+                                  <path d="M20 7v11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z" />{" "}
+                                  <path d="M2 18h20M4 17h16" />{" "}
+                                </svg>
+                              </ButtonPort>
+                            </div>
+                          </Col>
+                          <Col style={{ padding: "0 10px" }}>
+                            <div>
+                              <ButtonPort id="tablet" onClick={handleViewPort}>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke={
+                                    viewPort === "tablet"
+                                      ? "#2196F3"
+                                      : "#9c9c9c"
+                                  }
+                                  stroke-width="1"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                >
+                                  <rect
+                                    x="4"
+                                    y="2"
+                                    width="16"
+                                    height="20"
+                                    rx="2"
+                                    ry="2"
+                                    transform="rotate(180 12 12)"
+                                  />
+                                  <line x1="12" y1="18" x2="12" y2="18" />
+                                </svg>
+                              </ButtonPort>
+                            </div>
+                          </Col>
+                          <Col style={{ padding: "0 10px" }}>
+                            <div>
+                              <ButtonPort id="mobile" onClick={handleViewPort}>
+                                <svg
+                                  role="img"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24px"
+                                  height="24px"
+                                  viewBox="0 0 24 24"
+                                  aria-labelledby="iphoneIconTitle"
+                                  stroke={
+                                    viewPort === "mobile"
+                                      ? "#2196F3"
+                                      : "#9c9c9c"
+                                  }
+                                  stroke-width="1"
+                                  stroke-linecap="square"
+                                  stroke-linejoin="miter"
+                                  fill="none"
+                                  color="#2329D6"
+                                >
+                                  {" "}
+                                  <title id="iphoneIconTitle">
+                                    iPhone
+                                  </title>{" "}
+                                  <path d="M18,3 L18,21 C18,21.5522847 17.5522847,22 17,22 L7,22 C6.44771525,22 6,21.5522847 6,21 L6,3 C6,2.44771525 6.44771525,2 7,2 L17,2 C17.5522847,2 18,2.44771525 18,3 Z" />{" "}
+                                  <polygon points="14 2 14 3 10 3 10 2" />{" "}
+                                </svg>
+                              </ButtonPort>
+                            </div>
+                          </Col>
+                          <Col>
+                            <Light toggle={toggle} onClick={handleChangeTheme}>
+                              <svg
+                                width="21"
+                                height="21"
+                                viewBox="0 0 21 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="10.5"
+                                  cy="10.5"
+                                  r="4.58065"
+                                  stroke="black"
+                                />
+                                <path
+                                  d="M16.9355 10.5H18.9677"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M2.03223 10.5H4.06448"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M10.5 16.9355L10.5 18.9677"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M10.5 2.03226L10.5 4.06452"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M5.9494 15.0506L4.51238 16.4876"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M16.4877 4.51239L15.0506 5.94941"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M5.9494 5.94943L4.51238 4.51241"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                                <path
+                                  d="M16.4877 16.4876L15.0506 15.0506"
+                                  stroke="black"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                            </Light>
+                          </Col>
+                        </>
+                      ) : null}
                       <Col>
                         <Menu toggle={toggle} onClick={handleToggle}>
                           <svg

@@ -78,21 +78,24 @@ const DateTagsDate = styled.span`
   ${({ theme }) => theme.colorAnimation}
 `
 
-DateTags.Link = styled.a`
+DateTags.Link = styled(Link)`
   transition: all 0.3s ease;
+  svg {
+    vertical-align: middle;
+  }
   &:hover {
     opacity: 0.7;
   }
 `
 
-const CardItem = ({ title, desc, date, tag, image }) => (
+const CardItem = ({ title, link, slug, tag, image }) => (
   <Card>
     <CardFlex>
       <CardImage>
         <Img
           objectFit="cover"
           objectPosition="50% 50%"
-          fluid={image.childImageSharp.fluid}
+          fluid={image.imageFile.childImageSharp.fluid}
         />
       </CardImage>
       <CardText>
@@ -102,7 +105,7 @@ const CardItem = ({ title, desc, date, tag, image }) => (
           </div>
           <div>
             <div>
-              <DateTags.Link href="#" target="_blank">
+              <DateTags.Link to={`/demo/${slug}`}>
                 <svg
                   width="24px"
                   height="24px"
@@ -130,8 +133,8 @@ const CardItem = ({ title, desc, date, tag, image }) => (
   </Card>
 )
 
-const SectionTemplate = ({ title, desc, path }) => {
-  const data = useStaticQuery(graphql`
+const SectionTemplate = ({ title, desc, path, data }) => {
+  const dataLocal = useStaticQuery(graphql`
     query WorkQuery {
       jam: file(relativePath: { eq: "jamstack.png" }) {
         childImageSharp {
@@ -153,34 +156,14 @@ const SectionTemplate = ({ title, desc, path }) => {
   return (
     <SectionLayout title={title} desc={desc} path={path}>
       <Grid>
-        <CardItem
-          title="Modana"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="Company Profile"
-          tag="Preview"
-          image={data.jam}
-        />
-        <CardItem
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="12 Septemeber 2019"
-          tag="Reactjs"
-          image={data.jam2}
-        />
-        <CardItem
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="12 Septemeber 2019"
-          tag="Reactjs"
-          image={data.jam2}
-        />
-        <CardItem
-          title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          desc="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-          date="12 Septemeber 2019"
-          tag="Reactjs"
-          image={data.jam2}
-        />
+        {data.edges.map(({ node }) => (
+          <CardItem
+            title={node.title}
+            link={node.link_live.fieldGroupName}
+            slug={node.slug}
+            image={node.featuredImage}
+          />
+        ))}
       </Grid>
     </SectionLayout>
   )

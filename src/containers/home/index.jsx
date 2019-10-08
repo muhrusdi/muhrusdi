@@ -12,7 +12,7 @@ import Layout from "Containers/layout"
 
 const Home = () => {
   const data = useStaticQuery(graphql`
-    query SectionNewsQuery {
+    query SectionHomeQuery {
       wpgraphql {
         dataPosts: posts(first: 6) {
           edges {
@@ -35,11 +35,34 @@ const Home = () => {
             }
           }
         }
+        dataWorks: works(first: 6) {
+          edges {
+            node {
+              title
+              slug
+              date
+              excerpt
+              link_live {
+                fieldGroupName
+              }
+              featuredImage {
+                sourceUrl
+                imageFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   `)
 
-  const { dataPosts } = data.wpgraphql
+  const { dataPosts, dataWorks } = data.wpgraphql
 
   return (
     <Layout>
@@ -60,6 +83,7 @@ const Home = () => {
         title="Works"
         desc="A list of portfolio, projects and products"
         path="/work"
+        data={dataWorks}
       />
       <SectionContact />
     </Layout>

@@ -68,7 +68,12 @@ const SectionContact = () => {
         <TitleWrap>
           <h4>Get in Touch</h4>
         </TitleWrap>
-        <form name="contact" method="POST" data-netlify="true">
+        <form
+          name="contact"
+          action="/pages/success"
+          method="POST"
+          data-netlify="true"
+        >
           <Row gutter={8}>
             <Col sm={6}>
               <Input type="text" name="name" placeholder="Name" />

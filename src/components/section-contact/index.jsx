@@ -23,6 +23,17 @@ const Input = styled.input`
   }
 `
 
+const Button = styled.button`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: #2196f3;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #fff;
+  box-shadow: 0 6px 10px #c3c3c3;
+`
+
 const TextArea = styled.textarea`
   min-height: 140px;
   padding: 14px;
@@ -57,16 +68,17 @@ const SectionContact = () => {
         <TitleWrap>
           <h4>Get in Touch</h4>
         </TitleWrap>
-        <form action="">
+        <form name="contact" method="POST" data-netlify="true">
           <Row gutter={8}>
             <Col sm={6}>
-              <Input type="text" placeholder="Name" />
+              <Input type="text" name="name" placeholder="Name" />
             </Col>
             <Col sm={6}>
-              <Input type="text" placeholder="Email" />
+              <Input type="email" name="email" placeholder="Email" />
             </Col>
-            <Col sm={12}>
+            <Col sm={12} style={{ position: "relative" }}>
               <TextArea type="text" placeholder="Message" />
+              <Button>Submit</Button>
             </Col>
           </Row>
         </form>

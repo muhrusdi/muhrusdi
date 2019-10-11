@@ -83,13 +83,6 @@ const About = () => {
           }
         }
       }
-      illus: file(relativePath: { eq: "illus.png" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
     }
   `)
 
@@ -117,7 +110,36 @@ const About = () => {
             </Col>
           </Row>
         </Container>
-        <Img fluid={data.illus.childImageSharp.fluid} />
+        {/* <Img fluid={data.illus.childImageSharp.fluid} /> */}
+        <div>
+          <svg
+            width="100%"
+            height="301"
+            viewBox="0 0 1440 301"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M290.276 287.202C156.426 322.466 0 275.994 0 275.994V136.805C0 136.805 174.423 198.056 290.276 198.012C458.352 197.948 533.195 56.3132 700.808 68.7961C828.515 78.3069 879.686 188.809 1007.67 184.41C1157.14 179.274 1194.25 -3.44318 1343.75 0.787681C1382.66 1.88888 1442.16 16.6564 1442.16 16.6564V124.679C1442.16 124.679 1396.04 98.7842 1363.88 89.199C1221.87 46.88 1155.85 220.351 1007.67 219.951C882.191 219.613 826.269 126.882 700.808 124.679C528.406 121.653 457.015 243.273 290.276 287.202Z"
+              fill="url(#paint0_linear)"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear"
+                x1="222.271"
+                y1="-128.429"
+                x2="1401.08"
+                y2="270.554"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#5E96E9" />
+                <stop offset="0.26639" stop-color="#66EBFD" />
+                <stop offset="0.5" stop-color="#EBDC8B" />
+                <stop offset="1" stop-color="#F83FB9" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
         <Container type="sm">
           <List>
             <li>

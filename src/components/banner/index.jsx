@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from "Components"
 import { maxSM, minSM } from "Utils/media-queries"
 import styled from "@emotion/styled"
 import { ButtonRadius } from "Components/button"
+import { Link } from "gatsby"
 
 const BannerWrap = styled.div`
   height: 100vh;
@@ -93,7 +94,14 @@ const Banner = () => {
                 Enthusiastic about design and new technology.
               </Desc>
               <Flex style={{ marginTop: 40 }}>
-                <ButtonRadius style={{ marginTop: 0 }}>Contact</ButtonRadius>
+                <ButtonRadius style={{ marginTop: 0 }}>
+                  <Link
+                    style={{ textDecoration: "none", color: "#333" }}
+                    to="/about"
+                  >
+                    About
+                  </Link>
+                </ButtonRadius>
                 <NetworkWrap>
                   <a href="https://www.facebook.com/muhrusdiid" target="_blank">
                     <svg

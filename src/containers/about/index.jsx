@@ -16,6 +16,10 @@ const List = styled.ul`
   margin-top: 40px;
   li {
     padding-bottom: 10px;
+    display: flex;
+    span {
+      display: block;
+    }
     &:first-of-type {
       span {
         color: #9e9e9e;
@@ -27,9 +31,9 @@ const List = styled.ul`
     &:not(:first-of-type) {
       span {
         &:first-of-type {
-          display: inline-block;
           width: 30%;
           color: #a0a2a5;
+          flex: none;
         }
       }
     }
@@ -204,6 +208,15 @@ const About = () => {
                   <span>GraphQL</span>
                   <span>GatsbyJS</span>
                   <span>NextJS</span>
+                  <span>ReduxJS</span>
+                  <span>VueJS</span>
+                  <span>Webpack</span>
+                  <span>GraphQl</span>
+                  <span>Apollo GraphQL</span>
+                  <span>Netlify</span>
+                  <span>ZEIT</span>
+                  <span>Digital Ocean</span>
+                  <span>Github</span>
                 </Stack>
               </li>
             </List>

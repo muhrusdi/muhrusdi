@@ -101,7 +101,7 @@ const About = () => {
             <Col md={4}>
               <div>
                 <Img
-                  style={{ borderRadius: 14 }}
+                  style={{ borderRadius: 14, maxWidth: 223 }}
                   fluid={data.muhrusdi.childImageSharp.fluid}
                 />
               </div>

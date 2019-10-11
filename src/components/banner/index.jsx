@@ -94,14 +94,12 @@ const Banner = () => {
                 Enthusiastic about design and new technology.
               </Desc>
               <Flex style={{ marginTop: 40 }}>
-                <ButtonRadius style={{ marginTop: 0 }}>
-                  <Link
-                    style={{ textDecoration: "none", color: "#333" }}
-                    to="/about"
-                  >
-                    About
-                  </Link>
-                </ButtonRadius>
+                <Link
+                  to="/about"
+                  style={{ textDecoration: "none", color: "#333" }}
+                >
+                  <ButtonRadius style={{ marginTop: 0 }}>About</ButtonRadius>
+                </Link>
                 <NetworkWrap>
                   <a href="https://www.facebook.com/muhrusdiid" target="_blank">
                     <svg

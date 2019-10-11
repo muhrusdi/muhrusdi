@@ -83,13 +83,20 @@ const About = () => {
           }
         }
       }
+      illus: file(relativePath: { eq: "illus.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
 
   return (
     <Layout>
-      <Container type="md">
-        <AboutInner>
+      <AboutInner>
+        <Container type="md">
           <Row gutter={20} align="center">
             <Col md={4}>
               <div>
@@ -109,120 +116,119 @@ const About = () => {
               </Desc>
             </Col>
           </Row>
-          <Container type="sm">
-            <List>
-              <li>
-                <span>Profile</span>
-              </li>
-              <li>
-                <span>Name</span>
-                <span>Muhammad Rusdi</span>
-              </li>
-              <li>
-                <span>Birt of date</span>
-                <span>14 September 1992</span>
-              </li>
-              <li>
-                <span>Address</span>
-                <span>Jl. Perintis Kemerdekaan, Makassar</span>
-              </li>
-              <li>
-                <span>Email</span>
-                <span>muhammadrusdiid@gmail.com</span>
-              </li>
-            </List>
-            <List>
-              <li>
-                <span>Soft Skill</span>
-              </li>
-              <li>
-                <span>Leadership</span>
-                <span>Middle</span>
-              </li>
-              <li>
-                <span>Collaboration</span>
-                <span>Advanced</span>
-              </li>
-              <li>
-                <span>Communication</span>
-                <span>Middle</span>
-              </li>
-            </List>
-            <List>
-              <li>
-                <span>Hard Skill</span>
-              </li>
-              <li>
-                <span>Web Development</span>
-                <span>JavaScript/TypeScript, React, Vue, GraphQL</span>
-              </li>
-              <li>
-                <span>Mobile Development</span>
-                <span>
-                  React Native. iOS Development: Swift and Objective-C
-                </span>
-              </li>
-              <li>
-                <span>Core Technology</span>
-                <span>JavaScript/TypeScript, NodeJS</span>
-              </li>
-            </List>
-            <List>
-              <li>
-                <span>Experience</span>
-              </li>
-              <li>
-                <span>2016-2019</span>
-                <span>
-                  PT. Docotel Teknologi Celebes - SVP Front End Developer
-                </span>
-              </li>
-              <li>
-                <span>Now</span>
-                <span>Freelancer</span>
-              </li>
-            </List>
-            <List>
-              <li>
-                <span>Education</span>
-              </li>
-              <li>
-                <span>2012-2016</span>
-                <span>
-                  State Polytechnic of Ujung Pandang - Computer and Network
-                  Engineering
-                </span>
-              </li>
-            </List>
-            <List>
-              <li>
-                <span>Stack</span>
-              </li>
-              <li>
-                <Stack>
-                  <span>JavaScript</span>
-                  <span>TypeScript</span>
-                  <span>NodeJS</span>
-                  <span>React</span>
-                  <span>React Native</span>
-                  <span>GraphQL</span>
-                  <span>GatsbyJS</span>
-                  <span>NextJS</span>
-                  <span>ReduxJS</span>
-                  <span>VueJS</span>
-                  <span>Webpack</span>
-                  <span>GraphQl</span>
-                  <span>Apollo GraphQL</span>
-                  <span>Netlify</span>
-                  <span>ZEIT</span>
-                  <span>Digital Ocean</span>
-                  <span>Github</span>
-                </Stack>
-              </li>
-            </List>
-          </Container>
-        </AboutInner>
-      </Container>
+        </Container>
+        <Img fluid={data.illus.childImageSharp.fluid} />
+        <Container type="sm">
+          <List>
+            <li>
+              <span>Profile</span>
+            </li>
+            <li>
+              <span>Name</span>
+              <span>Muhammad Rusdi</span>
+            </li>
+            <li>
+              <span>Birt of date</span>
+              <span>14 September 1992</span>
+            </li>
+            <li>
+              <span>Address</span>
+              <span>Jl. Perintis Kemerdekaan, Makassar</span>
+            </li>
+            <li>
+              <span>Email</span>
+              <span>muhammadrusdiid@gmail.com</span>
+            </li>
+          </List>
+          <List>
+            <li>
+              <span>Soft Skill</span>
+            </li>
+            <li>
+              <span>Leadership</span>
+              <span>Middle</span>
+            </li>
+            <li>
+              <span>Collaboration</span>
+              <span>Advanced</span>
+            </li>
+            <li>
+              <span>Communication</span>
+              <span>Middle</span>
+            </li>
+          </List>
+          <List>
+            <li>
+              <span>Hard Skill</span>
+            </li>
+            <li>
+              <span>Web Development</span>
+              <span>JavaScript/TypeScript, React, Vue, GraphQL</span>
+            </li>
+            <li>
+              <span>Mobile Development</span>
+              <span>React Native. iOS Development: Swift and Objective-C</span>
+            </li>
+            <li>
+              <span>Core Technology</span>
+              <span>JavaScript/TypeScript, NodeJS</span>
+            </li>
+          </List>
+          <List>
+            <li>
+              <span>Experience</span>
+            </li>
+            <li>
+              <span>2016-2019</span>
+              <span>
+                PT. Docotel Teknologi Celebes - SVP Front End Developer
+              </span>
+            </li>
+            <li>
+              <span>Now</span>
+              <span>Freelancer</span>
+            </li>
+          </List>
+          <List>
+            <li>
+              <span>Education</span>
+            </li>
+            <li>
+              <span>2012-2016</span>
+              <span>
+                State Polytechnic of Ujung Pandang - Computer and Network
+                Engineering
+              </span>
+            </li>
+          </List>
+          <List>
+            <li>
+              <span>Stack</span>
+            </li>
+            <li>
+              <Stack>
+                <span>JavaScript</span>
+                <span>TypeScript</span>
+                <span>NodeJS</span>
+                <span>React</span>
+                <span>React Native</span>
+                <span>GraphQL</span>
+                <span>GatsbyJS</span>
+                <span>NextJS</span>
+                <span>ReduxJS</span>
+                <span>VueJS</span>
+                <span>Webpack</span>
+                <span>GraphQl</span>
+                <span>Apollo GraphQL</span>
+                <span>Netlify</span>
+                <span>ZEIT</span>
+                <span>Digital Ocean</span>
+                <span>Github</span>
+              </Stack>
+            </li>
+          </List>
+        </Container>
+      </AboutInner>
     </Layout>
   )
 }

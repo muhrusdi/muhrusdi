@@ -4,6 +4,7 @@ import { minLG, minSM, maxSM } from "Utils/media-queries"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { SectionLayout } from "../shared"
+import { motion } from "framer-motion"
 
 const Grid = styled.div`
   display: grid;

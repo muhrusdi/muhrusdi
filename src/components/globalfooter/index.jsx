@@ -32,6 +32,14 @@ const ColInner = styled.div`
   }
 `
 
+const GnFooter = styled.div`
+  padding-top: 40px;
+  span {
+    font-size: 14px;
+    color: ${({ theme }) => theme.colorSecondary};
+  }
+`
+
 const Globalfooter = () => {
   return (
     <Footer>
@@ -101,6 +109,11 @@ const Globalfooter = () => {
             </ColInner>
           </Col>
         </Row>
+        <GnFooter>
+          <span>
+            © {new Date().getFullYear()} Muhammad Rusdi. All rights reserved.
+          </span>
+        </GnFooter>
       </Container>
     </Footer>
   )

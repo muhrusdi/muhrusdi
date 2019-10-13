@@ -111,7 +111,7 @@ const Globalfooter = () => {
         </Row>
         <GnFooter>
           <span>
-            © {new Date().getFullYear()} Muhammad Rusdi. All rights reserved.
+            © {new Date().getFullYear()} MR. Designed & Built by Muhammad Rusdi.
           </span>
         </GnFooter>
       </Container>

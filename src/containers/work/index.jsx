@@ -38,7 +38,7 @@ const Work = () => {
         }
       }
       wpgraphql {
-        works(first: 6) {
+        works {
           edges {
             node {
               title

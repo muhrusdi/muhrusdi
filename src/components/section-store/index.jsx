@@ -80,6 +80,7 @@ const SectionStore = () => {
               <div>
                 <Img
                   objectFit="cover"
+                  style={{ height: 360 }}
                   objectPosition="50% 50%"
                   fluid={banner.featuredImage.imageFile.childImageSharp.fluid}
                 />

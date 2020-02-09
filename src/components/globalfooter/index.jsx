@@ -2,6 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import { minLG, minSM, maxSM } from "Utils/media-queries"
 import { Container, Row, Col } from "Components"
+import { Link } from "gatsby"
 
 const Footer = styled.footer`
   padding: 60px 0;
@@ -52,16 +53,16 @@ const Globalfooter = () => {
             <ColInner>
               <FooterList>
                 <li>
-                  <a href="#">Home</a>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <a href="#">Blog</a>
+                  <Link to="/blog">Blog</Link>
                 </li>
                 <li>
-                  <a href="#">Store</a>
+                  <Link to="/">Store</Link>
                 </li>
                 <li>
-                  <a href="#">Library</a>
+                  <Link to="/">Library</Link>
                 </li>
               </FooterList>
             </ColInner>
@@ -111,7 +112,7 @@ const Globalfooter = () => {
         </Row>
         <GnFooter>
           <span>
-            © {new Date().getFullYear()} MR. Designed & Built by Muhammad Rusdi.
+            © {new Date().getFullYear()} Designed & Built by Muhammad Rusdi.
           </span>
         </GnFooter>
       </Container>

@@ -47,6 +47,7 @@ const Work = () => {
               excerpt
               link_live {
                 fieldGroupName
+                link
               }
               featuredImage {
                 sourceUrl

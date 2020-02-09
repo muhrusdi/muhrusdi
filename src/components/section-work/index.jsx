@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
+import { css } from "@emotion/core"
 import { minLG, minSM, maxSM } from "Utils/media-queries"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
@@ -89,7 +90,7 @@ DateTags.Link = styled(Link)`
   }
 `
 
-const CardItem = ({ title, link, slug, tag, image }) => (
+const CardItem = ({ title, link, slug, externalLink, image }) => (
   <Card>
     <CardFlex>
       <CardImage>
@@ -105,25 +106,38 @@ const CardItem = ({ title, link, slug, tag, image }) => (
             <DateTagsDate>{title}</DateTagsDate>
           </div>
           <div>
-            <div>
+            <div
+              css={css`
+                display: flex;
+                svg {
+                  vertical-align: middle;
+                }
+                path,
+                circle,
+                line {
+                  fill: none;
+                  stroke: #828282;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 36px;
+                }
+              `}
+            >
+              <a
+                href={externalLink}
+                target="_blank"
+                style={{ marginRight: 15 }}
+              >
+                <svg width="24px" height="24px" viewBox="0 0 512 512">
+                  <path d="M208,352H144a96,96,0,0,1,0-192h64" />
+                  <path d="M304,160h64a96,96,0,0,1,0,192H304" />
+                  <line x1="163.29" y1="256" x2="350.71" y2="256" />
+                </svg>
+              </a>
               <DateTags.Link to={`/demo/${slug}`}>
-                <svg
-                  width="24px"
-                  height="24px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-labelledby="eyeIconTitle"
-                  stroke="#909090"
-                  stroke-width="1"
-                  stroke-linecap="square"
-                  stroke-linejoin="miter"
-                  fill="none"
-                  color="#909090"
-                >
-                  {" "}
-                  <title id="eyeIconTitle">See</title>{" "}
-                  <path d="M22 12C22 12 19 18 12 18C5 18 2 12 2 12C2 12 5 6 12 6C19 6 22 12 22 12Z" />{" "}
-                  <circle cx="12" cy="12" r="3" />{" "}
+                <svg width="24px" height="24px" viewBox="0 0 512 512">
+                  <path d="M255.66,112c-77.94,0-157.89,45.11-220.83,135.33a16,16,0,0,0-.27,17.77C82.92,340.8,161.8,400,255.66,400,348.5,400,429,340.62,477.45,264.75a16.14,16.14,0,0,0,0-17.47C428.89,172.28,347.8,112,255.66,112Z" />
+                  <circle cx="256" cy="256" r="80" />
                 </svg>
               </DateTags.Link>
             </div>
@@ -135,25 +149,6 @@ const CardItem = ({ title, link, slug, tag, image }) => (
 )
 
 const SectionTemplate = ({ title, desc, path, data }) => {
-  const dataLocal = useStaticQuery(graphql`
-    query WorkQuery {
-      jam: file(relativePath: { eq: "jamstack.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      jam2: file(relativePath: { eq: "jamstack-1-1.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
   return (
     <SectionLayout title={title} desc={desc} path={path}>
       <Grid>
@@ -161,6 +156,7 @@ const SectionTemplate = ({ title, desc, path, data }) => {
           <CardItem
             title={node.title}
             link={node.link_live.fieldGroupName}
+            externalLink={node.link_live.link}
             slug={node.slug}
             image={node.featuredImage}
           />

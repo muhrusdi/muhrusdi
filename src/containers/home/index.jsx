@@ -44,6 +44,7 @@ const Home = () => {
               excerpt
               link_live {
                 fieldGroupName
+                link
               }
               featuredImage {
                 sourceUrl

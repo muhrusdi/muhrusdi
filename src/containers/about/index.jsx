@@ -31,6 +31,7 @@ const List = styled.ul`
     &:not(:first-of-type) {
       span {
         &:first-of-type {
+          padding-right: 20px;
           width: 30%;
           color: #a0a2a5;
           flex: none;
@@ -162,7 +163,7 @@ const About = () => {
               <span>muhammadrusdiid@gmail.com</span>
             </li>
           </List>
-          <List>
+          {/* <List>
             <li>
               <span>Soft Skill</span>
             </li>
@@ -178,22 +179,22 @@ const About = () => {
               <span>Communication</span>
               <span>Middle</span>
             </li>
-          </List>
+          </List> */}
           <List>
             <li>
-              <span>Hard Skill</span>
+              <span>Skills</span>
             </li>
             <li>
               <span>Web Development</span>
-              <span>JavaScript/TypeScript, React, Vue, GraphQL</span>
+              <span>JavaScript . TypeScript . React . GraphQL</span>
             </li>
             <li>
               <span>Mobile Development</span>
-              <span>React Native. iOS Development: Swift and Objective-C</span>
+              <span>React Native . iOS Development: Swift and Objective-C</span>
             </li>
             <li>
-              <span>Core Technology</span>
-              <span>JavaScript/TypeScript, NodeJS</span>
+              <span>Design</span>
+              <span>Figma . Sketch . Adobe XD</span>
             </li>
           </List>
           <List>
@@ -201,14 +202,14 @@ const About = () => {
               <span>Experience</span>
             </li>
             <li>
-              <span>2016-2019</span>
-              <span>
-                PT. Docotel Teknologi Celebes - SVP Front End Developer
-              </span>
+              <span>Now</span>
+              <span>Front End Engineer Freelancer</span>
             </li>
             <li>
-              <span>Now</span>
-              <span>Freelancer</span>
+              <span>2016-2019</span>
+              <span>
+                PT. Docotel Teknologi Celebes - Front End Engineer Manager
+              </span>
             </li>
           </List>
           <List>

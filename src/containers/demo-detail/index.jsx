@@ -48,7 +48,6 @@ const DemoResponsive = styled.div(
 
 const Demo = ({ data }) => {
   const { workBy } = data.wpgraphql
-
   return (
     <Layout>
       <DemoStyled>

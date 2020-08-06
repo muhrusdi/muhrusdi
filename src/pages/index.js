@@ -9,7 +9,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <h1>Muhammad Rusdi</h1>
-    <p>Front End Engineer. UI/UX Designer.</p>
+    <p>Front End Engineer. UI/UX Designer. MicroStocker</p>
     <ul className="networks">
       <li><a href="https://github.com/muhrusdi">Github</a></li>
       <li><a href="https://www.facebook.com/muhrusdiid">Facebook</a></li>

@@ -1,5 +1,11 @@
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+
 html {
-  font-family: sans-serif;
+  font-family: 'Inter', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -200,7 +206,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  font-family: 'Inter', sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -619,4 +625,20 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+
+.networks {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.networks li {
+  padding-right: 20px;
+}
+
+.networks li a {
+  text-decoration: none;
 }

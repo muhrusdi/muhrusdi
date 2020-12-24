@@ -24,8 +24,8 @@
   Muhammad Rusdi
 </h1>
 
-<div style="max-width: 475px; margin: 9 auto;">
-  <p>
+<div >
+  <p style="max-width: 475px; margin: 9 auto;">
     My name is Muhammad Rusdi, you can call me Rusdi. I'm Front End Engineer with 3+ years experiences in web development using modern stack, i'm enthutiastic about design and new technology
   </p>
 </div>

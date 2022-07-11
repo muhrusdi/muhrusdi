@@ -1,4 +1,4 @@
-<h1><img width="120" src="https://res.cloudinary.com/muhrusdi/image/upload/v1637656828/hello-tshirt_4x.png">, my name is Rusdi, i’m a Front End Engineer with 4+ years of experience in web development. I like to code things from scratch and enjoy bringing ideas to life in the browser.</h1>
+<h1><img width="120" src="https://res.cloudinary.com/muhrusdi/image/upload/v1637656828/hello-tshirt_4x.png">, my name is Rusdi, i’m a Front End Engineer with 5+ years of experience in web development. I like to code things from scratch and enjoy bringing ideas to life in the browser.</h1>
 <samp>
   <a href="https://rus.pages.dev">me</a> .
   <a href="https://rus.pages.dev/blog">blog</a> .

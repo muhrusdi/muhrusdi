@@ -1,4 +1,5 @@
 <img src="https://res.cloudinary.com/muhrusdi/image/upload/v1716310596/qhounke1jnexp7j4uoz5.png">
+<img src="https://res.cloudinary.com/muhrusdi/image/upload/v1716311359/txbworsnud1etinwxwuw.png">
 <p align="center">
   <samp>
     <a href="https://muhrus.dev">me</a> .

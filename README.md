@@ -1,4 +1,4 @@
-<img src="https://res.cloudinary.com/muhrusdi/image/upload/v1716310419/saazixe9nkv8cp7ozrpg.png">
+<img src="https://res.cloudinary.com/muhrusdi/image/upload/v1716310596/qhounke1jnexp7j4uoz5.png">
 <p align="center">
   <samp>
     <a href="https://rus.pages.dev">me</a> .

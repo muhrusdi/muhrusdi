@@ -1,4 +1,4 @@
-<img src="https://res.cloudinary.com/muhrusdi/image/upload/v1685293164/github-cover.png">
+<img src="[https://res.cloudinary.com/muhrusdi/image/upload/v1685293164/github-cover.png](https://res.cloudinary.com/muhrusdi/image/upload/v1716310419/saazixe9nkv8cp7ozrpg.png)">
 <p align="center">
   <samp>
     <a href="https://rus.pages.dev">me</a> .
